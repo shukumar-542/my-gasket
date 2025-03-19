@@ -7,16 +7,12 @@ const page = () => {
       style={{
         backgroundImage: `url(${heroImage.src})`,
         backgroundSize: "cover",
-        backgroundPosition: "bottom",
+        backgroundPosition: "center",
         backgroundRepeat : 'no-repeat',
-        
         width: "100%",
       }}
     >
-      {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolores
-      exercitationem similique ea, tempora debitis ipsam qui maxime deserunt
-      quos cumque obcaecati perferendis repellat molestias laboriosam ullam,
-      ducimus consectetur quasi. */}
+    
     </div>
   );
 };
