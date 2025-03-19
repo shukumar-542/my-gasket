@@ -1,6 +1,7 @@
 import React from "react";
 import heroImage from "../../assets/hero.jpeg";
 import OurTrastedPartner from "@/components/OurTrastedPartner/OurTrastedPartner";
+import HowItWorks from "@/components/HowItWorks/HowItWorks";
 const page = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const page = () => {
         }}
       ></div>
       <OurTrastedPartner/>
+      <HowItWorks/>
     </>
   );
 };
