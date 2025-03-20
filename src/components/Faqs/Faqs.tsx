@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FiMinus, FiPlus } from "react-icons/fi";
 const Faqs = () => {
   return (
     <div className="container mx-auto py-10">
@@ -19,7 +18,7 @@ const Faqs = () => {
           <span className="text-[24px]">What materials do you use for manufacturing gaskets?</span>
           
         </AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="text-[#334155] text-[18px]">
           We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.
         </AccordionContent>
       </AccordionItem>
@@ -28,7 +27,7 @@ const Faqs = () => {
           <span className="text-[24px]">What materials do you use for manufacturing gaskets?</span>
           
         </AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="text-[#334155] text-[18px]">
           We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.
         </AccordionContent>
       </AccordionItem>
@@ -37,11 +36,12 @@ const Faqs = () => {
           <span className="text-[24px]">What materials do you use for manufacturing gaskets?</span>
           
         </AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="text-[#334155] text-[18px]">
           We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
+        
     </div>
   );
 };

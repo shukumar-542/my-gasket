@@ -6,6 +6,7 @@ import CustomGsket from "@/components/CustomGsket/CustomGsket";
 import MaterialWeOffer from "@/components/MaterialWeOffer/MaterialWeOffer";
 import HighPrecision from "@/components/HighPrecision/HighPrecision";
 import Faqs from "@/components/Faqs/Faqs";
+import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 const page = () => {
   return (
     <>
@@ -25,6 +26,7 @@ const page = () => {
       <MaterialWeOffer/>
       <HighPrecision/>
       <Faqs/>
+      <WhatOurClientSay/>
     </>
   );
 };

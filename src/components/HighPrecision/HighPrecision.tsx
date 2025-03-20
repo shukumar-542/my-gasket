@@ -10,7 +10,7 @@ const HighPrecision = () => {
             src={img}
             height={400}
             width={400}
-            className="h-full  w-[1000px]"
+            className="h-full  w-[1000px]" 
             alt="img"
           />
         </div>
@@ -20,7 +20,7 @@ const HighPrecision = () => {
             Our advanced software calculates your gasket's cost in real time,
             providing an accurate quote instantly. No waiting, no hassle—just
             fast, efficient, and reliable service.
-          </p>
+          </p> 
         </div>
       </div>
     </div>
