@@ -1,9 +1,6 @@
 import React from 'react'
 import Button from '../Button/Button'
 
-
-
-
 const HowItWorks = () => {
   return (
     <div className='container mx-auto pb-10 '>
