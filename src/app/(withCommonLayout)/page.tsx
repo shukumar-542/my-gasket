@@ -3,6 +3,7 @@ import heroImage from "../../assets/hero.jpeg";
 import OurTrastedPartner from "@/components/OurTrastedPartner/OurTrastedPartner";
 import HowItWorks from "@/components/HowItWorks/HowItWorks";
 import CustomGsket from "@/components/CustomGsket/CustomGsket";
+import MaterialWeOffer from "@/components/MaterialWeOffer/MaterialWeOffer";
 const page = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const page = () => {
       <OurTrastedPartner/>
       <HowItWorks/>
       <CustomGsket/>
+      <MaterialWeOffer/>
     </>
   );
 };

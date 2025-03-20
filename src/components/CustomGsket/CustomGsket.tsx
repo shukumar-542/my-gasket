@@ -4,7 +4,6 @@ import Image from "next/image";
 const CustomGsket = () => {
   return (
     <div className="container mx-auto mt-10">
-      {/* <div className="size-18 rounded-full bg-gradient-to-r from-white via-blue-400 to-white "></div> */}
       <div className="bg-gradient-to-r from-[#F7F7F7] via-[#BCE5EB] to-[#F7F7F7] p-10  md:flex gap-20 items-center">
         <div className="">
           <Image
