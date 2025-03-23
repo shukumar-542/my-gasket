@@ -21,12 +21,12 @@ const page = () => {
         }}
       ></div>
       <OurTrastedPartner/>
-      <HowItWorks/>
       <CustomGsket/>
+      <HowItWorks/>
       <MaterialWeOffer/>
       <HighPrecision/>
       <Faqs/>
-      <WhatOurClientSay/>
+      {/* <WhatOurClientSay/> */}
     </>
   );
 };
