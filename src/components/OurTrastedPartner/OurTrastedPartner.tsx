@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 
 const carBrands = [
-  { src: img1, name: "Hyundai" },
+  { src: img1, name: "Hyundai" }, 
   { src: img2, name: "Hyundai" },
   { src: img3, name: "Volvo" },
   { src: img4, name: "Volkswagen" },
@@ -25,7 +25,7 @@ const carBrands = [
 const OurTrastedPartner = () => {
   return (
     <div className="container mx-auto py-10">
-      <p className="text-[28px] text-center mt-10 uppercase font-bold pb-10">
+      <p className="text-[28px] text-center mt-5 uppercase font-bold pb-10">
         Our Trusted Partners
       </p>
       <Carousel>

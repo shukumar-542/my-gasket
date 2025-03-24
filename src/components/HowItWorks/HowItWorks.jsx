@@ -3,7 +3,7 @@ import Button from '../Button/Button'
 
 const HowItWorks = () => {
   return (
-    <div className='container mx-auto pb-10 '>
+    <div className='container mx-auto pb-10 mt-10 '>
         <h1 className='text-[20px] md:text-[48px]  font-extrabold text-center uppercase'>How It Works</h1>
         <p className='text-[16px] text-[#686868] text-center mx-2 md:mx-0'>We break down the process into simple steps to ensure seamless execution, from start to finish.</p>
         <div className='grid grid-cols-1 md:grid-cols-4 gap-10 mt-20 mx-2 ms:mx-0 '>

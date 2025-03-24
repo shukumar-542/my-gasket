@@ -1,7 +1,6 @@
 import React from "react";
 import img from "../../assets/Footers.png";
 import { MdPhoneInTalk } from "react-icons/md";
-import { FaFacebook } from "react-icons/fa";
 import facebook from "../../assets/facebook.png";
 import twitter from "../../assets/twitter.png";
 import youtube from "../../assets/youtube.png";
@@ -11,7 +10,7 @@ import logo from "../../assets/logo.png";
 const Footer = () => {
   return (
     <div
-      className="text-white py-12 md:py-32 mt-10 pl-10 md:pl-0"
+      className="text-white py-12 md:py-32 pt-10 pl-10 md:pl-0"
       style={{
         backgroundImage: `url(${img.src})`,
         backgroundSize: "cover",

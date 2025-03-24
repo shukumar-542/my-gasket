@@ -20,13 +20,13 @@ const page = () => {
           width: "100%",
         }}
       ></div>
+      <HowItWorks/>
       <OurTrastedPartner/>
       <CustomGsket/>
-      <HowItWorks/>
       <MaterialWeOffer/>
       <HighPrecision/>
       <Faqs/>
-      {/* <WhatOurClientSay/> */}
+      <WhatOurClientSay/>
     </>
   );
 };
