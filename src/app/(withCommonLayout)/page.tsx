@@ -2,11 +2,11 @@ import React from "react";
 import heroImage from "../../assets/hero.jpeg";
 import OurTrastedPartner from "@/components/OurTrastedPartner/OurTrastedPartner";
 import HowItWorks from "@/components/HowItWorks/HowItWorks";
-import CustomGsket from "@/components/CustomGsket/CustomGsket";
 import MaterialWeOffer from "@/components/MaterialWeOffer/MaterialWeOffer";
 import HighPrecision from "@/components/HighPrecision/HighPrecision";
 import Faqs from "@/components/Faqs/Faqs";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
+import CustomGasket from "@/components/CustomGasket/CustomGasket";
 const page = () => {
   return (
     <>
@@ -22,7 +22,7 @@ const page = () => {
       ></div>
       <HowItWorks/>
       <OurTrastedPartner/>
-      <CustomGsket/>
+      <CustomGasket/>
       <MaterialWeOffer/>
       <HighPrecision/>
       <Faqs/>
