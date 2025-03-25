@@ -7,6 +7,7 @@ import HighPrecision from "@/components/HighPrecision/HighPrecision";
 import Faqs from "@/components/Faqs/Faqs";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import CustomGasket from "@/components/CustomGasket/CustomGasket";
+import OurService from "@/components/OurService/OurService";
 const page = () => {
   return (
     <>
@@ -27,6 +28,7 @@ const page = () => {
       <HighPrecision/>
       <Faqs/>
       {/* <WhatOurClientSay/> */}
+      <OurService/>
     </>
   );
 };
