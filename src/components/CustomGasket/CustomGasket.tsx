@@ -1,6 +1,7 @@
 import React from "react";
 import gasket from "../../assets/gasket.png";
 import Image from "next/image";
+import Link from "next/link";
 const CustomGasket = () => {
   return (
     <div className="container mx-auto py-20 ">
@@ -20,6 +21,8 @@ const CustomGasket = () => {
             <div className="border-[3px] max-w-[200px] border-[#20B7CC] my-4"></div>
             <p className="text-white max-w-xl pb-10">Get the perfect gasket for your needs with our precision manufacturing and automated
             quoting system. Simply upload your design, choose materials, and get an instant price!</p>
+
+            <Link href={"/all-product"} className="text-white bg-black px-5 py-2 rounded-sm cursor-pointer">Materials we offer</Link>
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ const page = () => {
             Get Started
           </button>
         </div>
-      </div>
+      </div> 
       <HowItWorks />
       <OurTrastedPartner />
       <CustomGasket />
