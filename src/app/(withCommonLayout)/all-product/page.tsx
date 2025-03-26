@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import product1 from "../../../assets/meterial.png";
 import product2 from "../../../assets/product1.png";
@@ -5,6 +6,7 @@ import product3 from "../../../assets/product2.png";
 import materials from "../../../assets/materials.png";
 import Image from "next/image";
 import Product from "@/components/Product/Product";
+import Link from "next/link";
 const AllProductPage = () => {
   
   return (
@@ -43,7 +45,7 @@ const AllProductPage = () => {
 
         <p className="uppercase text-2xl font-bold my-10">Type 3</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <Product product={{ image: product1, title: "GOMMA PARA" }} />
+          <Product product={{ image: product1, title: "GOMMA PARA" }} /> 
           <Product product={{ image: product2, title: "GOMMA PARA" }} />
           <Product product={{ image: product3, title: "GOMMA PARA" }} />
         </div>
