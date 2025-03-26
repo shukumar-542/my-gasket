@@ -8,6 +8,7 @@ import Faqs from "@/components/Faqs/Faqs";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import CustomGasket from "@/components/CustomGasket/CustomGasket";
 import OurService from "@/components/OurService/OurService";
+import GetInTouch from "@/components/GetInTouch/GetInTouch"
 const page = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const page = () => {
       <HighPrecision/>
       <Faqs/>
       <WhatOurClientSay/>
+      <GetInTouch/>
       <OurService/>
     </>
   );

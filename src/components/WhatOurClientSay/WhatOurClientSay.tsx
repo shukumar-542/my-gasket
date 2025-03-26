@@ -35,11 +35,29 @@ const WhatOurClientSay = () => {
           I was worried that this phone would not connect with my data plan,
         </p>
         <div className="md:flex items-center gap-5 h-full mt-5">
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review2} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review4} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review1} height={200} width={200} alt="img"/>
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review2}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review4}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review1}
+            height={200}
+            width={200}
+            alt="img"
+          />
         </div>
-        </div>
+      </div>
       <div className=" mt-10 bg-white shadow-xl justify-between items-center   p-8 rounded-xl mx-2 md:mx-0">
         <div className="md:flex items-center justify-between gap-5">
           <div>
@@ -62,11 +80,29 @@ const WhatOurClientSay = () => {
           I was worried that this phone would not connect with my data plan,
         </p>
         <div className="md:flex items-center gap-5 h-full mt-5">
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review2} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review4} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review1} height={200} width={200} alt="img"/>
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review2}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review4}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review1}
+            height={200}
+            width={200}
+            alt="img"
+          />
         </div>
-        </div>
+      </div>
       <div className=" mt-10 bg-white shadow-xl justify-between items-center   p-8 rounded-xl mx-2 md:mx-0">
         <div className="md:flex items-center justify-between gap-5">
           <div>
@@ -89,11 +125,29 @@ const WhatOurClientSay = () => {
           I was worried that this phone would not connect with my data plan,
         </p>
         <div className="md:flex items-center gap-5 h-full mt-5">
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review2} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review4} height={200} width={200} alt="img"/>
-          <Image className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl" src={review1} height={200} width={200} alt="img"/>
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review2}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review4}
+            height={200}
+            width={200}
+            alt="img"
+          />
+          <Image
+            className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
+            src={review1}
+            height={200}
+            width={200}
+            alt="img"
+          />
         </div>
-        </div>
+      </div>
     </div>
   );
 };
