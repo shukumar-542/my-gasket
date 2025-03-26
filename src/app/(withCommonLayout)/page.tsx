@@ -27,7 +27,7 @@ const page = () => {
       <MaterialWeOffer/>
       <HighPrecision/>
       <Faqs/>
-      {/* <WhatOurClientSay/> */}
+      <WhatOurClientSay/>
       <OurService/>
     </>
   );
