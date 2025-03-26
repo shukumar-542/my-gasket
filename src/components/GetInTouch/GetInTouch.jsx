@@ -20,7 +20,7 @@ const GetInTouch = () => {
                 <button className="bg-[#F97316] px-6 py-3 rounded-sm mt-2 text-xl">Message us Now</button>
             </div>
             <div className="w-full  flex justify-center mt-5 md:mt-0 ">
-                <Image className="w-[70%]" src={us} height={400} width={400} alt="img" />
+                <Image className="w-[70%]" src={us} height={800} width={800} alt="img" />
             </div>
         </div>
     </div>
