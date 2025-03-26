@@ -47,7 +47,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const pathName = usePathname();
-  console.log(pathName);
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5`}
@@ -78,11 +77,25 @@ const Navbar = () => {
           </span>
         </button>
         <div className=" hidden md:block space-x-6 text-[17px] font-semibold">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/about-us"}>About Us</Link>
-          <Link href={"/contact-us"}>Contact Us</Link>
-          <Link href={"/faqs"}>FAQs</Link>
-          <Link href={"/track-order"}>Track Your Order</Link>
+          {[
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about-us" },
+            { name: "Contact Us", path: "/contact-us" },
+            { name: "FAQs", path: "/faqs" },
+            { name: "Track Your Order", path: "/track-order" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className={`hover:text-[#EA580C] transition duration-300 pb-1 ${
+                pathName === link.path
+                  ? "border-b-[3px] border-[#EA580C]"
+                  : "border-b-2 border-transparent"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
         <div className="hidden md:flex items-center gap-5">
           <Select
@@ -94,7 +107,8 @@ const Navbar = () => {
           <FaShoppingCart size={22} />
         </div>
       </div>
-      {/* Mobile Menu */}
+
+      {/* Mobile responsive  Menu */}
       <div
         className={`md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
@@ -118,41 +132,26 @@ const Navbar = () => {
         </Link>
 
         <div className="flex flex-col">
-          <Link
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="mt-2 "
-            href={"/"}
-          >
-            Home
-          </Link>
-          <Link
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="mt-2"
-            href={"/about-us"}
-          >
-            About Us
-          </Link>
-          <Link
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="mt-2"
-            href={"/contact-us"}
-          >
-            Contact Us
-          </Link>
-          <Link
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="mt-2"
-            href={"/faqs"}
-          >
-            FAQs
-          </Link>
-          <Link
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="mt-2"
-            href={"/track-order"}
-          >
-            Track Your Order
-          </Link>
+          {[
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about-us" },
+            { name: "Contact Us", path: "/contact-us" },
+            { name: "FAQs", path: "/faqs" },
+            { name: "Track Your Order", path: "/track-order" },
+          ].map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              onClick={() => setMenuOpen(!menuOpen)} 
+              className={`hover:text-[#EA580C] transition duration-300 pb-1 ${
+                pathName === link.path
+                  ? "text-[#EA580C]"
+                  : "border-b-2 border-transparent"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

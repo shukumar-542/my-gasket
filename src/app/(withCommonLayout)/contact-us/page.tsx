@@ -7,8 +7,8 @@ import TextArea from "antd/es/input/TextArea";
 
 const ContactUsPage = () => {
   return (
-    <div className="container mx-auto">
-      <div className="flex items-center justify-between py-20">
+    <div className="container mx-auto mt-20">
+      <div className="md:flex items-center justify-between py-20">
         <div className="w-full">
           <Image src={img} height={600} width={600} alt="img" />
         </div>
@@ -16,7 +16,7 @@ const ContactUsPage = () => {
           <p className="text-[48px] font-bold text-center">Contact us</p>
           <p className="text-center mb-10">Leave your question below, and our team will get back to you asap!</p>
           <Form layout="vertical">
-            <div className="flex justify-between items-center gap-5">
+            <div className="md:flex justify-between items-center gap-5">
               <Form.Item label="First Name" className="w-full">
                 <Input placeholder="Jane" className="w-full" />
               </Form.Item>
@@ -24,7 +24,7 @@ const ContactUsPage = () => {
                 <Input placeholder="Copper" />
               </Form.Item>
             </div>
-            <div className="flex justify-between items-center gap-5">
+            <div className="md:flex justify-between items-center gap-5">
               <Form.Item label="State / Sector" className="w-full">
                 <Input placeholder="9 N. Valley View Lane " className="w-full" />
               </Form.Item>
