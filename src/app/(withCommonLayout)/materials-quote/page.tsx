@@ -27,12 +27,14 @@ const MaterialsQuotePage = () => {
     },
   ];
 
+
+  // =============Upload main file function =================//
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
 
     if (selectedFile) {
-      const allowedExtensions = [".dxf", ".dwg"];
-      const fileExtension = selectedFile.name
+      const allowedExtensions = [".dxf", ".dwg"]; 
+      const fileExtension = selectedFile.name 
         .slice(selectedFile.name.lastIndexOf("."))
         .toLowerCase();
 
@@ -45,6 +47,8 @@ const MaterialsQuotePage = () => {
       }
     }
   };
+
+
 
   return (
     <div className=" mt-20  ">
