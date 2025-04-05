@@ -15,8 +15,6 @@ const Faqs = ({faqs} : {faqs : Faq[]}) => {
 
   return (
     <div className="container mx-auto py-10">
-    
-
       <Accordion type="single" collapsible>
       {
           faqs?.map((faq , i)=>{
@@ -33,8 +31,6 @@ const Faqs = ({faqs} : {faqs : Faq[]}) => {
             )
           })
         }
-     
-     
     </Accordion>
         
     </div>
