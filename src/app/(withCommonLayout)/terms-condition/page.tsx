@@ -5,7 +5,7 @@ import Image from "next/image";
 const TermsAndConditionPage = () => {
   return (
     <div>
-      <div className="mt-8 relative ">
+      <div className="mt-20 relative ">
         <Image
           className="w-full h-[400px] object-cover"
           src={img}

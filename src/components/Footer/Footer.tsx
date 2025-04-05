@@ -7,6 +7,7 @@ import youtube from "../../assets/youtube.png";
 import linkdin from "../../assets/behanch.png";
 import Image from "next/image";
 import logo from "../../assets/logo.png";
+import Link from "next/link";
 const Footer = () => {
   return (
     <div
@@ -55,8 +56,10 @@ const Footer = () => {
         </div>
         <div className="space-y-5">
           <p className="text-2xl font-semibold">Legal & Policies</p>
-          <p className="">Privacy Policy</p>
-          <p className="">Terms Of Conditions</p>
+          <p className=""> <Link href={"/privacy-policy"}>Privacy Policy</Link></p>
+          <p className=""><Link href={"/terms-condition"}>Terms Of Conditions</Link></p>
+          
+         
         </div>
         <div className="space-y-5">
           <p className="text-2xl font-semibold">Follow Us On</p>

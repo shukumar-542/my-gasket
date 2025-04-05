@@ -10,6 +10,25 @@ import CustomGasket from "@/components/CustomGasket/CustomGasket";
 import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 const page = () => {
+
+  const faqs = [
+    {
+        title : "What materials do you use for manufacturing gaskets?",
+        des : " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure."
+    },
+    {
+        title : "What materials do you use for manufacturing gaskets?",
+        des : " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure."
+    },
+    {
+        title : "What materials do you use for manufacturing gaskets?",
+        des : " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure."
+    },
+    {
+        title : "What materials do you use for manufacturing gaskets?",
+        des : " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure."
+    },
+]
   return (
     <>
       <div
@@ -44,7 +63,7 @@ const page = () => {
       <CustomGasket />
       <MaterialWeOffer />
       <HighPrecision />
-      <Faqs />
+      <Faqs faqs={faqs} />
       <WhatOurClientSay />
       <GetInTouch />
       <OurService />

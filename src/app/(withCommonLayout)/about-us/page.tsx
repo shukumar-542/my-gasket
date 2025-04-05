@@ -6,7 +6,7 @@ import about3 from "../../../assets/about3.png";
 import Image from "next/image";
 const AboutUsPage = () => {
   return (
-    <div className=" mt-8">
+    <div className=" mt-20 ">
       <div className="mt-8 relative ">
         <Image
           className="w-full h-[400px] object-cover"
