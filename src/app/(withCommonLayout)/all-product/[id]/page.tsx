@@ -9,6 +9,7 @@ import details1 from "../../../../assets/details2.png";
 import details2 from "../../../../assets/details3.png";
 import details3 from "../../../../assets/details4.png";
 import FeatureCard from "@/components/FeatureCard/FeatureCard";
+import ShareExprience from "@/components/ShareExprience/ShareExprience";
 
 const ProductDetailsPage = () => {
   return (
@@ -173,30 +174,10 @@ const ProductDetailsPage = () => {
         description ="Designed to endure extreme heat without compromising performance, making it ideal for automotive engines, industrial machinery, and high-pressure applications."
          borderColor="#20B7CC"
         />
-        {/* <FeatureCard image={details2} /> */}
 
-        {/* <div className="md:flex items-center py-20">
-          <div className="w-full">
-            <Image
-              src={details1}
-              height={600}
-              width={600}
-              className=""
-              alt="img"
-            />
-          </div>
-          <div className="w-full">
-            <p className="text-[32px] font-extrabold pb-5">
-              High-Temperature Resistance
-            </p>
-            <div className="border-3 max-w-[25%] border-[#20B7CC] "></div>
-            <p className="pt-5 text-[#475569] text-[18px]">
-              Designed to endure extreme heat without compromising performance,
-              making it ideal for automotive engines, industrial machinery, and
-              high-pressure applications.
-            </p>
-          </div>
-        </div> */}
+
+        <ShareExprience/>
+
       </div>
     </div>
   );
