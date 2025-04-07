@@ -13,6 +13,7 @@ import ShareExprience from "@/components/ShareExprience/ShareExprience";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import Button from "@/components/Button/Button";
 import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
+import UserReview from "@/components/UserReview/UserReview";
 
 const ProductDetailsPage = () => {
   return (
@@ -182,6 +183,7 @@ const ProductDetailsPage = () => {
         />
 
         <FeatureDetails/>
+        <UserReview/>
 
         <WhatOurClientSay />
         <div className="flex justify-center py-5">
