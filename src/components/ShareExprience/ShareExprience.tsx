@@ -9,7 +9,7 @@ const ShareExprience = () => {
         backgroundPosition: "center",
         backgroundSize: "100%",
       }}
-      className="container mx-auto my-10 rounded-md text-white p-10 text-center"
+      className="container mx-auto my-10 rounded-md text-white px-10 py-16 text-center"
     >
       <p className="text-[38px] font-semibold">Share Your Experience with Our Gaskets!</p>
       <p className="mt-4">We value your feedback! Let us know how our gaskets performed in durability, sealing, and reliability. <br /> Your review helps us improve and assists others in making the right choice.</p>
