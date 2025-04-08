@@ -9,6 +9,7 @@ import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import CustomGasket from "@/components/CustomGasket/CustomGasket";
 import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
+import Link from "next/link";
 const page = () => {
   const faqs = [
     {
@@ -63,6 +64,7 @@ const page = () => {
       </div>
       <HowItWorks />
       <OurTrastedPartner />
+
       <CustomGasket />
       <MaterialWeOffer />
       <HighPrecision />
@@ -71,6 +73,9 @@ const page = () => {
           Most frequently asked questions
         </h1>
         <Faqs faqs={faqs} />
+        <div className="flex justify-center items-center">
+            <Link className="bg-[#20B7CC] px-10 py-3 rounded-sm shadow-2xl" href={"/faqs"}>See All</Link>
+        </div>
       </div>
       <WhatOurClientSay />
       <GetInTouch />
