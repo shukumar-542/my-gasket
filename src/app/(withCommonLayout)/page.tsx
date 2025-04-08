@@ -66,7 +66,12 @@ const page = () => {
       <CustomGasket />
       <MaterialWeOffer />
       <HighPrecision />
-      <Faqs faqs={faqs} />
+      <div>
+        <h1 className="text-[30px] md:text-[48px] font-extrabold text-center py-10">
+          Most frequently asked questions
+        </h1>
+        <Faqs faqs={faqs} />
+      </div>
       <WhatOurClientSay />
       <GetInTouch />
       <OurService />

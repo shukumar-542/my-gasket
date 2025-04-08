@@ -12,7 +12,7 @@ interface Faq  {
   title : string,
   des : string
 }
-
+ 
 const Faqs = ({faqs} : {faqs : Faq[]}) => {
 
   return (
