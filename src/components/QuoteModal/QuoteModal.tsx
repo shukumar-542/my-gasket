@@ -36,11 +36,19 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
 
   const [currentStep, setCurrentSteps] = useState(0);
 
+
+//   Handle next step
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
       setCurrentSteps((prev) => prev + 1);
     }
   };
+
+//   handle previous step
+
+const handlePrevious = ()=>{
+
+}
 
   return (
     <div>
@@ -54,12 +62,13 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
         }}
       >
         <div className="flex items-center">
-        <div
-            onClick={() => handleNext()}
-            className="cursor-pointer border border-[#0B63E5] text-[#0B63E5] rounded-full "
-          >
-            <MdKeyboardArrowLeft size={30} />
-          </div>
+              <div
+                onClick={() => handlePrevious()}
+                className={`cursor-pointer border  rounded-full ${currentStep > 0 ? "border-[#0B63E5] text-[#0B63E5]" : "text-gray-300" } `}
+              >
+                <MdKeyboardArrowLeft size={30} />
+              </div>
+      
           <div className="border m-2 mt-6 border-[#000000] rounded-md p-5 relative">
             <div className="h-10 w-10 rounded-full border border-[#000000] -top-5  left-[50%] transform -translate-x-1/2 flex justify-center items-center absolute bg-white ">
               {steps[currentStep]?.stepNo}
