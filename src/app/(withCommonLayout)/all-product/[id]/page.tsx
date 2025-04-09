@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import hero from "../../../../assets/detailsHero.png";
 import img from "../../../../assets/details1.png";
 import Image from "next/image";
@@ -14,8 +15,11 @@ import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import Button from "@/components/Button/Button";
 import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
 import UserReview from "@/components/UserReview/UserReview";
+import QuoteModal from "@/components/QuoteModal/QuoteModal";
 
 const ProductDetailsPage = () => {
+  const [openModal , setOpenModal] = useState(false)
+
   return (
     <div>
       <div
@@ -37,7 +41,7 @@ const ProductDetailsPage = () => {
             </p>
 
             <div className="flex items-center gap-5 text-black mt-10">
-              <button className="bg-[#F97316] px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
+              <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
                 Get Instant Quote
               </button>
               <button className=" border border-[#F97316] bg-[#FED7AA]  px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
@@ -192,6 +196,7 @@ const ProductDetailsPage = () => {
         <ShareExprience />
      
       </div>
+      <QuoteModal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };

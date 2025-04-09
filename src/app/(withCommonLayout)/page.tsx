@@ -11,6 +11,8 @@ import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
 const page = () => {
+
+                                                                                                                                            
   const faqs = [
     {
       item: "item-1",
@@ -33,6 +35,7 @@ const page = () => {
       des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
     },
   ];
+  
   return (
     <>
       <div
