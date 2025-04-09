@@ -22,11 +22,11 @@ const UserReview = () => {
   return (
     <div className="my-20">
       <p className="text-[32px]">Reviews</p>
-      <div className="flex gap-10 mt-10">
-        <div className="bg-white rounded-md shadow-2xl px-10 text-center flex flex-col justify-center">
+      <div className="flex flex-col md:flex-row gap-10 mt-10">
+        <div className="bg-white py-2 rounded-md shadow-2xl px-10 text-center flex flex-col justify-center">
           <p className="text-[56px] font-medium">4.8</p>
           <p>of 12 reviews</p>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-center gap-1">
             <IoIosStar size={25} color="#FFB547" />
             <IoIosStar size={25} color="#FFB547" />
             <IoIosStar size={25} color="#FFB547" />

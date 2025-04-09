@@ -8,8 +8,8 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 const WhatOurClientSay = () => {
   return (
-    <div className="container mx-auto">
-      <h1 className="text-[48px] font-extrabold text-center my-10 uppercase pb-10">
+    <div className="container mx-auto px-2 md:px-0">
+      <h1 className="text-[25px] md:text-[48px] font-extrabold text-center my-10 uppercase pb-10">
         what our customers say
       </h1>
 

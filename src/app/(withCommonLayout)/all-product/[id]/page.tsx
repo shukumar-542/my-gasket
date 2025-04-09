@@ -28,20 +28,20 @@ const ProductDetailsPage = () => {
           backgroundImage: `url(${hero.src})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundSize: "100%",
+          backgroundSize: "cover",
         }}
       >
-        <div className="container mx-auto text-white flex items-center mt-10">
+        <div className="container mx-auto text-white md:flex items-center mt-10 px-2 md:px-0">
           <div className="w-full">
             <p className="text-[48px] font-extrabold uppercase">Gomma PARA</p>
-            <p className="text-xl mt-10">
+            <p className="text-xl mt-10 max-w-2xl">
               Simplify your event planning with powerful, easy-to-use features
-              designed to <br /> enhance guest experience and streamline
+              designed to  enhance guest experience and streamline
               management.
             </p>
 
-            <div className="flex items-center gap-5 text-black mt-10">
-              <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
+            <div className="flex items-center justify-center md:justify-start pb-4 gap-5 text-black mt-10">
+              <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer">
                 Get Instant Quote
               </button>
               <button className=" border border-[#F97316] bg-[#FED7AA]  px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
@@ -57,7 +57,7 @@ const ProductDetailsPage = () => {
 
       {/* Feature sections */}
 
-      <div className="container mx-auto">
+      <div className="container mx-auto px-2 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-5 py-16">
           <div className="w-full">
             <h1 className="text-[#16A34A] text-[38px] font-bold mb-10">PROS</h1>
