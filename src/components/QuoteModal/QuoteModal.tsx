@@ -77,7 +77,7 @@ const handlePrevious = ()=>{
             </div>
             <p className="text-center py-2 px-2 ">
               {steps[currentStep]?.description}
-            </p>
+            </p> 
             <div className="p-5 flex justify-center ">
               <Image
                 src={img}

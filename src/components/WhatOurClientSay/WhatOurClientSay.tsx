@@ -9,11 +9,9 @@ import { FaStar } from "react-icons/fa";
 const WhatOurClientSay = () => {
   return (
     <div className="container mx-auto px-2 md:px-0">
-      <h1 className="text-[25px] md:text-[48px] font-extrabold text-center my-10 uppercase pb-10">
-        what our customers say
-      </h1>
+      
 
-      <div className=" mt-10 bg-white shadow-xl justify-between items-center   p-8 rounded-xl mx-2 md:mx-0">
+      <div className=" bg-white shadow-xl justify-between items-center   p-8 rounded-xl mx-2 md:mx-0">
         <div className="md:flex items-center justify-between gap-5">
           <div>
             <p className="text-[20px] font-semibold">Arlene McCoy</p>

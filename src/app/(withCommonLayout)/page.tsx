@@ -11,8 +11,6 @@ import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
 const page = () => {
-
-                                                                                                                                            
   const faqs = [
     {
       item: "item-1",
@@ -35,7 +33,7 @@ const page = () => {
       des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
     },
   ];
-  
+
   return (
     <>
       <div
@@ -77,10 +75,20 @@ const page = () => {
         </h1>
         <Faqs faqs={faqs} />
         <div className="flex justify-center items-center">
-            <Link className="bg-[#20B7CC] px-10 py-3 rounded-sm shadow-2xl" href={"/faqs"}>See All</Link>
+          <Link
+            className="bg-[#20B7CC] px-10 py-3 rounded-sm shadow-2xl"
+            href={"/faqs"}
+          >
+            See All
+          </Link>
         </div>
       </div>
-      <WhatOurClientSay />
+      <div className="pt-10">
+        <h1 className="text-[25px] md:text-[48px] font-extrabold text-center my-10 uppercase pb-10">
+          what our customers say
+        </h1>
+        <WhatOurClientSay />
+      </div>
       <GetInTouch />
       <OurService />
     </>

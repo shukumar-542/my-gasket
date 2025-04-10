@@ -20,8 +20,7 @@ const UserReview = () => {
     Math.max(...data.map((item) => item.count));
   const max = getMaxCount(ratings);
   return (
-    <div className="my-20">
-      <p className="text-[32px]">Reviews</p>
+    <div className="">
       <div className="flex flex-col md:flex-row gap-10 mt-10">
         <div className="bg-white py-2 rounded-md shadow-2xl px-10 text-center flex flex-col justify-center">
           <p className="text-[56px] font-medium">4.8</p>

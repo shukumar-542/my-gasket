@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import hero from "../../../../assets/detailsHero.png";
 import img from "../../../../assets/details1.png";
@@ -16,9 +16,10 @@ import Button from "@/components/Button/Button";
 import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
 import UserReview from "@/components/UserReview/UserReview";
 import QuoteModal from "@/components/QuoteModal/QuoteModal";
+import Link from "next/link";
 
 const ProductDetailsPage = () => {
-  const [openModal , setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div>
@@ -36,12 +37,14 @@ const ProductDetailsPage = () => {
             <p className="text-[48px] font-extrabold uppercase">Gomma PARA</p>
             <p className="text-xl mt-10 max-w-2xl">
               Simplify your event planning with powerful, easy-to-use features
-              designed to  enhance guest experience and streamline
-              management.
+              designed to enhance guest experience and streamline management.
             </p>
 
             <div className="flex items-center justify-center md:justify-start pb-4 gap-5 text-black mt-10">
-              <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer">
+              <button
+                onClick={() => setOpenModal(true)}
+                className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer"
+              >
                 Get Instant Quote
               </button>
               <button className=" border border-[#F97316] bg-[#FED7AA]  px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
@@ -186,15 +189,21 @@ const ProductDetailsPage = () => {
           borderColor="#20B7CC"
         />
 
-        <FeatureDetails/>
-        <UserReview/>
+        <FeatureDetails />
+
+        {/* Customer review section */}
+        <div className="py-20">
+          <p className="text-[32px]">Reviews</p>
+          <UserReview />
+        </div>
 
         <WhatOurClientSay />
         <div className="flex justify-center py-5">
-          <Button className="inline-block px-8">View More</Button>
+          <Link href={"/customer-review"}>
+            <Button className="inline-block px-8">View More</Button>
+          </Link>
         </div>
         <ShareExprience />
-     
       </div>
       <QuoteModal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
