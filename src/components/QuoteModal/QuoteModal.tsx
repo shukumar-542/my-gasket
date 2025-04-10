@@ -47,7 +47,9 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
 //   handle previous step
 
 const handlePrevious = ()=>{
-
+    if(currentStep > 0){
+      setCurrentSteps((prev)=> prev - 1)
+    }
 }
 
   return (
@@ -88,7 +90,7 @@ const handlePrevious = ()=>{
           </div>
           <div
             onClick={() => handleNext()}
-            className="cursor-pointer border border-[#0B63E5] text-[#0B63E5] rounded-full "
+            className={`cursor-pointer border  rounded-full  ${currentStep === steps.length - 1  ? "text-gray-300" :  "border-[#0B63E5] text-[#0B63E5] "}`}
           >
             <MdKeyboardArrowRight size={30} />
           </div>
@@ -96,7 +98,7 @@ const handlePrevious = ()=>{
         {currentStep == steps.length - 1 && (
           <div className="flex justify-center items-center">
             <Link href={"/materials-quote"}>
-              <button className="bg-[#F97316] text-black py-2 px-4 rounded-sm shadow-2xl cursor-pointer">
+              <button className={`bg-[#F97316] text-black py-2 px-4 rounded-sm shadow-2xl cursor-pointer`}>
                 Continue
               </button>
             </Link>
