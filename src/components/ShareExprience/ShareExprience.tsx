@@ -5,6 +5,13 @@ import Link from "next/link";
 import { Input, Modal } from "antd";
 const ShareExprience = () => {
   const [openModal, setOpenModal] = useState(false)
+  const [orderId, setOrderId] = useState('');
+  // handle order id for edit review
+  const handleOrderId=()=>{
+    console.log(orderId);
+  }
+
+
   return (
     <div
       style={{
@@ -36,9 +43,9 @@ const ShareExprience = () => {
       </div>
       <Modal centered footer={false} open={openModal} onCancel={()=> setOpenModal(false)}>
         <p className="my-4">Insert Your Order Number</p>
-        <Input placeholder="# ID" />
+        <Input placeholder="# ID"  onChange={(e) => setOrderId(e.target.value)} />
         <p className="text-xs">Check you email!</p>
-        <button className="bg-[#F97316] w-full mt-2 rounded-[3px] text-white py-1 cursor-pointer">Continue</button>
+        <button onClick={()=> handleOrderId()} className="bg-[#F97316] w-full mt-2 rounded-[3px] text-white py-1 cursor-pointer">Continue</button>
       </Modal>
     </div>
   );
