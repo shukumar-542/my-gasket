@@ -1,7 +1,10 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import img from "../../assets/frame.png";
 import Link from "next/link";
+import { Input, Modal } from "antd";
 const ShareExprience = () => {
+  const [openModal, setOpenModal] = useState(false)
   return (
     <div
       style={{
@@ -27,10 +30,16 @@ const ShareExprience = () => {
             Leave A Review
           </button>
         </Link>
-        <button className="border border-[#D97706] rounded-md text-[#EA580C] py-2 px-5">
+        <button onClick={()=>setOpenModal(true)} className="border cursor-pointer border-[#D97706] rounded-md text-[#EA580C] py-2 px-5">
           Modify Review
         </button>
       </div>
+      <Modal centered footer={false} open={openModal} onCancel={()=> setOpenModal(false)}>
+        <p className="my-4">Insert Your Order Number</p>
+        <Input placeholder="# ID" />
+        <p className="text-xs">Check you email!</p>
+        <button className="bg-[#F97316] w-full mt-2 rounded-[3px] text-white py-1 cursor-pointer">Continue</button>
+      </Modal>
     </div>
   );
 };
