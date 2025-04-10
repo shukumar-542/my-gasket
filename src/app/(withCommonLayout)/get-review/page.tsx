@@ -4,6 +4,7 @@ import TextArea from "antd/es/input/TextArea";
 import { RcFile, UploadChangeParam } from "antd/es/upload";
 import React, { useState } from "react";
 import { PlusOutlined, CloseCircleFilled } from "@ant-design/icons";
+import { IoIosStar } from "react-icons/io";
 
 const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -15,6 +16,7 @@ const getBase64 = (file: RcFile): Promise<string> =>
 
 const GetReviewPage = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
+  const [rating , setRating] =  useState(0)
 
   const handleChange = async (info: UploadChangeParam<UploadFile<any>>) => {
     const files = info.fileList;
@@ -41,6 +43,14 @@ const GetReviewPage = () => {
     setFileList((prevList) => prevList.filter((file) => file.uid !== uid));
   };
 
+
+//   Handle Rating functionality
+const handleRating = (index : any)=>{
+    setRating(index + 1)
+}
+
+console.log(rating);
+
   return (
     <div className="max-w-4xl mx-auto mt-20 py-20">
       <Form layout="vertical">
@@ -66,13 +76,8 @@ const GetReviewPage = () => {
         <Form.Item label="Insert Your Order Number">
           <Input placeholder="# ID" />
         </Form.Item>
-
-        <Form.Item label="Comment Here">
-          <TextArea rows={4} />
-        </Form.Item>
-
         <Form.Item label="Upload Product Images">
-            {/* Image Preview with Remove Button */}
+          {/* Image Preview with Remove Button */}
           <div className="flex flex-wrap gap-4 mt-4">
             {fileList.map((file) => (
               <div
@@ -91,28 +96,41 @@ const GetReviewPage = () => {
                 />
               </div>
             ))}
-          <Upload
-            listType="picture-card"
-            showUploadList={false}
-            beforeUpload={(file) => {
-              const isImage = file.type.startsWith("image/");
-              return isImage || Upload.LIST_IGNORE;
-            }}
-            onChange={handleChange}
-            multiple
-            fileList={fileList}
-          >
-            {fileList.length >= 5 ? null : (
-              <div>
-                <PlusOutlined />
-                <div style={{ marginTop: 8 }}>Upload</div>
-              </div>
-            )}
-          </Upload>
-
-          
+            <Upload
+              listType="picture-card"
+              showUploadList={false}
+              beforeUpload={(file) => {
+                const isImage = file.type.startsWith("image/");
+                return isImage || Upload.LIST_IGNORE;
+              }}
+              onChange={handleChange}
+              multiple
+              fileList={fileList}
+            >
+              {fileList.length >= 5 ? null : (
+                <div>
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </div>
+              )}
+            </Upload>
           </div>
         </Form.Item>
+        <Form.Item label="Number Os Stars">
+          <div className="flex items-center gap-2">
+            {Array.from({ length: 5 }, (_, index) => (
+              <IoIosStar className="cursor-pointer" key={index} onClick={()=> handleRating(index)} color={index < rating ? "#FFB547" : "#D0D5DD"} size={30} />
+            ))}
+          </div>
+        </Form.Item>
+
+        <Form.Item label="Comment Here">
+          <TextArea rows={4} />
+        </Form.Item>
+
+        <button className="bg-[#F97316] rounded-sm px-10 py-3 text-white">
+          Submit
+        </button>
       </Form>
     </div>
   );
