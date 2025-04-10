@@ -3,6 +3,7 @@ import review from "../../../assets/review.png";
 import Image from "next/image";
 import UserReview from "@/components/UserReview/UserReview";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
+import ShareExprience from "@/components/ShareExprience/ShareExprience";
 const CustomerReviewPage = () => {
   return (
     <div className="mt-20">
@@ -21,9 +22,11 @@ const CustomerReviewPage = () => {
       </div>
       <div className="container mx-auto py-10">
         <UserReview />
-        <div className="mt-20">
+        <div className="mt-20 pb-10">
           <WhatOurClientSay />
         </div>
+
+        <ShareExprience/>
       </div>
     </div>
   );
