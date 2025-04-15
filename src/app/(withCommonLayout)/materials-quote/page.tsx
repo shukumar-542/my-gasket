@@ -5,8 +5,14 @@ import img from "../../../assets/quote.png";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import WorkProcess from "@/components/WorkProcess/WorkProcess";
 import { HiOutlineUpload } from "react-icons/hi";
+import { Input, Select } from "antd";
+import { FiPlus } from "react-icons/fi";
+import { LuMinus } from "react-icons/lu";
+import { FaDollarSign } from "react-icons/fa";
+import { MdShoppingCart } from "react-icons/md";
 const MaterialsQuotePage = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [numberOfPieces, setNumberOfPieces] = useState("0");
   const workSteps = [
     {
       step: "01",
@@ -27,14 +33,13 @@ const MaterialsQuotePage = () => {
     },
   ];
 
-
   // =============Upload main file function =================//
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
 
     if (selectedFile) {
-      const allowedExtensions = [".dxf", ".dwg"]; 
-      const fileExtension = selectedFile.name 
+      const allowedExtensions = [".dxf", ".dwg"];
+      const fileExtension = selectedFile.name
         .slice(selectedFile.name.lastIndexOf("."))
         .toLowerCase();
 
@@ -48,7 +53,25 @@ const MaterialsQuotePage = () => {
     }
   };
 
+  // Handle input change value
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setNumberOfPieces(value);
+    }
+  };
 
+  const increment = () => {
+    setNumberOfPieces((prev) => String(Number(prev || "0") + 1));
+  };
+
+  const decrement = () => {
+    setNumberOfPieces((prev) => {
+      const newVal = Number(prev || "0") - 1;
+      return newVal < 0 ? "0" : String(newVal);
+    });
+  };
+  
 
   return (
     <div className=" mt-20  ">
@@ -78,7 +101,7 @@ const MaterialsQuotePage = () => {
         <WorkProcess workSteps={workSteps} />
       </div>
 
-      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 ms:px-0">
         <div>
           <label
             htmlFor="file-upload"
@@ -92,11 +115,79 @@ const MaterialsQuotePage = () => {
               onChange={handleFileChange}
               className="hidden"
             />
-            {file ? <p className="mt-4 text-[#F97316] text-center">
-              {file.name}
-            </p> : "Upload File"}
+            {file ? (
+              <p className="mt-4 text-[#F97316] text-center">{file.name}</p>
+            ) : (
+              "Upload File"
+            )}
           </label>
-          
+        </div>
+
+        <div className="space-y-5">
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+            <p className="w-full">Select the drawing scale 01 : </p>
+            <div>
+              <Input className="" />
+            </div>
+          </div>
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+            <p className="w-full">Drawing Measurement Unit: </p>
+            <div>
+              <Select
+                style={{ width: 145 }}
+                options={[
+                  { value: "jack", label: "Jack" },
+                  { value: "lucy", label: "Lucy" },
+                  { value: "Yiminghe", label: "yiminghe" },
+                ]}
+              ></Select>
+            </div>
+          </div>
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+            <p className="w-full">Select Rubber type: </p>
+            <div>
+              <Select
+                style={{ width: 145 }}
+                options={[
+                  { value: "Gomma para1", label: "Gomma para1" },
+                  { value: "Gomma para", label: "Gomma para" },
+                ]}
+              ></Select>
+            </div>
+          </div>
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+            <p className="w-full">Select Thickness: </p>
+            <div>
+              <Select
+                style={{ width: 145 }}
+                options={[
+                  { value: "1mm", label: "1mm" },
+                  { value: "2mm", label: "2mm" },
+                ]}
+              ></Select>
+            </div>
+          </div>
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+            <p className="w-full">Number of Pieces: </p>
+            <div className="flex items-center gap-2">
+              <button onClick={decrement} className="border border-black rounded-[2px] cursor-pointer">
+                <LuMinus size={20} />
+              </button>
+              <input
+                value={numberOfPieces}
+                onChange={handleInputChange}
+                className="w-16 border border-black text-center rounded-[2px]"
+              />
+              <button onClick={increment} className="border border-black rounded-[2px] cursor-pointer">
+                <FiPlus size={20} />
+              </button>
+            </div>
+          </div>
+          <div className="flex items-center text-5xl font-extrabold">
+            <p><FaDollarSign /></p>
+            <p>4.49</p>
+          </div>
+          <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2"><MdShoppingCart size={20} color="white" />Add to Cart</button>
         </div>
       </div>
     </div>
