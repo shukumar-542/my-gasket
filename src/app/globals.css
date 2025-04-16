@@ -118,3 +118,8 @@
     @apply bg-background text-foreground;
   }
 }
+.custom-select-no-border .ant-select-selector {
+  border: none !important;
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
+  padding: 20px 10px !important;
+}

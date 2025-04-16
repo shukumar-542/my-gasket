@@ -4,14 +4,15 @@ import product from "../../../assets/product2.png";
 import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { LuMinus } from "react-icons/lu";
+import Link from "next/link";
 const TrackOrderPage = () => {
   const [quantity, setQuantity] = useState(0);
   return (
-    <div className="mt-22 py-10 container mx-auto">
+    <div className="mt-22 py-10 container mx-auto px-2 md:px-0">
       <div className="grid grid-cols-1 md:grid-cols-2  gap-5">
         <div className="bg-white border rounded-md p-2 ">
           <h1 className="text-2xl font-bold text-center">Shopping Cart</h1>
-          <div className="flex  items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
+          <div className="flex-row md:flex   items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
             <Image
               src={product}
               height={400}
@@ -69,7 +70,7 @@ const TrackOrderPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex  items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
+          <div className="flex-row md:flex   items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
             <Image
               src={product}
               height={400}
@@ -152,9 +153,15 @@ const TrackOrderPage = () => {
               <span>€101.39</span>
             </p>
             {/* <div className="flex justify-center  py-5"> */}
-              <button className="bg-[#F97316] px-5 py-2 rounded-sm text-white w-full my-5">Checkout</button>
+            <Link href={"/checkout"}>
+              <button className="bg-[#F97316] cursor-pointer px-5 py-2 rounded-sm text-white w-full my-5">
+                Checkout
+              </button>
+            </Link>
             {/* </div> */}
-            <p className="text-center  font-semibold mb-4">Need help? Call us at +39 351-901-5721</p>
+            <p className="text-center  font-semibold mb-4">
+              Need help? Call us at +39 351-901-5721
+            </p>
           </div>
         </div>
       </div>

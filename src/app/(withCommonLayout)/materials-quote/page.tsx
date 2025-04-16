@@ -266,7 +266,7 @@ const MaterialsQuotePage = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
