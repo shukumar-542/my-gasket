@@ -10,6 +10,7 @@ import { FiPaperclip, FiPlus } from "react-icons/fi";
 import { LuMinus } from "react-icons/lu";
 import { FaDollarSign } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
+import Link from "next/link";
 const MaterialsQuotePage = () => {
   const [file, setFile] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
@@ -176,8 +177,11 @@ const MaterialsQuotePage = () => {
               >
                 <FiPaperclip size={20} />
               </button>
-              <Input placeholder="Additional Text..."   variant="borderless" className="border-none" />
-
+              <Input
+                placeholder="Additional Text..."
+                variant="borderless"
+                className="border-none"
+              />
             </div>
           </div>
         </div>
@@ -254,10 +258,12 @@ const MaterialsQuotePage = () => {
             </p>
             <p>4.49</p>
           </div>
-          <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2">
-            <MdShoppingCart size={20} color="white" />
-            Add to Cart
-          </button>
+          <Link href={"/track-order"}>
+            <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2">
+              <MdShoppingCart size={20} color="white" />
+              Add to Cart
+            </button>
+          </Link>
         </div>
       </div>
     </div>
