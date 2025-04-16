@@ -8,7 +8,7 @@ const TrackOrderPage = () => {
   const [quantity, setQuantity] = useState(0);
   return (
     <div className="mt-22 py-10 container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 ">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5">
         <div className="bg-white border rounded-md p-2 ">
           <h1 className="text-2xl font-bold text-center">Shopping Cart</h1>
           <div className="flex  items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
@@ -58,13 +58,15 @@ const TrackOrderPage = () => {
               <p>
                 {" "}
                 Unit Price: <span className="font-semibold">€0.58</span>
-
-                
               </p>
               <div className="flex items-center gap-2">
-                    <button className="bg-[#FFEDD5] border border-[#F59E0B] px-4 py-1 rounded-sm">Remove Item</button>
-                    <button className="bg-[#F59E0B] text-white  px-4 py-1 rounded-sm">Edit Item</button>
-                </div>
+                <button className="bg-[#FFEDD5] border border-[#F59E0B] px-4 py-1 rounded-sm">
+                  Remove Item
+                </button>
+                <button className="bg-[#F59E0B] text-white  px-4 py-1 rounded-sm">
+                  Edit Item
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex  items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3">
@@ -114,17 +116,47 @@ const TrackOrderPage = () => {
               <p>
                 {" "}
                 Unit Price: <span className="font-semibold">€0.58</span>
-
-                
               </p>
               <div className="flex items-center gap-2">
-                    <button className="bg-[#FFEDD5] border border-[#F59E0B] px-4 py-1 rounded-sm">Remove Item</button>
-                    <button className="bg-[#F59E0B] text-white  px-4 py-1 rounded-sm">Edit Item</button>
-                </div>
+                <button className="bg-[#FFEDD5] border border-[#F59E0B] px-4 py-1 rounded-sm">
+                  Remove Item
+                </button>
+                <button className="bg-[#F59E0B] text-white  px-4 py-1 rounded-sm">
+                  Edit Item
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <div></div>
+        <div>
+          <div className="bg-white rounded-md border shadow-md px-10">
+            <h1 className="text-center mt-5 text-xl font-semibold border-b pb-2">
+              Order Summary
+            </h1>
+            <div className="p-8 border-b">
+              <p className="my-3 flex items-center justify-between">
+                <span className="font-semibold">Subtotal:</span>
+                <span>€101.39</span>
+              </p>
+              <p className="my-3 flex items-center justify-between">
+                <span className="font-semibold">Shipping:</span>
+                <span>TBD</span>
+              </p>
+              <p className="my-3 flex items-center justify-between">
+                <span className="font-semibold">Sales Tax:</span>
+                <span>TBD</span>
+              </p>
+            </div>
+            <p className="my-3 flex items-center justify-between">
+              <span className="font-semibold text-xl">Estimated Total:</span>
+              <span>€101.39</span>
+            </p>
+            {/* <div className="flex justify-center  py-5"> */}
+              <button className="bg-[#F97316] px-5 py-2 rounded-sm text-white w-full my-5">Checkout</button>
+            {/* </div> */}
+            <p className="text-center  font-semibold mb-4">Need help? Call us at +39 351-901-5721</p>
+          </div>
+        </div>
       </div>
     </div>
   );
