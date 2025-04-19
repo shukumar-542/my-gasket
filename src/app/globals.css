@@ -123,3 +123,17 @@
   box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
   padding: 20px 10px !important;
 }
+
+.custom-input {
+  border: none !important;
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
+  padding: 10px 16px; /* custom padding */
+  border-radius: 6px;
+}
+
+.custom-input:focus,
+.custom-input:focus-within,
+.custom-input-focused {
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
+  outline: none;
+}
