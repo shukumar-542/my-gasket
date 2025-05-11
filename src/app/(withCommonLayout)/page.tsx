@@ -37,7 +37,7 @@ const page = () => {
   return (
     <>
       <div
-        className="min-h-[80vh] mt-20 flex flex-col  justify-center relative"
+        className="min-h-[92vh] mt-20 flex flex-col  justify-center relative"
         style={{
           backgroundImage: `url(${heroImage.src})`,
           backgroundSize: "cover",
