@@ -64,10 +64,10 @@ const page = () => {
         </div>
       </div>
       <HowItWorks />
-      <OurTrastedPartner />
+      {/* <OurTrastedPartner /> */}
 
       <CustomGasket />
-      <MaterialWeOffer />
+      {/* <MaterialWeOffer /> */}
       <HighPrecision />
       <div>
         <h1 className="text-[30px] md:text-[48px] font-extrabold text-center py-10">
@@ -76,7 +76,7 @@ const page = () => {
         <Faqs faqs={faqs} />
         <div className="flex justify-center items-center">
           <Link
-            className="bg-[#20B7CC] px-10 py-3 rounded-sm shadow-2xl"
+            className="bg-[#F97316] px-10 py-3 rounded-sm text-white shadow-2xl"
             href={"/faqs"}
           >
             See All

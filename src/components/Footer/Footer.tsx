@@ -11,14 +11,14 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div
-      className="text-white py-12 md:py-32 pt-10 pl-10 md:pl-0"
-      style={{
-        backgroundImage: `url(${img.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-      }}
+      className="text-white py-12 md:py-32 pt-10 pl-10 md:pl-0 bg-black"
+      // style={{
+      //   backgroundImage: `url(${img.src})`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      //   width: "100%",
+      // }}
     >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* First columns */}

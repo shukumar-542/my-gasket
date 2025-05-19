@@ -17,6 +17,10 @@ import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
 import UserReview from "@/components/UserReview/UserReview";
 import QuoteModal from "@/components/QuoteModal/QuoteModal";
 import Link from "next/link";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { MdCheck } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
+import { IoMdStarOutline } from "react-icons/io";
 
 const ProductDetailsPage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -24,15 +28,15 @@ const ProductDetailsPage = () => {
   return (
     <div>
       <div
-        className="pt-[110px]"
-        style={{
-          backgroundImage: `url(${hero.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
+        className="pt-[110px] bg-[#BEDBF6]"
+        // style={{
+        //   backgroundImage: `url(${hero.src})`,
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundPosition: "center",
+        //   backgroundSize: "cover",
+        // }}
       >
-        <div className="container mx-auto text-white md:flex items-center mt-10 px-2 md:px-0">
+        <div className="container mx-auto text-[#000624] md:flex items-center mt-10 px-2 md:px-0">
           <div className="w-full">
             <p className="text-[48px] font-extrabold uppercase">Gomma PARA</p>
             <p className="text-xl mt-10 max-w-2xl">
@@ -61,107 +65,59 @@ const ProductDetailsPage = () => {
       {/* Feature sections */}
 
       <div className="container mx-auto px-2 md:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-5 py-16">
-          <div className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-10 py-16">
+          <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-[#16A34A] text-[38px] font-bold mb-10">PROS</h1>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowGreen}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <MdCheck size={20} className="text-green-600" />
               <p className="text-xl">High-Temperature Resistance</p>
             </div>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowGreen}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <MdCheck size={20} className="text-green-600" />
+
               <p className="text-xl">Superior Sealing Performance</p>
             </div>
             <div className="flex items-center gap-2">
-              <Image
-                src={arrowGreen}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <MdCheck size={20} className="text-green-600" />
+
               <p className="text-xl">Long-Lasting & Durable</p>
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-red-500 text-[38px] font-bold mb-10">CONS</h1>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowRed}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <RxCross2 size={20} className="text-red-500" />
               <p className="text-xl">High-Temperature Resistance</p>
             </div>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowRed}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <RxCross2 size={20} className="text-red-500" />
+
               <p className="text-xl">Superior Sealing Performance</p>
             </div>
             <div className="flex items-center gap-2">
-              <Image
-                src={arrowRed}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <RxCross2 size={20} className="text-red-500" />
+
               <p className="text-xl">Long-Lasting & Durable</p>
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-[#3B82F6] text-[38px] font-bold mb-10">
               MAIN FEATURES
             </h1>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowBlue}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
               <p className="text-xl">High-Temperature Resistance</p>
             </div>
             <div className="flex items-center gap-2 mb-2">
-              <Image
-                src={arrowBlue}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
+
               <p className="text-xl">Superior Sealing Performance</p>
             </div>
             <div className="flex items-center gap-2">
-              <Image
-                src={arrowBlue}
-                height={600}
-                width={600}
-                className="h-6 w-6"
-                alt="img"
-              />
+              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
+
               <p className="text-xl">Long-Lasting & Durable</p>
             </div>
           </div>
