@@ -10,7 +10,7 @@ const ContactUsPage = () => {
     <div className="bg-[#ECF5FE]">
       <div className="container mx-auto md:mt-20">
         <div className=" md:py-20">
-          <div className="md:flex justify-between items-center">
+          <div className="md:flex justify-between items-center -mb-3">
             <div className=" flex  justify-center items-center h-[600px] md:w-1/2 px-10">
               <div>
                 <p className="text-5xl md:text-[70px] font-bold text-[#172554]">
@@ -60,7 +60,7 @@ const ContactUsPage = () => {
               <Form.Item label="Question" className="w-full">
                 <TextArea placeholder="Like. What included in ...." rows={4} />
               </Form.Item>
-              <div className="flex justify-center">
+              <div className="flex justify-center text-white">
                 <button className="bg-[#172554] text-white px-5  py-2 font-semibold text-[18px] rounded-sm shadow-2xl">
                   Send message now
                 </button>
