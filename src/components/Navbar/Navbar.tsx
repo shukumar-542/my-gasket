@@ -104,7 +104,9 @@ const Navbar = () => {
             optionLabelProp="label"
             options={options}
           />
+          <Link href={"/cart"}>
           <FaShoppingCart size={22} />
+          </Link>
         </div>
       </div>
 
