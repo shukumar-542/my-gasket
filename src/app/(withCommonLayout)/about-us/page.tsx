@@ -4,7 +4,9 @@ import about1 from "../../../assets/about1.png";
 import about2 from "../../../assets/about2.png";
 import about3 from "../../../assets/about3.png";
 import Image from "next/image";
-import { FaMedal, FaRecycle, FaRobot } from "react-icons/fa";
+import { FaMedal, FaQuoteLeft, FaRecycle, FaRobot } from "react-icons/fa";
+import { BsChatSquareQuote } from "react-icons/bs";
+import { FaTruckFast } from "react-icons/fa6";
 const AboutUsPage = () => {
   return (
     <div className=" mt-20 ">
@@ -101,7 +103,7 @@ const AboutUsPage = () => {
 
       <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Box 1 */}
-        <div className="border border-black bg-green-600 rounded-lg p-6 font-extrabold text-4xl h-40 text-center flex flex-col justify-center">
+        <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-extrabold text-4xl h-40 text-center flex flex-col justify-center">
           20+
           <span className="font-normal text-sm mt-2 block">
             years of experience in the gasket field
@@ -109,8 +111,11 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 2 */}
-        <div className="border border-black rounded-lg p-6 font-semibold text-lg flex flex-col justify-center">
-          <span className="text-center text-3xl flex justify-center items-center gap-2"> 4.0 industry <FaRobot color="#00A53E" /></span>
+        <div className="text-white text-center bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md rounded-lg p-6 font-semibold text-lg flex flex-col justify-center">
+          <span className="text-center text-3xl flex justify-center items-center gap-2">
+            {" "}
+            4.0 industry <FaRobot color="#00A53E" />
+          </span>
           <span className="font-normal text-base mt-2">
             We leverage the power of Industry 4.0 to deliver fast, precise, and
             customizable gasket solutions.
@@ -118,22 +123,27 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 3 */}
-        <div className="border h-32 text-3xl border-black rounded-lg p-6 font-bold flex items-center justify-center">
-          10+ materials
+        <div className="bg-[#ECF5FE] h-32 text-3xl text-[#172554] shadow-[#ECF5FE] hover:shadow-2xl  shadow-md  rounded-lg p-6 font-bold flex items-center justify-center">
+          10+ Materials
         </div>
 
         {/* Box 4 */}
-        <div className="border border-black h-52 rounded-lg p-6 font-bold text-center flex flex-col justify-center">
+        <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white h-52 rounded-lg p-6 font-bold text-center flex flex-col justify-center">
           <div className="text-4xl mb-2">🕒</div>
-          <span className="text-xl">48 hours</span>
+          <span className="text-center text-3xl">48 hours</span>
           <span className="font-normal text-sm mt-1 block">
             for standard orders in all Italy
           </span>
         </div>
 
         {/* Box 5 */}
-        <div className="border border-black rounded-lg p-6 font-semibold text-lg flex flex-col justify-center">
-          <span className="text-center text-3xl">made in italy</span>
+        <div
+          className=" shadow-xl hover:shadow-2xl  rounded-lg p-6 font-semibold text-lg flex flex-col justify-center"
+          style={{
+            background: `linear-gradient(to bottom right, green 0%, white 50%, white 60%, red 100%)`,
+          }}
+        >
+          <span className="text-center text-3xl">Made in italy</span>
           <span className="font-normal text-base mt-2">
             All our gaskets are proudly design and manufactured in Italy,
             combining traditional craftsmanship with modern technology.
@@ -141,7 +151,7 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 6 */}
-        <div className="border border-black sm:mt-5 md:-mt-10 h-40 rounded-lg p-6 font-normal  text-sm flex flex-col justify-center text-center">
+        <div className=" shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white sm:mt-5 md:-mt-10 h-40 rounded-lg p-6 font-normal  text-sm flex flex-col justify-center text-center">
           <b className="text-center text-3xl">No minimum orders</b>
           <span className="mt-1 block">
             we decided to not put a minimum order. We only apply a small fix
@@ -150,8 +160,11 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 7 */}
-        <div className="border border-black rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
-          <p className="text-center text-3xl flex items-center justify-center mb-5 gap-2"> No waste. <FaRecycle color="#00A53E"  /></p>
+        <div className="text-[#172554] shadow-[#ECF5FE] hover:shadow-2xl  shadow-md bg-[#ECF5FE]  rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
+          <p className="text-center text-3xl flex items-center justify-center mb-5 gap-2">
+            {" "}
+            No waste. <FaRecycle color="#00A53E" />
+          </p>
           <span className="mt-1 block">
             We optimized cutting paths, minimize scraps and reduce environmental
             impact without compromising on quality.
@@ -160,26 +173,29 @@ const AboutUsPage = () => {
 
         <div className="flex-col md:flex gap-5">
           {/* Box 8 */}
-          <div className="border border-black rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-3xl">High quality<FaMedal color="#00A53E" /></b>
-            <span className="mt-1 block">
+          <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
+            <b className="text-center text-3xl flex items-center justify-center">
+              High quality
+              <FaMedal color="#00A53E" />
+            </b>
+            <span className="mt-1 block text-center">
               We use top-grade materials and state-of-the-art machinery to
               ensure every gasket meets the highest standards.
             </span>
           </div>
 
           {/* Box 9 */}
-          <div className="border border-black rounded-lg p-6 mt-2 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-xl">ultra fast replies</b>
-            <span className="mt-1 block">
+          <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white rounded-lg p-6 mt-2 font-normal text-sm flex flex-col justify-center">
+            <b className="text-center text-3xl flex items-center justify-center gap-2">Ultra fast replies<FaTruckFast /></b>
+            <span className="mt-1 block text-center">
               our team will get back to you in less than 24 hours
             </span>
           </div>
         </div>
 
         {/* Box 10 */}
-        <div className="border md:-mt-20 mt-1 border-black rounded-lg p-6 font-bold text-lg text-center flex flex-col justify-center">
-          <span className="text-center text-3xl">instant quote</span>
+        <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white md:-mt-20 mt-1 border-black rounded-lg p-6 font-bold text-lg text-center flex flex-col justify-center">
+          <span className="text-center text-3xl flex justify-center  items-center gap-2">Instant quote<BsChatSquareQuote color="" /></span>
           <span className="font-normal text-base mt-2">
             Thanks to our instant quote generator, it is easier than ever to
             order your custom gasket!
