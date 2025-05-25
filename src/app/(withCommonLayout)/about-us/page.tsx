@@ -4,6 +4,7 @@ import about1 from "../../../assets/about1.png";
 import about2 from "../../../assets/about2.png";
 import about3 from "../../../assets/about3.png";
 import Image from "next/image";
+import { FaMedal, FaRecycle, FaRobot } from "react-icons/fa";
 const AboutUsPage = () => {
   return (
     <div className=" mt-20 ">
@@ -100,7 +101,7 @@ const AboutUsPage = () => {
 
       <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Box 1 */}
-        <div className="border border-black rounded-lg p-6 font-extrabold text-4xl h-40 text-center flex flex-col justify-center">
+        <div className="border border-black bg-green-600 rounded-lg p-6 font-extrabold text-4xl h-40 text-center flex flex-col justify-center">
           20+
           <span className="font-normal text-sm mt-2 block">
             years of experience in the gasket field
@@ -109,7 +110,7 @@ const AboutUsPage = () => {
 
         {/* Box 2 */}
         <div className="border border-black rounded-lg p-6 font-semibold text-lg flex flex-col justify-center">
-          <span className="text-center text-3xl">4.0 industry</span>
+          <span className="text-center text-3xl flex justify-center items-center gap-2"> 4.0 industry <FaRobot color="#00A53E" /></span>
           <span className="font-normal text-base mt-2">
             We leverage the power of Industry 4.0 to deliver fast, precise, and
             customizable gasket solutions.
@@ -150,7 +151,7 @@ const AboutUsPage = () => {
 
         {/* Box 7 */}
         <div className="border border-black rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
-          <b className="text-center text-3xl">no waste.</b>
+          <p className="text-center text-3xl flex items-center justify-center mb-5 gap-2"> No waste. <FaRecycle color="#00A53E"  /></p>
           <span className="mt-1 block">
             We optimized cutting paths, minimize scraps and reduce environmental
             impact without compromising on quality.
@@ -160,7 +161,7 @@ const AboutUsPage = () => {
         <div className="flex-col md:flex gap-5">
           {/* Box 8 */}
           <div className="border border-black rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-3xl">High quality</b>
+            <b className="text-center text-3xl">High quality<FaMedal color="#00A53E" /></b>
             <span className="mt-1 block">
               We use top-grade materials and state-of-the-art machinery to
               ensure every gasket meets the highest standards.
