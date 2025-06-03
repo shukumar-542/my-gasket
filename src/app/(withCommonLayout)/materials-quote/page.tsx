@@ -180,7 +180,7 @@ const MaterialsQuotePage = () => {
               <Input
                 placeholder="Additional Text..."
                 variant="borderless"
-                className="border-none"
+                className="border-none "
               />
             </div>
           </div>

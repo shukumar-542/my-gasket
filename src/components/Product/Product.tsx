@@ -13,21 +13,29 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   return (
-    <Link href={"/all-product/:id"}>
-      <div className="relative cursor-pointer rounded-md overflow-hidden group">
+    <div className="group rounded-md overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+      <div className="overflow-hidden">
         <Image
-          className="w-full transition-transform duration-500 group-hover:scale-110 h-[410px]"
-          height={400}
-          width={400}
+          className="w-full h-[250px] object-cover transform transition-transform duration-700 group-hover:scale-110"
+          height={200}
+          width={200}
           src={product?.image}
           alt="img"
         />
-        <div className="absolute inset-0 bg-black opacity-45"></div>
-        <p className="absolute text-white top-1/2 left-[75px] text-[42px] drop-shadow-[2px_2px_15px_rgba(255,255,255,1)]">
-          {product?.title}
-        </p>
       </div>
-    </Link>
+      <div className="bg-white p-2">
+        <p className="text-xl font-bold">{product?.title}</p>
+        <p className="bg-black text-white inline-block px-2 py-1 rounded-md my-2">
+          - 40&deg; / +120&deg; C
+        </p>
+        <p>Elevata resisitenza agli agenti atmosterici</p>
+        <Link href={`/all-product/id`}>
+          <button className="bg-black text-white px-2 py-1 rounded-md my-2 cursor-pointer">
+            See More
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import img from "../../../assets/image 2.png";
 import Image from "next/image";
 import { Form, Input, Select, Upload } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import { FiPaperclip, FiUploadCloud } from "react-icons/fi";
 
 const ContactUsPage = () => {
   return (
@@ -65,7 +66,7 @@ const ContactUsPage = () => {
                         ]}
                       />
                     </Form.Item>
-                    <Form.Item
+                    {/* <Form.Item
                       label="Upload File or Image"
                       className="w-full "
                       valuePropName="fileList"
@@ -76,14 +77,21 @@ const ContactUsPage = () => {
                       <Upload
                         name="file"
                         listType="picture"
-                        beforeUpload={() => false} 
+                        beforeUpload={() => false}
                         className="w-full bg-green-400 "
                       >
-                        <button className="bg-white border cursor-pointer w-full border-gray-300 rounded px-8 md:px-[84px] py-2 shadow-sm hover:shadow-md">
-                          Click or Drag File to Upload
+                        <button className="bg-white border flex items-center gap-2 cursor-pointer w-full border-gray-300 rounded px-8 md:px-[135px] py-2 shadow-sm hover:shadow-md">
+                          <FiUploadCloud size={20} />
+                          Upload
                         </button>
                       </Upload>
-                    </Form.Item>
+                    </Form.Item> */}
+                    <Form.Item label="Phone Number" className="w-full">
+                    <Input
+                      placeholder="Like . +8801872999038"
+                      className="w-full h-10"
+                    />
+                  </Form.Item>
                   </div>
                   <Form.Item label="Email Address" className="w-full">
                     <Input
@@ -91,18 +99,24 @@ const ContactUsPage = () => {
                       className="w-full h-10"
                     />
                   </Form.Item>
-                  <Form.Item label="Phone Number" className="w-full">
-                    <Input
-                      placeholder="Like . +8801872999038"
-                      className="w-full h-10"
-                    />
-                  </Form.Item>
+                  
                 </div>
-                <Form.Item label="Question" className="w-full ">
-                  <TextArea
-                    placeholder="Like. What included in ...."
-                    rows={18}
-                  />
+                <Form.Item label="Question" className="w-full relative">
+                  <div className="bg-white p-2 rounded-md">
+                    <div className=" flex justify-end ">
+                      <FiPaperclip size={20} />
+                    </div>
+
+                    <TextArea
+                      placeholder="Like. What included in ...."
+                      rows={13}
+                      className=" border-none border-0"
+                      style={{
+                        border :'none',
+                        resize : 'none'
+                      }}
+                    />
+                  </div>
                 </Form.Item>
               </div>
               <div className="flex justify-center text-white">
