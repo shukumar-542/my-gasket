@@ -10,6 +10,8 @@ import english from "../../assets/bratain.png";
 import italy from "../../assets/italy.png";
 import { HiMenu, HiX } from "react-icons/hi";
 
+import { useTranslation } from "react-i18next";
+
 const options = [
   {
     value: "English",
@@ -45,8 +47,16 @@ const options = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { i18n  , t} = useTranslation();
   const pathName = usePathname();
+
+  // Language change function
+
+  const handleChange = (selected: any) => {
+    console.log("Selected language:", selected);
+    
+     i18n.changeLanguage(selected) 
+  };
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5 shadow-2xl`}
@@ -60,7 +70,7 @@ const Navbar = () => {
             width={200}
             alt="logo"
           />
-          <span className="text-orange-500 text-2xl font-bold">My Gasket</span>
+          <span className="text-orange-500 text-2xl font-bold">{t("myGasket")}</span>
         </Link>
 
         {/* Mobile Menu Button */}
@@ -78,11 +88,11 @@ const Navbar = () => {
         </button>
         <div className=" hidden md:block space-x-6 text-[17px] font-semibold">
           {[
-            { name: "Home", path: "/" },
-            { name: "About Us", path: "/about-us" },
-            { name: "Contact Us", path: "/contact-us" },
-            { name: "FAQs", path: "/faqs" },
-            { name: "Track Your Order", path: "/track-order" },
+            { name: t("home"), path: "/" },
+            { name: t("aboutUs"), path: "/about-us" },
+            { name: t("contactUs"), path: "/contact-us" },
+            { name: t("faqs"), path: "/faqs" },
+            { name: t("trackYourOrder"), path: "/track-order" },
           ].map((link) => (
             <Link
               key={link.path}
@@ -102,6 +112,7 @@ const Navbar = () => {
             defaultValue="English"
             style={{ width: 120 }}
             optionLabelProp="label"
+            onChange={handleChange}
             options={options}
           />
           <Link href={"/cart"}>

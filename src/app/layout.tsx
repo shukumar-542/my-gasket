@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Poppins , Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
+import I18nProvider from "@/lib/i18nProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,10 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} ${inter.variable} `}
-      >
-        {children}
+      <body className={`${poppins.variable} ${inter.variable} `}>
+        <I18nProvider>
+          {children}
+
+        </I18nProvider>
       </body>
     </html>
   );
