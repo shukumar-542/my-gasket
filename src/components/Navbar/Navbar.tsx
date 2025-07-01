@@ -53,7 +53,6 @@ const Navbar = () => {
   // Language change function
 
   const handleChange = (selected: any) => {
-    console.log("Selected language:", selected);
     
      i18n.changeLanguage(selected) 
   };

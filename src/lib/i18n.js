@@ -20,7 +20,13 @@ i18n
           contactUs: "Contact Us",
           faqs: "FAQs",
           trackYourOrder: "Track Your Order",
-          myGasket: "My Gasket"
+          myGasket: "My Gasket",
+          howItWorks: "How It Works",
+          processDescription:
+            "We break down the process into simple steps to ensure seamless execution, from start to finish.",
+          uploadDrawing:
+            "Upload your drawing (we only accept DWG or DXF files)",
+          getInstantQuote: "Get Instant Quote",
         },
       },
       Italy: {
@@ -30,7 +36,13 @@ i18n
           contactUs: "Contattaci",
           faqs: "Domande Frequenti",
           trackYourOrder: "Traccia il Tuo Ordine",
-          myGasket: "La Mia Guarnizione", 
+          myGasket: "La Mia Guarnizione",
+          howItWorks: "Come Funziona",
+          processDescription:
+            "Suddividiamo il processo in semplici passaggi per garantire un'esecuzione impeccabile, dall'inizio alla fine.",
+          uploadDrawing:
+            "Carica il tuo disegno (accettiamo solo file DWG o DXF)",
+          getInstantQuote: "Ottieni un Preventivo Immediato",
         },
       },
     },
