@@ -25,12 +25,12 @@ const Product: React.FC<ProductProps> = ({ product }) => {
       </div>
       <div className="bg-white p-2">
         <p className="text-xl font-bold">{product?.title}</p>
-        <p className="bg-black text-white inline-block px-2 py-1 rounded-md my-2">
+        <p className="border border-black  inline-block px-2 py-1 rounded-sm my-2">
           - 40&deg; / +120&deg; C
         </p>
         <p>Elevata resisitenza agli agenti atmosterici</p>
         <Link href={`/all-product/id`}>
-          <button className="bg-black text-white px-2 py-1 rounded-md my-2 cursor-pointer">
+          <button className="bg-black text-white px-4 py-1 rounded-md my-2 cursor-pointer">
             See More
           </button>
         </Link>
