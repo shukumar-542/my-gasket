@@ -27,6 +27,14 @@ i18n
           uploadDrawing:
             "Upload your drawing (we only accept DWG or DXF files)",
           getInstantQuote: "Get Instant Quote",
+          welcomeMessage: "WELCOME TO MYGASKET",
+          eventPlanningDescription:
+            "Simplify your event planning with powerful, easy-to-use features designed to enhance guest experience and streamline management.",
+          getStarted: "Get Started",
+          discover: "Discover",
+          materialsWeOffer: "Materials We Offer",
+          gasketAutomationDescription:
+            "Get the perfect gasket for your needs with our precision manufacturing and automated quoting system. Simply upload your design, choose materials, and get an instant price!",
         },
       },
       Italy: {
@@ -43,6 +51,13 @@ i18n
           uploadDrawing:
             "Carica il tuo disegno (accettiamo solo file DWG o DXF)",
           getInstantQuote: "Ottieni un Preventivo Immediato",
+          welcomeMessage: "BENVENUTO A MYGASKET",
+          eventPlanningDescription:
+            "Semplifica la pianificazione dei tuoi eventi con funzionalità potenti e facili da usare, progettate per migliorare l'esperienza degli invitati e ottimizzare la gestione.",
+          getStarted: "Inizia",
+          discover: "Scopri",
+          gasketAutomationDescription:
+            "Ottieni la guarnizione perfetta per le tue esigenze grazie alla nostra produzione di precisione e al sistema di quotazione automatizzato. Ti basterà caricare il tuo progetto, scegliere i materiali e ottenere un prezzo istantaneo!",
         },
       },
     },

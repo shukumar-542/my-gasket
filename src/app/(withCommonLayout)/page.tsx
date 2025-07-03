@@ -10,6 +10,7 @@ import CustomGasket from "@/components/CustomGasket/CustomGasket";
 import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
+import HeroText from "@/components/HeroText/HeroText";
 const page = () => {
   const faqs = [
     {
@@ -49,19 +50,7 @@ const page = () => {
         {/* Apply background opacity correctly */}
         <div className="absolute inset-0 bg-[#000232] opacity-40"></div>
 
-        <div className="container mx-auto text-white px-2 md:px-0 relative">
-          <h1 className="text-[25px] md:text-[52px] text-white font-bold md:font-extrabold">
-            WELCOME TO MYGASKET
-          </h1>
-          <p className="md:text-[18px] md:mt-10">
-            Simplify your event planning with powerful, easy-to-use <br />
-            features designed to enhance guest experience and <br />
-            streamline management.
-          </p>
-          <button className="bg-[#F97316] mt-10 px-6 py-3 shadow-2xl rounded-md text-[18px] cursor-pointer">
-            Get Started
-          </button>
-        </div>
+       <HeroText/>
       </div>
       <HowItWorks />
       {/* <OurTrastedPartner /> */}
