@@ -58,6 +58,7 @@ i18n
           discover: "Scopri",
           gasketAutomationDescription:
             "Ottieni la guarnizione perfetta per le tue esigenze grazie alla nostra produzione di precisione e al sistema di quotazione automatizzato. Ti basterà caricare il tuo progetto, scegliere i materiali e ottenere un prezzo istantaneo!",
+          materialsWeOffer: "Materiali che Offriamo",
         },
       },
     },
