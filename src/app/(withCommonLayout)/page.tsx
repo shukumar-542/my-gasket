@@ -57,25 +57,15 @@ const page = () => {
 
       <CustomGasket />
       {/* <MaterialWeOffer /> */}
+
       <HighPrecision />
       <div>
-        <h1 className="text-[30px] md:text-[48px] font-extrabold text-center py-10">
-          Most frequently asked questions
-        </h1>
+       
         <Faqs faqs={faqs} />
-        <div className="flex justify-center items-center">
-          <Link
-            className="bg-[#F97316] px-10 py-3 rounded-sm text-white shadow-2xl"
-            href={"/faqs"}
-          >
-            See All
-          </Link>
-        </div>
+       
       </div>
       <div className="pt-10">
-        <h1 className="text-[25px] md:text-[48px] font-extrabold text-center my-10 uppercase pb-10">
-          what our customers say
-        </h1>
+       
         <WhatOurClientSay />
       </div>
       <GetInTouch />

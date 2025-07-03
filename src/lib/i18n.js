@@ -35,6 +35,12 @@ i18n
           materialsWeOffer: "Materials We Offer",
           gasketAutomationDescription:
             "Get the perfect gasket for your needs with our precision manufacturing and automated quoting system. Simply upload your design, choose materials, and get an instant price!",
+          mostFrequentlyAskedQuestionsTitle: "Most frequently asked questions",
+          seeAll: "See All",
+          whatCustomersSay: "What our customers say",
+          getInTouchWithUs: "Get in Touch with Us",
+          messageUsNow: "Message us Now",
+          questionsOrAssistance: "Have questions or need assistance? We're here to help!",
         },
       },
       Italy: {
@@ -59,6 +65,12 @@ i18n
           gasketAutomationDescription:
             "Ottieni la guarnizione perfetta per le tue esigenze grazie alla nostra produzione di precisione e al sistema di quotazione automatizzato. Ti basterà caricare il tuo progetto, scegliere i materiali e ottenere un prezzo istantaneo!",
           materialsWeOffer: "Materiali che Offriamo",
+          mostFrequentlyAskedQuestionsTitle: "Domande più frequenti",
+          seeAll: "Vedi Tutto",
+          whatCustomersSay: "Cosa dicono i nostri clienti",
+          getInTouchWithUs: "Mettiti in Contatto con Noi",
+          messageUsNow: "Scrivici Ora",
+          questionsOrAssistance: "Hai domande o hai bisogno di assistenza? Siamo qui per aiutarti!",
         },
       },
     },

@@ -31,7 +31,7 @@ const CustomGasket = () => {
             href={"/all-product"}
             className="text-white bg-black px-5 py-2 rounded-sm cursor-pointer"
           >
-            Discover
+            {t("discover")}
           </Link>
         </div>
       </div>

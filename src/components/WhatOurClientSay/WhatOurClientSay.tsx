@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import img from "../../assets/Avatar.png";
 import review1 from "../../assets/review1.png";
@@ -6,11 +7,14 @@ import review3 from "../../assets/review3.png";
 import review4 from "../../assets/review4.png";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 const WhatOurClientSay = () => {
+  const {t } = useTranslation()
   return (
     <div className="container mx-auto px-2 md:px-0">
-      
-
+      <h1 className="text-[25px] md:text-[48px] font-extrabold text-center my-10 uppercase pb-10">
+        {t("whatCustomersSay")}
+      </h1>
       <div className=" bg-white shadow-xl justify-between items-center   p-8 rounded-xl mx-2 md:mx-0">
         <div className="md:flex items-center justify-between gap-5">
           <div>
