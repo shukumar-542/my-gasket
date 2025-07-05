@@ -63,6 +63,7 @@ const HighPrecision = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
