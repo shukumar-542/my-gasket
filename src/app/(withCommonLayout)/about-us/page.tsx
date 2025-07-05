@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import about from "../../../assets/about.png";
 import about1 from "../../../assets/about1.png";
@@ -7,7 +8,9 @@ import Image from "next/image";
 import { FaMedal, FaQuoteLeft, FaRecycle, FaRobot } from "react-icons/fa";
 import { BsChatSquareQuote } from "react-icons/bs";
 import { FaTruckFast } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 const AboutUsPage = () => {
+  const {t} =  useTranslation();
   return (
     <div className=" mt-20 ">
       <div className="mt-8 relative ">
@@ -20,7 +23,7 @@ const AboutUsPage = () => {
         />
         <div className="absolute inset-0 bg-black opacity-45"></div>
         <p className="absolute top-1/2 left-2/12 text-white text-[40px] uppercase font-semibold">
-          About us
+          {t("aboutUs")}
         </p>
       </div>
 
@@ -38,13 +41,11 @@ const AboutUsPage = () => {
           </div>
           <div className="">
             <p className="text-[30px] md:text-[45px] font-bold">
-              High-Quality Materials for Every Need
+              {t("highQualityMaterials")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
             <p className="md:text-[18px] font">
-              At My Gasket, we provide a wide selection of premium materials,
-              including rubber, silicone, and metal, ensuring durability and
-              performance for various industries.
+              {t("materialsDescription")}
             </p>
           </div>
         </div>
@@ -53,14 +54,11 @@ const AboutUsPage = () => {
         <div className="md:flex items-center justify-between my-30">
           <div className="">
             <p className="text-[30px] md:text-[45px] font-bold">
-              Customization & Precision Engineering
+              {t("customizationPrecisionEngineering")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
             <p className="md:text-[18px] font">
-              We understand that every project is unique. Thats why we offer
-              custom thickness options, precision cutting, and DXF file uploads,
-              allowing you to create gaskets tailored to your exact
-              requirements.
+              {t("customProjectDescription")}
             </p>
           </div>
           <div className="w-full  flex justify-end">
@@ -88,14 +86,11 @@ const AboutUsPage = () => {
           </div>
           <div className="">
             <p className="text-[30px] md:text-[45px] font-bold">
-              Reliable Service & Fast Delivery
+              {t("reliableServiceFastDelivery")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
             <p className="md:text-[18px] font">
-              From manufacturing to delivery, we prioritize efficiency and
-              accuracy. With our streamlined process, you can expect quick
-              turnaround times and secure shipping to get your gaskets exactly
-              when you need them.
+              {t("serviceDeliveryDescription")}
             </p>
           </div>
         </div>
@@ -106,7 +101,7 @@ const AboutUsPage = () => {
         <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-medium text-4xl h-40 text-center flex flex-col justify-center">
           20+
           <span className="font-normal text-base mt-2">
-            years of experience in the gasket field
+            {t('yearsExperienceGasketField')}
           </span>
         </div>
 
@@ -117,14 +112,13 @@ const AboutUsPage = () => {
             4.0 industry <FaRobot  />
           </span>
           <span className="font-normal text-base mt-2">
-            We leverage the power of Industry 4.0 to deliver fast, precise, and
-            customizable gasket solutions.
+            {t('industry40Description')}
           </span>
         </div>
 
         {/* Box 3 */}
         <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white h-32 text-4xl   rounded-lg p-6 font-medium flex items-center justify-center">
-          10+ Materials
+          10+ {t('materials')}
         </div>
 
         {/* Box 4 */}
@@ -132,7 +126,7 @@ const AboutUsPage = () => {
           <div className="text-4xl mb-2">🕒</div>
           <span className="text-center text-4xl">48 hours</span>
           <span className="font-normal text-base">
-            for standard orders in all Italy
+            {t('standardOrdersItaly')}
           </span>
         </div>
 
@@ -143,19 +137,17 @@ const AboutUsPage = () => {
             background: `linear-gradient(to bottom right, green 0%, white 50%, white 60%, red 100%)`,
           }}
         >
-          <span className="text-center text-4xl font-medium">Made in italy</span>
+          <span className="text-center text-4xl font-medium">{t("madeInItaly")}</span>
           <span className="font-normal text-base text-center mt-2">
-            All our gaskets are proudly design and manufactured in Italy,
-            combining traditional craftsmanship with modern technology.
+            {t('gasketOriginDescription')}
           </span>
         </div>
 
         {/* Box 6 */}
         <div className=" text-white  bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md sm:mt-5 md:-mt-10 h-40 rounded-lg p-6 font-normal  text-sm flex flex-col justify-center text-center">
-          <b className="text-center text-4xl font-medium">No minimum orders</b>
+          <b className="text-center text-4xl font-medium">{t("noMinimumOrdersShort")}</b>
           <span className="mt-1 font-normal text-base">
-            we decided to not put a minimum order. We only apply a small fix
-            cost for each material and thickness.
+             {t('noMinimumOrders')}
           </span>
         </div>
 
@@ -163,11 +155,10 @@ const AboutUsPage = () => {
         <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
           <p className="text-center text-4xl font-medium flex items-center justify-center mb-5 gap-2">
             {" "}
-            No waste. <FaRecycle  />
+            {t('noWaste')}<FaRecycle  />
           </p>
           <span className="mt-1 font-normal text-base text-center">
-            We optimized cutting paths, minimize scraps and reduce environmental
-            impact without compromising on quality.
+           {t("wasteReductionDescription")}
           </span>
         </div>
 
@@ -175,30 +166,28 @@ const AboutUsPage = () => {
           {/* Box 8 */}
           <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
             <b className="text-center text-4xl flex items-center font-medium justify-center">
-              High quality
+              {t('highQuality')}
               <FaMedal  />
             </b>
             <span className="mt-1 font-normal text-base text-center">
-              We use top-grade materials and state-of-the-art machinery to
-              ensure every gasket meets the highest standards.
+              {t("qualityAssuranceDescription")}
             </span>
           </div>
 
           {/* Box 9 */}
           <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white rounded-lg p-6 mt-2 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-4xl font-medium flex items-center justify-center gap-2">Ultra fast replies<FaTruckFast /></b>
+            <b className="text-center text-4xl font-medium flex items-center justify-center gap-2">{t('ultraFastReplies')}<FaTruckFast /></b>
             <span className="mt-1 font-normal text-base text-center">
-              our team will get back to you in less than 24 hours
+              {t('replyTimePromise')}
             </span>
           </div>
         </div>
 
         {/* Box 10 */}
         <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white md:-mt-20 mt-1  rounded-lg p-6 font-bold text-lg text-center flex flex-col justify-center">
-          <span className="text-center text-4xl flex justify-center font-medium  items-center gap-2">Instant quote<BsChatSquareQuote color="" /></span>
+          <span className="text-center text-4xl flex justify-center font-medium  items-center gap-2">{t('getInstantQuote')}<BsChatSquareQuote color="" /></span>
           <span className="font-normal text-base mt-2">
-            Thanks to our instant quote generator, it is easier than ever to
-            order your custom gasket!
+           {t("easyCustomGasketOrder")}
           </span>
         </div>
       </div>
@@ -206,7 +195,7 @@ const AboutUsPage = () => {
       <div className="container mx-auto   p-6  ">
         <div className="bg-[#ECF5FE] md:flex p-10 items-center justify-between  rounded-md ">
           <div>
-            <span className="text-4xl font-semibold">Get your gasket now!</span>
+            <span className="text-4xl font-semibold">{t('getGasketNow')}</span>
             <p className="pt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
               corporis.
@@ -214,7 +203,7 @@ const AboutUsPage = () => {
           </div>
           <div className="text-white">
             <button className="bg-[#172554] px-10 py-5 cursor-pointer rounded-sm">
-              Buy Now
+               {t('buyNow')}
             </button>
           </div>
         </div>

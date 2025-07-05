@@ -40,7 +40,52 @@ i18n
           whatCustomersSay: "What our customers say",
           getInTouchWithUs: "Get in Touch with Us",
           messageUsNow: "Message us Now",
-          questionsOrAssistance: "Have questions or need assistance? We're here to help!",
+          questionsOrAssistance:
+            "Have questions or need assistance? We're here to help!",
+          // About us
+          aboutUs: "About Us",
+          highQualityMaterials: "High-Quality Materials for Every Need",
+          materialsDescription:
+            "At My Gasket, we provide a wide selection of premium materials, including rubber, silicone, and metal, ensuring durability and performance for various industries.",
+          customizationPrecisionEngineering:
+            "Customization & Precision Engineering",
+          customProjectDescription:
+            "We understand that every project is unique. That's why we offer custom thickness options, precision cutting, and DXF file uploads, allowing you to create gaskets tailored to your exact requirements.",
+          reliableServiceFastDelivery: "Reliable Service & Fast Delivery",
+          serviceDeliveryDescription:
+            "From manufacturing to delivery, we prioritize efficiency and accuracy. With our streamlined process, you can expect quick turnaround times and secure shipping to get your gaskets exactly when you need them.",
+          yearsExperienceGasketField: "years of experience in the gasket field",
+          industry40Description:
+            "We leverage the power of Industry 4.0 to deliver fast, precise, and customizable gasket solutions.",
+          materials: "Materials",
+          standardOrdersItaly: "for standard orders in all Italy",
+          madeInItaly: "Made in Italy",
+          gasketOriginDescription:
+            "All our gaskets are proudly designed and manufactured in Italy, combining traditional craftsmanship with modern technology.",
+          gasketOriginDescription:
+            "All our gaskets are proudly designed and manufactured in Italy, combining traditional craftsmanship with modern technology.",
+          noMinimumOrders:
+            "We decided to not put a minimum order. We only apply a small fixed cost for each material and thickness.",
+          gasketOriginDescription:
+            "Tutte le nostre guarnizioni sono orgogliosamente progettate e prodotte in Italia, combinando l'artigianato tradizionale con la tecnologia moderna.",
+          noMinimumOrders:
+            "Abbiamo deciso di non applicare un minimo d'ordine. Applichiamo solo un piccolo costo fisso per ogni materiale e spessore.",
+          noMinimumOrdersShort: "No minimum orders",
+          noWaste: "No waste",
+          wasteReductionDescription:
+            "We optimized cutting paths, minimize scraps and reduce environmental impact without compromising on quality.",
+          highQuality: "High quality",
+          qualityAssuranceDescription:
+            "We use top-grade materials and state-of-the-art machinery to ensure every gasket meets the highest standards.",
+          ultraFastReplies: "Ultra fast replies",
+          replyTimePromise:
+            "Our team will get back to you in less than 24 hours",
+          easyCustomGasketOrder:
+            "Thanks to our instant quote generator, it is easier than ever to order your custom gasket!",
+          instantQuote: "Instant quote",
+          getGasketNow: "Get your gasket now!",
+          buyNow: "Buy Now",
+          buyNow: "Acquista ora",
         },
       },
       Italy: {
@@ -70,7 +115,42 @@ i18n
           whatCustomersSay: "Cosa dicono i nostri clienti",
           getInTouchWithUs: "Mettiti in Contatto con Noi",
           messageUsNow: "Scrivici Ora",
-          questionsOrAssistance: "Hai domande o hai bisogno di assistenza? Siamo qui per aiutarti!",
+          questionsOrAssistance:
+            "Hai domande o hai bisogno di assistenza? Siamo qui per aiutarti!",
+          // About us
+          aboutUs: "Chi Siamo",
+          highQualityMaterials: "Materiali di Alta Qualità per Ogni Esigenza",
+          materialsDescription:
+            "A My Gasket, offriamo un'ampia selezione di materiali di alta qualità, tra cui gomma, silicone e metallo, garantendo durata e prestazioni per diverse industrie.",
+          customizationPrecisionEngineering:
+            "Personalizzazione e Ingegneria di Precisione",
+          customProjectDescription:
+            "Comprendiamo che ogni progetto è unico. Ecco perché offriamo opzioni di spessore personalizzate, taglio di precisione e caricamento di file DXF, permettendoti di creare guarnizioni su misura per le tue esatte esigenze.",
+          reliableServiceFastDelivery: "Servizio Affidabile e Consegna Veloce",
+          serviceDeliveryDescription:
+            "Dalla produzione alla consegna, diamo priorità all'efficienza e alla precisione. Con il nostro processo ottimizzato, puoi aspettarti tempi di consegna rapidi e spedizioni sicure per ricevere le tue guarnizioni esattamente quando ne hai bisogno.",
+          yearsExperienceGasketField:
+            "Anni di esperienza nel settore delle guarnizioni",
+          industry40Description:
+            "Sfruttiamo la potenza dell'Industria 4.0 per fornire soluzioni di guarnizioni veloci, precise e personalizzabili.",
+          materials: "Materiali",
+          standardOrdersItaly: "per ordini standard in tutta Italia",
+          madeInItaly: "Fatto in Italia",
+          gasketOriginDescription:
+            "Tutte le nostre guarnizioni sono orgogliosamente progettate e prodotte in Italia, combinando l'artigianato tradizionale con la tecnologia moderna.",
+          noMinimumOrdersShort: "Nessun minimo d'ordine",
+          noWaste: "Nessuno spreco",
+          wasteReductionDescription:
+            "Abbiamo ottimizzato i percorsi di taglio, minimizzato gli scarti e ridotto l'impatto ambientale senza compromettere la qualità.",
+          highQuality: "Alta qualità",
+          qualityAssuranceDescription:
+            "Utilizziamo materiali di prima qualità e macchinari all'avanguardia per garantire che ogni guarnizione soddisfi i più alti standard.",
+          ultraFastReplies: "Risposte ultra rapide",
+          replyTimePromise: "Il nostro team ti ricontatterà in meno di 24 ore.",
+          instantQuote: "Preventivo istantaneo",
+          easyCustomGasketOrder:
+            "Grazie al nostro generatore di preventivi istantanei, ordinare la tua guarnizione personalizzata è più facile che mai!",
+          getGasketNow: "Ottieni subito la tua guarnizione!",
         },
       },
     },
