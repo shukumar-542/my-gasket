@@ -102,6 +102,12 @@ i18n
           emailAddress: "Email Address",
           emailAddressPlaceholder: "Like. bllkpetd92@gmail.com",
           sendMessageNow: "Send message now",
+          customGasketsMadeEasy: "Custom Gaskets, Made Easy",
+          gasketAutomationDescription:
+            "Get the perfect gasket for your needs with our precision manufacturing and automated quoting system. Simply upload your design, choose materials, and get an instant price!",
+          highPrecisionCutting: "HIGH PRECISION CUTTING",
+          instantQuoteBenefitDescription:
+            "Our advanced software calculates your gasket's cost in real time, providing an accurate quote instantly. No waiting, no hassle—just fast, efficient, and reliable service.",
         },
       },
       Italy: {
@@ -183,6 +189,13 @@ i18n
           emailAddress: "Indirizzo email",
           emailAddressPlaceholder: "Es. bllkpetd92@gmail.com",
           sendMessageNow: "Invia messaggio ora",
+          customGasketsMadeEasy:
+            "Guarnizioni Personalizzate, Facili da Realizzare",
+          gasketAutomationDescription:
+            " Ottieni la guarnizione perfetta per le tue esigenze grazie alla nostra produzione di precisione e al sistema di quotazione automatizzato. Ti basterà caricare il tuo progetto, scegliere i materiali e ottenere un prezzo istantaneo!",
+          highPrecisionCutting: "TAGLIO AD ALTA PRECISIONE",
+          instantQuoteBenefitDescription:
+            "Il nostro software avanzato calcola il costo della tua guarnizione in tempo reale, fornendo un preventivo accurato all'istante. Nessuna attesa, nessuna seccatura: solo un servizio rapido, efficiente e affidabile.",
         },
       },
     },
