@@ -17,24 +17,22 @@ import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
 import UserReview from "@/components/UserReview/UserReview";
 import QuoteModal from "@/components/QuoteModal/QuoteModal";
 import Link from "next/link";
-import { FaRegCircleCheck } from "react-icons/fa6";
 import { MdCheck } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdStarOutline } from "react-icons/io";
 
 const ProductDetailsPage = () => {
-  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div>
       <div
         className="pt-[110px] bg-[#BEDBF6]"
-        // style={{
-        //   backgroundImage: `url(${hero.src})`,
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundPosition: "center",
-        //   backgroundSize: "cover",
-        // }}
+      // style={{
+      //   backgroundImage: `url(${hero.src})`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "center",
+      //   backgroundSize: "cover",
+      // }}
       >
         <div className="container mx-auto text-[#000624] md:flex items-center mt-10 px-2 md:px-0">
           <div className="w-full">
@@ -45,12 +43,14 @@ const ProductDetailsPage = () => {
             </p>
 
             <div className="flex items-center justify-center md:justify-start pb-4 gap-5 text-black mt-10">
-              <button
-                onClick={() => setOpenModal(true)}
-                className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer"
-              >
-                Get Instant Quote
-              </button>
+              <Link href={"/materials-quote"}>
+                <button
+                  // onClick={() => setOpenModal(true)}
+                  className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer"
+                >
+                  Get Instant Quote
+                </button>
+              </Link>
               <button className=" border border-[#F97316] bg-[#FED7AA]  px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
                 Datasheet
               </button>
@@ -161,7 +161,6 @@ const ProductDetailsPage = () => {
         </div>
         <ShareExprience />
       </div>
-      <QuoteModal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };

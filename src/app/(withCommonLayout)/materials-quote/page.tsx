@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import img from "../../../assets/quote.png";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import WorkProcess from "@/components/WorkProcess/WorkProcess";
@@ -11,11 +11,17 @@ import { LuMinus } from "react-icons/lu";
 import { FaDollarSign } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import Link from "next/link";
+import QuoteModal from "@/components/QuoteModal/QuoteModal";
+
+
+
 const MaterialsQuotePage = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [numberOfPieces, setNumberOfPieces] = useState("0");
+
   const workSteps = [
     {
       step: "01",
@@ -36,7 +42,7 @@ const MaterialsQuotePage = () => {
     },
   ];
 
-  // =============Upload main file function =================//
+  // Upload main file function
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
 
@@ -56,7 +62,7 @@ const MaterialsQuotePage = () => {
     }
   };
 
-  // Handle input change value
+  // Handle input change value for number of pieces
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^\d*$/.test(value)) {
@@ -75,14 +81,17 @@ const MaterialsQuotePage = () => {
     });
   };
 
+  // Remove file from additional files list
   const handleRemove = (index: number) => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
+  // Open file dialog for additional files
   const openFileDialog = () => {
     fileInputRef.current?.click();
   };
 
+  // Handle multiple files selection for additional files
   const handleFileChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
     const filteredFiles = selectedFiles.filter((file) =>
@@ -91,15 +100,30 @@ const MaterialsQuotePage = () => {
     setFiles((prev) => [...prev, ...filteredFiles]);
   };
 
+  useEffect(() => {
+    const hasSeenModal = localStorage.getItem("quoteModalShown");
+    if (!hasSeenModal) {
+      setOpenModal(true);
+    }
+  }, []);
+
+  // When user clicks "Continue" in modal, close and set localStorage flag
+  const handleModalClose = () => {
+    localStorage.setItem("quoteModalShown", "true");
+    setOpenModal(false);
+  };
+
   return (
-    <div className=" mt-20  ">
-      <div className="mt-8 relative ">
+    <div className="mt-20">
+      <QuoteModal openModal={openModal} setOpenModal={() => setOpenModal(false)} onContinue={handleModalClose} />
+
+      <div className="mt-8 relative">
         <Image
           className="w-full h-[400px] object-cover"
           src={img}
           height={1200}
           width={1200}
-          alt="img"
+          alt="Materials Quote Banner"
         />
         <div className="absolute inset-0 bg-black opacity-45"></div>
         <p className="absolute top-1/2 left-2/12 text-white text-[40px] uppercase font-semibold">
@@ -107,19 +131,21 @@ const MaterialsQuotePage = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center py-10 gap-2  bg-white px-2 md:px-0">
-        <p className=" font-semibold text-[25px] md:text-[38px]">
+      <div className="flex items-center justify-center py-10 gap-2 bg-white px-2 md:px-0">
+        <p className="font-semibold text-[25px] md:text-[38px]">
           How does the quote generator work?{" "}
         </p>
         <p className="text-[#F97316] cursor-pointer">
           <IoMdInformationCircleOutline size={35} />
         </p>
       </div>
+
       <div className="bg-white mx-2 md:mx-0">
         <WorkProcess workSteps={workSteps} />
       </div>
 
-      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 ms:px-0">
+      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-0">
+        {/* Left side - file upload and additional details */}
         <div>
           <label
             htmlFor="file-upload"
@@ -134,7 +160,7 @@ const MaterialsQuotePage = () => {
               className="hidden"
             />
             {file ? (
-              <p className="mt-4 text-[#F97316] text-center">{file.name}</p>
+              <p className="mt-4 text-[#F97316] text-center truncate w-full">{file.name}</p>
             ) : (
               "Upload File"
             )}
@@ -143,7 +169,7 @@ const MaterialsQuotePage = () => {
           <div className="border rounded-lg p-4 shadow-sm relative bg-white mt-10">
             <h2 className="text-lg font-semibold mb-2">Additional Details</h2>
 
-            {/* Uploaded file preview */}
+            {/* Uploaded additional files preview */}
             <div className="flex gap-2 flex-wrap mb-2">
               {files.map((file, index) => (
                 <div
@@ -161,8 +187,8 @@ const MaterialsQuotePage = () => {
               ))}
             </div>
 
-            {/* Upload input and icon */}
-            <div className="">
+            {/* Upload additional files input */}
+            <div>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -174,61 +200,55 @@ const MaterialsQuotePage = () => {
               <button
                 onClick={openFileDialog}
                 className="absolute top-0 right-0 p-2 mt-2 mr-2 text-gray-500 hover:text-black"
+                aria-label="Upload additional files"
               >
                 <FiPaperclip size={20} />
               </button>
               <Input
                 placeholder="Additional Text..."
-                variant="borderless"
-                className="border-none "
+                className="border-none"
+                allowClear
               />
             </div>
           </div>
         </div>
 
+        {/* Right side - form options */}
         <div className="space-y-5">
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select the drawing scale 01 : </p>
-            <div>
-              <Input className="" />
-            </div>
+            <Input className="" />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Drawing Measurement Unit: </p>
-            <div>
-              <Select
-                style={{ width: 145 }}
-                options={[
-                  { value: "jack", label: "Jack" },
-                  { value: "lucy", label: "Lucy" },
-                  { value: "Yiminghe", label: "yiminghe" },
-                ]}
-              ></Select>
-            </div>
+            <Select
+              style={{ width: 145 }}
+              options={[
+                { value: "jack", label: "Jack" },
+                { value: "lucy", label: "Lucy" },
+                { value: "yiminghe", label: "Yiminghe" },
+              ]}
+            />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Rubber type: </p>
-            <div>
-              <Select
-                style={{ width: 145 }}
-                options={[
-                  { value: "Gomma para1", label: "Gomma para1" },
-                  { value: "Gomma para", label: "Gomma para" },
-                ]}
-              ></Select>
-            </div>
+            <Select
+              style={{ width: 145 }}
+              options={[
+                { value: "gomma_para1", label: "Gomma para1" },
+                { value: "gomma_para", label: "Gomma para" },
+              ]}
+            />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Thickness: </p>
-            <div>
-              <Select
-                style={{ width: 145 }}
-                options={[
-                  { value: "1mm", label: "1mm" },
-                  { value: "2mm", label: "2mm" },
-                ]}
-              ></Select>
-            </div>
+            <Select
+              style={{ width: 145 }}
+              options={[
+                { value: "1mm", label: "1mm" },
+                { value: "2mm", label: "2mm" },
+              ]}
+            />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Number of Pieces: </p>
@@ -236,6 +256,7 @@ const MaterialsQuotePage = () => {
               <button
                 onClick={decrement}
                 className="border border-black rounded-[2px] cursor-pointer"
+                aria-label="Decrease number of pieces"
               >
                 <LuMinus size={20} />
               </button>
@@ -243,30 +264,33 @@ const MaterialsQuotePage = () => {
                 value={numberOfPieces}
                 onChange={handleInputChange}
                 className="w-16 border border-black text-center rounded-[2px]"
+                inputMode="numeric"
+                aria-label="Number of pieces"
               />
               <button
                 onClick={increment}
                 className="border border-black rounded-[2px] cursor-pointer"
+                aria-label="Increase number of pieces"
               >
                 <FiPlus size={20} />
               </button>
             </div>
           </div>
-          <div className="flex items-center text-5xl font-extrabold">
-            <p>
-              <FaDollarSign />
-            </p>
+
+          <div className="flex items-center text-5xl font-extrabold gap-2">
+            <FaDollarSign />
             <p>4.49</p>
           </div>
-          <Link href={"/track-order"}>
-            <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2">
-              <MdShoppingCart size={20} color="white" />
+
+          <Link href="/track-order" passHref>
+            <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
+              <MdShoppingCart size={20} />
               Add to Cart
             </button>
           </Link>
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
 

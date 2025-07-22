@@ -17,7 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`md:flex items-center gap-20 py-10 ${
+      className={`md:flex items-center gap-20  ${
         reverse ? "flex-row-reverse" : "flex-row"
       }
       `}
