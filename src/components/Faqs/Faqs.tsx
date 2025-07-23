@@ -40,14 +40,7 @@ const Faqs = ({ faqs }: { faqs: Faq[] }) => {
           );
         })}
       </Accordion>
-      <div className="flex justify-center items-center">
-        <Link
-          className="bg-[#F97316] px-10 py-3 rounded-sm text-white shadow-2xl"
-          href={"/faqs"}
-        >
-          {t("seeAll")}
-        </Link>
-      </div>
+    
     </div>
   );
 };

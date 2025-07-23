@@ -2,29 +2,63 @@ import Image from "next/image";
 import React from "react";
 import img from "../../../assets/faq.png";
 import Faqs from "@/components/Faqs/Faqs";
-const FaqPage = () => {
-  const faqs = [
-    {
-      item: "item-1",
-      title: "What materials do you use for manufacturing gaskets?",
-      des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
-    },
-    {
-      item: "item-2",
-      title: "What materials do you use for manufacturing gaskets?",
-      des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
-    },
-    {
-      item: "item-3",
-      title: "What materials do you use for manufacturing gaskets?",
-      des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
-    },
-    {
-      item: "item-4",
-      title: "What materials do you use for manufacturing gaskets?",
-      des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
-    },
-  ];
+
+
+async function fetchFaqs() {
+  try {
+    const res = await fetch("http://103.186.20.116:9001/api/auth/faq", {
+      cache: "no-store",
+    });
+
+    console.log("Response status:", res.status);
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("Error body:", errorText);
+      throw new Error("Failed to fetch FAQs");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Fetch FAQs failed:", error);
+    throw error;
+  }
+}
+
+const FaqPage = async() => {
+
+
+  const data = await fetchFaqs();
+
+  console.log(data)
+
+  const faqs = data?.map((item: any) => ({
+    item: item.id,
+    title: item.question,
+    des: item.answer,
+  }));
+  // const faqs = [
+  //   {
+  //     item: "item-1",
+  //     title: "What materials do you use for manufacturing gaskets?",
+  //     des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
+  //   },
+  //   {
+  //     item: "item-2",
+  //     title: "What materials do you use for manufacturing gaskets?",
+  //     des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
+  //   },
+  //   {
+  //     item: "item-3",
+  //     title: "What materials do you use for manufacturing gaskets?",
+  //     des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
+  //   },
+  //   {
+  //     item: "item-4",
+  //     title: "What materials do you use for manufacturing gaskets?",
+  //     des: " We offer a wide range of materials for our gaskets, including rubber, silicone, cork, metal, PTFE, and various composites. The material choice depends on the application requirements such as temperature, pressure, and chemical exposure.",
+  //   },
+  // ];
   return (
     <div>
       <div className="mt-20 relative ">

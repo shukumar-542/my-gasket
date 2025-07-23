@@ -50,7 +50,7 @@ const page = () => {
         {/* Apply background opacity correctly */}
         <div className="absolute inset-0 bg-[#000232] opacity-40"></div>
 
-       <HeroText/>
+        <HeroText />
       </div>
       <HowItWorks />
       {/* <OurTrastedPartner /> */}
@@ -60,13 +60,25 @@ const page = () => {
 
       <HighPrecision />
       <div>
-       
+
         <Faqs faqs={faqs} />
-       
+        <div className="flex justify-center">
+          <Link
+            className="bg-[#F97316] px-10 py-3 rounded-sm text-white shadow-2xl"
+            href={"/faqs"}
+          >
+            See ALL
+          </Link>
+        </div>
+
+
       </div>
       <div className="pt-10">
-       
+
         <WhatOurClientSay />
+        <div className="flex justify-center items-center">
+
+        </div>
       </div>
       <GetInTouch />
       <OurService />
