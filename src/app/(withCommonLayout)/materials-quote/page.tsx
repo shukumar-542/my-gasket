@@ -12,7 +12,12 @@ import { FaDollarSign } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import Link from "next/link";
 import QuoteModal from "@/components/QuoteModal/QuoteModal";
-
+import img1 from "../../../assets/work1.png";
+import img2 from "../../../assets/work2.png";
+import img3 from "../../../assets/work3.png";
+import img4 from "../../../assets/work4.png";
+import img5 from "../../../assets/work5.png";
+import img6 from "../../../assets/work6.png";
 
 
 const MaterialsQuotePage = () => {
@@ -26,19 +31,28 @@ const MaterialsQuotePage = () => {
     {
       step: "01",
       title:
-        "You can upload one file at a time, and it must contain the drawing of a single gasket.",
+        "",
+      img: img1
     },
     {
       step: "02",
-      title: "we only accept dxf or dwg files",
+      title: ".DWG or .DFX files only",
+      img: img2
     },
     {
       step: "03",
       title: "MAXIMUM DIMENSIONS:1500mmX1500mm",
+      img: img3
     },
     {
       step: "04",
       title: "It must have a top view only.",
+      img: img6
+    },
+    {
+      step: "05",
+      title: "1 : 1 scale drawing only",
+      img: img5
     },
   ];
 
