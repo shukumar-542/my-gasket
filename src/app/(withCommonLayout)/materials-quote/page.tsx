@@ -31,7 +31,7 @@ const MaterialsQuotePage = () => {
     {
       step: "01",
       title:
-        "",
+        "You can upload only one drawing ata a time and it must contain the drawing of a single gasket.",
       img: img1
     },
     {

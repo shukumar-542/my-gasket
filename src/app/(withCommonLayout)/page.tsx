@@ -11,7 +11,7 @@ import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
 import HeroText from "@/components/HeroText/HeroText";
-const page = () => {
+const page = async() => {
   const faqs = [
     {
       item: "item-1",
