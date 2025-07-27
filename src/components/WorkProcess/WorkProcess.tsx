@@ -41,6 +41,7 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
           >
             <p className="w-14 h-14 flex items-center justify-center text-center text-sm border-[3px] rounded-full border-[#2563EB] left-1/2 transform -translate-x-1/2 absolute -top-5 bg-white">
               02
+              
 
             </p>
             <p className="text-[18px] text-center font-medium mt-18">.DWG or .DFX files only</p>
