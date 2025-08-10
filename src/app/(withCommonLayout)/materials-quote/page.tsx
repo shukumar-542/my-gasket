@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import img from "../../../assets/quote.png";
-import { IoMdInformationCircleOutline } from "react-icons/io";
+import { IoMdClose, IoMdInformationCircleOutline } from "react-icons/io";
 import WorkProcess from "@/components/WorkProcess/WorkProcess";
 import { HiOutlineUpload } from "react-icons/hi";
 import { Input, Select } from "antd";
@@ -15,16 +15,15 @@ import QuoteModal from "@/components/QuoteModal/QuoteModal";
 import img1 from "../../../assets/work1.png";
 import img2 from "../../../assets/work2.png";
 import img3 from "../../../assets/work3.png";
-import img4 from "../../../assets/work4.png";
 import img5 from "../../../assets/work5.png";
 import img6 from "../../../assets/work6.png";
-
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [files, setFiles] = useState<File[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const mainFileInputRef = useRef<HTMLInputElement>(null);
+  const additionalFilesInputRef = useRef<HTMLInputElement>(null);
   const [numberOfPieces, setNumberOfPieces] = useState("0");
 
   const workSteps = [
@@ -32,34 +31,33 @@ const MaterialsQuotePage = () => {
       step: "01",
       title:
         "You can upload only one drawing ata a time and it must contain the drawing of a single gasket.",
-      img: img1
+      img: img1,
     },
     {
       step: "02",
       title: ".DWG or .DFX files only",
-      img: img2
+      img: img2,
     },
     {
       step: "03",
       title: "MAXIMUM DIMENSIONS:1500mmX1500mm",
-      img: img3
+      img: img3,
     },
     {
       step: "04",
       title: "It must have a top view only.",
-      img: img6
+      img: img6,
     },
     {
       step: "05",
       title: "1 : 1 scale drawing only",
-      img: img5
+      img: img5,
     },
   ];
 
-  // Upload main file function
+  // Main file upload handler
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
-
     if (selectedFile) {
       const allowedExtensions = [".dxf", ".dwg"];
       const fileExtension = selectedFile.name
@@ -68,15 +66,58 @@ const MaterialsQuotePage = () => {
 
       if (allowedExtensions.includes(fileExtension)) {
         setFile(selectedFile);
-        console.log("Accepted file:", selectedFile);
+        console.log("Accepted main file:", selectedFile);
       } else {
         alert("Only .dxf or .dwg files are allowed");
-        e.target.value = "";
+        if (mainFileInputRef.current) mainFileInputRef.current.value = "";
       }
     }
   };
 
-  // Handle input change value for number of pieces
+  // Additional files upload handler
+  const handleAdditionalFilesChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const selectedFiles = Array.from(e.target.files || []);
+    const allowedExtensions = [".dxf", ".dwg"];
+
+    const filteredFiles = selectedFiles.filter((file) =>
+      allowedExtensions.includes(
+        file.name.slice(file.name.lastIndexOf(".")).toLowerCase()
+      )
+    );
+
+    if (filteredFiles.length !== selectedFiles.length) {
+      alert("Only .dxf or .dwg files are allowed");
+    }
+
+    setFiles((prev) => [...prev, ...filteredFiles]);
+
+    // Reset input value so same file can be re-uploaded if needed
+    if (additionalFilesInputRef.current) {
+      additionalFilesInputRef.current.value = "";
+    }
+  };
+
+  // Remove main file
+  const removeFile = () => {
+    setFile(null);
+    if (mainFileInputRef.current) {
+      mainFileInputRef.current.value = "";
+    }
+  };
+
+  // Remove additional file by index
+  const handleRemove = (index: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // Open additional files file dialog
+  const openFileDialog = () => {
+    additionalFilesInputRef.current?.click();
+  };
+
+  // Handle number input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^\d*$/.test(value)) {
@@ -95,25 +136,6 @@ const MaterialsQuotePage = () => {
     });
   };
 
-  // Remove file from additional files list
-  const handleRemove = (index: number) => {
-    setFiles((prev) => prev.filter((_, i) => i !== index));
-  };
-
-  // Open file dialog for additional files
-  const openFileDialog = () => {
-    fileInputRef.current?.click();
-  };
-
-  // Handle multiple files selection for additional files
-  const handleFileChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = Array.from(e.target.files || []);
-    const filteredFiles = selectedFiles.filter((file) =>
-      /\.(dxf|dwg)$/i.test(file.name)
-    );
-    setFiles((prev) => [...prev, ...filteredFiles]);
-  };
-
   useEffect(() => {
     const hasSeenModal = localStorage.getItem("quoteModalShown");
     if (!hasSeenModal) {
@@ -121,7 +143,6 @@ const MaterialsQuotePage = () => {
     }
   }, []);
 
-  // When user clicks "Continue" in modal, close and set localStorage flag
   const handleModalClose = () => {
     localStorage.setItem("quoteModalShown", "true");
     setOpenModal(false);
@@ -129,7 +150,11 @@ const MaterialsQuotePage = () => {
 
   return (
     <div className="mt-20">
-      <QuoteModal openModal={openModal} setOpenModal={() => setOpenModal(false)} onContinue={handleModalClose} />
+      <QuoteModal
+        openModal={openModal}
+        setOpenModal={() => setOpenModal(false)}
+        onContinue={handleModalClose}
+      />
 
       <div className="mt-8 relative">
         <Image
@@ -161,24 +186,40 @@ const MaterialsQuotePage = () => {
       <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-0">
         {/* Left side - file upload and additional details */}
         <div>
-          <label
-            htmlFor="file-upload"
-            className="flex flex-col items-center justify-center border-2 border-dashed border-blue-300 rounded-xl p-6 cursor-pointer bg-blue-50 hover:bg-blue-100 transition"
-          >
-            <HiOutlineUpload size={50} />
-            <input
-              id="file-upload"
-              type="file"
-              accept=".dxf,.dwg"
-              onChange={handleFileChange}
-              className="hidden"
-            />
-            {file ? (
-              <p className="mt-4 text-[#F97316] text-center truncate w-full">{file.name}</p>
-            ) : (
-              "Upload File"
+          <div className="relative">
+            <label
+              htmlFor="file-upload"
+              className="flex flex-col items-center justify-center border-2 py-20 border-dashed border-blue-300 rounded-xl p-6 cursor-pointer bg-blue-50 hover:bg-blue-100 transition"
+            >
+              <HiOutlineUpload size={50} />
+              <input
+                id="file-upload"
+                type="file"
+                accept=".dxf,.dwg"
+                onChange={handleFileChange}
+                className="hidden"
+                ref={mainFileInputRef}
+              />
+
+              {file ? (
+                <p className="mt-4 text-[#F97316] text-center truncate">
+                  {file.name}
+                </p>
+              ) : (
+                "Upload File"
+              )}
+            </label>
+
+            {file && (
+              <button
+                type="button"
+                onClick={removeFile}
+                className="text-red-500 hover:text-red-700 cursor-pointer absolute top-[-10px] right-[-10px] border p-2 border-red-500 rounded-full bg-white"
+              >
+                <IoMdClose size={20} />
+              </button>
             )}
-          </label>
+          </div>
 
           <div className="border rounded-lg p-4 shadow-sm relative bg-white mt-10">
             <h2 className="text-lg font-semibold mb-2">Additional Details</h2>
@@ -205,10 +246,10 @@ const MaterialsQuotePage = () => {
             <div>
               <input
                 type="file"
-                ref={fileInputRef}
+                ref={additionalFilesInputRef}
                 multiple
                 accept=".dxf,.dwg"
-                onChange={handleFileChanges}
+                onChange={handleAdditionalFilesChange}
                 className="hidden"
               />
               <button
@@ -218,11 +259,7 @@ const MaterialsQuotePage = () => {
               >
                 <FiPaperclip size={20} />
               </button>
-              <Input
-                placeholder="Additional Text..."
-                className="border-none"
-                allowClear
-              />
+              <Input placeholder="Additional Text..." className="border-none" allowClear />
             </div>
           </div>
         </div>
@@ -231,7 +268,7 @@ const MaterialsQuotePage = () => {
         <div className="space-y-5">
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select the drawing scale 01 : </p>
-            <Input className="" />
+            <p className="w-20">1 : 1 </p>
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Drawing Measurement Unit: </p>
