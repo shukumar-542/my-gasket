@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import hero from "../../../../assets/detailsHero.png";
 import img from "../../../../assets/details1.png";
 import Image from "next/image";
-import arrowGreen from "../../../../assets/arrow-green.png";
-import arrowBlue from "../../../../assets/arrow-blue.png";
-import arrowRed from "../../../../assets/arrow-red.png";
 import details1 from "../../../../assets/details2.png";
 import details2 from "../../../../assets/details3.png";
 import details3 from "../../../../assets/details4.png";
@@ -20,8 +17,11 @@ import Link from "next/link";
 import { MdCheck } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdStarOutline } from "react-icons/io";
+import { useParams } from "next/navigation";
 
 const ProductDetailsPage = () => {
+    const params = useParams();
+    console.log(params.id);
 
   return (
     <div>

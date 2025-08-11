@@ -11,7 +11,6 @@ const AllProductPage = () => {
 
   const {data : products, isLoading} = useGetProductsQuery({});
 
-  console.log(products?.data?.materials)
   
   return (
     <div>
