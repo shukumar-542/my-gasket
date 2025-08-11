@@ -6,8 +6,12 @@ import product3 from "../../../assets/product2.png";
 import materials from "../../../assets/materials.png";
 import Image from "next/image";
 import Product from "@/components/Product/Product";
-import Link from "next/link";
+import { useGetProductsQuery } from "@/redux/Api/products";
 const AllProductPage = () => {
+
+  const {data : products, isLoading} = useGetProductsQuery({});
+
+  console.log(products?.data?.materials)
   
   return (
     <div>
