@@ -34,21 +34,27 @@ const AllProductPage = () => {
       <div className="container mx-auto my-20">
         <p className="uppercase text-2xl font-bold mb-10">Type 1</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <Product product={{ image: product1, title: "GOMMA PARA" }} />
+        {
+          products?.data?.materials?.map((product: any) => (
+            <Product key={product.id} product={product} />
+          ))
+        }
+
+          {/* <Product product={{ image: product1, title: "GOMMA PARA" }} />
           <Product product={{ image: product2, title: "GOMMA PARA" }} />
           <Product product={{ image: product3, title: "GOMMA PARA" }} />
           <Product product={{ image: product1, title: "GOMMA PARA" }} />
           <Product product={{ image: product3, title: "GOMMA PARA" }} />
-          <Product product={{ image: product2, title: "GOMMA PARA" }} />
+          <Product product={{ image: product2, title: "GOMMA PARA" }} /> */}
         </div>
-        <p className="uppercase text-2xl font-bold my-10">Type 2</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* <p className="uppercase text-2xl font-bold my-10">Type 2</p> */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <Product product={{ image: product1, title: "GOMMA PARA" }} />
-        </div>
+        </div> */}
 
 
-        <p className="uppercase text-2xl font-bold my-10">Type 3</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* <p className="uppercase text-2xl font-bold my-10">Type 3</p> */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <Product product={{ image: product1, title: "GOMMA PARA" }} /> 
           <Product product={{ image: product2, title: "GOMMA PARA" }} />
           <Product product={{ image: product3, title: "GOMMA PARA" }} />
@@ -57,7 +63,7 @@ const AllProductPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <Product product={{ image: product1, title: "GOMMA PARA" }} />
           <Product product={{ image: product2, title: "GOMMA PARA" }} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
