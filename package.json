@@ -25,6 +25,7 @@
     "react-i18next": "^15.5.3",
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.0.2",
     "tw-animate-css": "^1.2.4"
   },

@@ -2,24 +2,26 @@
 import React from "react";
 import img from "../../../assets/image 2.png";
 import Image from "next/image";
-import { Form, Input, Select } from "antd";
+import { Form, Input, Select, Spin } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { FiPaperclip } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import { useContactUsMutation } from "@/redux/Api/authApi";
+import { toast } from "sonner";
 
 const ContactUsPage = () => {
   const { t } = useTranslation();
-  const [conntactUs] = useContactUsMutation()
+  const [conntactUs, { isLoading }] = useContactUsMutation()
+  const [form] = Form.useForm();
 
   const handleSendMessage = (values: any) => {
-    console.log("Form values:", values);
     conntactUs(values).unwrap()
       .then((payload) => {
-        console.log('fulfilled', payload)
-        
+        toast.success("Your message has been sent successfully!");
+        form.resetFields();
+
       })
-      .catch((error) => console.error('rejected', error));
+      .catch((error) => toast.error(error?.data?.message || "Failed to send message"));
     // Handle form submission logic here
   };
   return (
@@ -40,14 +42,24 @@ const ContactUsPage = () => {
             <Image src={img} height={800} width={800} alt="img" />
           </div>
           <div className=" w-full border p-10 bg-[#BFDCF7] rounded-md shadow-xl">
-            <Form layout="vertical" onFinish={handleSendMessage}>
+            <Form form={form} layout="vertical" onFinish={handleSendMessage}>
               <div className="md:flex items-center justify-between gap-10">
                 <div className="w-full">
                   <div className="md:flex justify-between items-center gap-5">
-                    <Form.Item label={t("firstName")} name={"first_name"} className="w-full">
+                    <Form.Item rules={[
+                        {
+                          required: true,
+                          message: "Please enter your first name",
+                        },
+                      ]}  label={t("firstName")} name={"first_name"} className="w-full">
                       <Input placeholder="Jane" className="w-full h-10" />
                     </Form.Item>
-                    <Form.Item label={t("lastName")} name={"last_name"} className="w-full ">
+                    <Form.Item rules={[
+                        {
+                          required: true,
+                          message: "Please enter your last name",
+                        },
+                      ]}  label={t("lastName")} name={"last_name"} className="w-full ">
                       <Input placeholder="Copper" className="w-full h-10" />
                     </Form.Item>
                   </div>
@@ -89,7 +101,12 @@ const ContactUsPage = () => {
                       />
                     </Form.Item>
                   </div>
-                  <Form.Item label={t("emailAddress")} name={"email_address"} className="w-full">
+                  <Form.Item rules={[
+                        {
+                          required: true,
+                          message: "Please enter your email address",
+                        },
+                      ]}  label={t("emailAddress")} name={"email_address"} className="w-full">
                     <Input
                       placeholder="Like . bilekpetr92@gmail.com"
                       className="w-full h-10"
@@ -97,13 +114,19 @@ const ContactUsPage = () => {
                   </Form.Item>
 
                 </div>
-                <Form.Item label={t("question")} name={"question"} className="w-full relative">
+                <Form.Item  rules={[
+                        {
+                          required: true,
+                          message: "Please enter your question",
+                        },
+                      ]} label={t("question")} name={"question"} className="w-full relative">
                   <div className="bg-white p-2 rounded-md">
                     <div className=" flex justify-end ">
                       <FiPaperclip size={20} />
                     </div>
 
                     <TextArea
+                     
                       placeholder="Like. What included in ...."
                       rows={13}
                       className=" border-none border-0"
@@ -117,7 +140,8 @@ const ContactUsPage = () => {
               </div>
               <div className="flex justify-center text-white">
                 <button className="bg-[#172554] text-white px-5 cursor-pointer py-2 font-semibold text-[18px] rounded-sm shadow-2xl">
-                  {t("sendMessageNow")}
+
+                  {isLoading ? <Spin className="ml-2" size="small" /> : t("sendMessageNow")}
                 </button>
               </div>
             </Form>

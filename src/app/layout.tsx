@@ -3,7 +3,7 @@ import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import I18nProvider from "@/lib/i18nProvider";
 import ReduxProvider from "@/provider/ReduxProvider";
-
+import { Toaster } from "sonner";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -30,6 +30,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${inter.variable} `}>
         <ReduxProvider>
           <I18nProvider>
+            <Toaster position="top-right" richColors />
             {children}
 
           </I18nProvider>
