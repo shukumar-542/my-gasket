@@ -2,7 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 type FeatureCardProps = {
-  image: StaticImageData;
+  image: StaticImageData | string;
   title: string;
   description: string;
   reverse?: boolean;

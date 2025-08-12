@@ -18,10 +18,27 @@ import { MdCheck } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdStarOutline } from "react-icons/io";
 import { useParams } from "next/navigation";
+import { useMaterialsDetailsQuery } from "@/redux/Api/products";
+import { imageUrl } from "@/redux/baseApi";
 
 const ProductDetailsPage = () => {
-    const params = useParams();
-    console.log(params.id);
+  const params = useParams();
+  const { data: getMeaterialsDetails } = useMaterialsDetailsQuery(params?.id);
+
+
+  /// Separate features based on their type: pros, cons, and main_features
+  const prosFeatures: any[] = [];
+  const consFeatures: any[] = [];
+  const mainFeatures: any[] = [];
+
+  getMeaterialsDetails?.data?.features?.forEach((feature: any) => {
+    if (feature?.feature_type === "pros") prosFeatures.push(feature);
+    else if (feature?.feature_type === "cons") consFeatures.push(feature);
+    else if (feature?.feature_type === "main_features")
+      mainFeatures.push(feature);
+  });
+
+  console.log(getMeaterialsDetails?.data?.image);
 
   return (
     <div>
@@ -36,7 +53,7 @@ const ProductDetailsPage = () => {
       >
         <div className="container mx-auto text-[#000624] md:flex items-center mt-10 px-2 md:px-0">
           <div className="w-full">
-            <p className="text-[48px] font-extrabold uppercase">Gomma PARA</p>
+            <p className="text-[48px] font-extrabold uppercase">{getMeaterialsDetails?.data?.name}</p>
             <p className="text-xl mt-10 max-w-2xl">
               Simplify your event planning with powerful, easy-to-use features
               designed to enhance guest experience and streamline management.
@@ -51,13 +68,25 @@ const ProductDetailsPage = () => {
                   Get Instant Quote
                 </button>
               </Link>
-              <button className=" border border-[#F97316] bg-[#FED7AA]  px-8 py-3 rounded-sm shadow-2xl cursor-pointer">
+              <button
+                className="border border-[#F97316] bg-[#FED7AA] px-8 py-3 rounded-sm shadow-2xl cursor-pointer"
+                onClick={() => {
+                  if (getMeaterialsDetails?.data?.datasheet) {
+                    window.open(
+                      `${imageUrl}${getMeaterialsDetails.data.datasheet}`,
+                      "_blank"
+                    );
+                  } else {
+                    alert("No datasheet available");
+                  }
+                }}
+              >
                 Datasheet
               </button>
             </div>
           </div>
           <div>
-            <Image src={img} height={600} width={600} alt="img" />
+            <Image src={`${imageUrl}${getMeaterialsDetails?.data?.image}`} height={600} width={600} className=" w-full pb-20 rounded-md overflow-hidden" alt="img" />
           </div>
         </div>
       </div>
@@ -68,83 +97,57 @@ const ProductDetailsPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-10 py-16">
           <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-[#16A34A] text-[38px] font-bold mb-10">PROS</h1>
-            <div className="flex items-center gap-2 mb-2">
-              <MdCheck size={20} className="text-green-600" />
-              <p className="text-xl">High-Temperature Resistance</p>
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <MdCheck size={20} className="text-green-600" />
 
-              <p className="text-xl">Superior Sealing Performance</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <MdCheck size={20} className="text-green-600" />
+            {prosFeatures?.map((feature, i) => (
+              <div key={i + 1} className="flex items-center gap-2 mb-2">
+                <MdCheck size={20} className="text-green-600" />
 
-              <p className="text-xl">Long-Lasting & Durable</p>
-            </div>
+                <p className="text-xl">{feature?.title}</p>
+              </div>
+            ))}
+
           </div>
 
           <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-red-500 text-[38px] font-bold mb-10">CONS</h1>
-            <div className="flex items-center gap-2 mb-2">
-              <RxCross2 size={20} className="text-red-500" />
-              <p className="text-xl">High-Temperature Resistance</p>
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <RxCross2 size={20} className="text-red-500" />
+            {consFeatures?.map((feature, i) => (
+              <div key={i + 1} className="flex items-center gap-2 mb-2">
+                <RxCross2 size={20} className="text-red-500" />
+                <p className="text-xl">{feature?.title}</p>
+              </div>
+            ))}
 
-              <p className="text-xl">Superior Sealing Performance</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <RxCross2 size={20} className="text-red-500" />
-
-              <p className="text-xl">Long-Lasting & Durable</p>
-            </div>
           </div>
 
           <div className="w-full shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl p-10">
             <h1 className="text-[#3B82F6] text-[38px] font-bold mb-10">
               MAIN FEATURES
             </h1>
-            <div className="flex items-center gap-2 mb-2">
-              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
-              <p className="text-xl">High-Temperature Resistance</p>
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
 
-              <p className="text-xl">Superior Sealing Performance</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <IoMdStarOutline size={20} className="text-[#3B82F6]" />
-
-              <p className="text-xl">Long-Lasting & Durable</p>
-            </div>
+            {mainFeatures?.map((feature, i) => (
+              <div key={i + 1} className="flex items-center gap-2 mb-2">
+                <IoMdStarOutline size={20} className="text-[#3B82F6]" />
+                <p className="text-xl">{feature?.title}</p>
+              </div>
+            ))}
+            
           </div>
         </div>
 
         {/* main feature details */}
 
-        <FeatureCard
-          image={details1}
-          title={" High-Temperature Resistance"}
-          description="Designed to endure extreme heat without compromising performance, making it ideal for automotive engines, industrial machinery, and high-pressure applications."
-          borderColor="#20B7CC"
-        />
-        <FeatureCard
-          image={details2}
-          title={" High-Temperature Resistance"}
-          description="Designed to endure extreme heat without compromising performance, making it ideal for automotive engines, industrial machinery, and high-pressure applications."
-          borderColor="#F97316"
-          reverse={true}
-        />
-        <FeatureCard
-          image={details3}
-          title={" High-Temperature Resistance"}
-          description="Designed to endure extreme heat without compromising performance, making it ideal for automotive engines, industrial machinery, and high-pressure applications."
-          borderColor="#20B7CC"
-        />
+          {getMeaterialsDetails?.data?.info_sections?.map((item : any, index : number) => (
+            <FeatureCard
+              key={item.id}
+              image={`${imageUrl}/${item.image}`}
+              title={item.title}
+              description={item.description}
+              borderColor={index % 2 === 0 ? "#20B7CC" : "#F97316"}
+              reverse={index % 2 !== 0}
+            />
+          ))}
 
+      
         <FeatureDetails />
 
         {/* Customer review section */}

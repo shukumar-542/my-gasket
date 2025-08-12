@@ -19,7 +19,6 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ product }) => {
 
 
-  console.log(product?.temperature);
   return (
     <div className="group rounded-md overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
       <div className="overflow-hidden">
