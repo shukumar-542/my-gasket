@@ -83,8 +83,18 @@ const authApi = baseApi.injectEndpoints({
           body : data
         }
       }
+    }),
+    contactUs : builder.mutation({
+      query: (data) => {
+        return {
+          url: "/api/budget/contact/",
+          method: "POST",
+          body: data,
+        };
+      }
     })
+        
 
   }),
 });
-export const { useRegisterUserMutation  , useActiveAccountOtpMutation , useGetProfileQuery , useChangePasswordMutation , useLoginUserMutation , useUpdateProfileMutation , useForgetPasswordMutation , useSendOtpMutation , useResetPasswordMutation} = authApi
+export const { useRegisterUserMutation  , useActiveAccountOtpMutation , useGetProfileQuery , useChangePasswordMutation , useLoginUserMutation , useUpdateProfileMutation , useForgetPasswordMutation , useSendOtpMutation , useResetPasswordMutation , useContactUsMutation} = authApi
