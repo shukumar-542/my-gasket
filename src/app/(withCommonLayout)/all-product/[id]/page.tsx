@@ -12,7 +12,6 @@ import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import Button from "@/components/Button/Button";
 import FeatureDetails from "@/components/FeatureDetails/FeatureDetails";
 import UserReview from "@/components/UserReview/UserReview";
-import QuoteModal from "@/components/QuoteModal/QuoteModal";
 import Link from "next/link";
 import { MdCheck } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
@@ -86,7 +85,15 @@ const ProductDetailsPage = () => {
             </div>
           </div>
           <div>
-            <Image src={`${imageUrl}${getMeaterialsDetails?.data?.image}`} height={600} width={600} className=" w-full pb-20 rounded-md overflow-hidden" alt="img" />
+            {getMeaterialsDetails?.data?.image && (
+              <Image
+                src={`${imageUrl}${getMeaterialsDetails.data.image}`}
+                height={600}
+                width={600}
+                className="w-full pb-20 rounded-md overflow-hidden"
+                alt="img"
+              />
+            )}
           </div>
         </div>
       </div>
@@ -130,24 +137,24 @@ const ProductDetailsPage = () => {
                 <p className="text-xl">{feature?.title}</p>
               </div>
             ))}
-            
+
           </div>
         </div>
 
         {/* main feature details */}
 
-          {getMeaterialsDetails?.data?.info_sections?.map((item : any, index : number) => (
-            <FeatureCard
-              key={item.id}
-              image={`${imageUrl}/${item.image}`}
-              title={item.title}
-              description={item.description}
-              borderColor={index % 2 === 0 ? "#20B7CC" : "#F97316"}
-              reverse={index % 2 !== 0}
-            />
-          ))}
+        {getMeaterialsDetails?.data?.info_sections?.map((item: any, index: number) => (
+          <FeatureCard
+            key={item.id}
+            image={`${imageUrl}/${item.image}`}
+            title={item.title}
+            description={item.description}
+            borderColor={index % 2 === 0 ? "#20B7CC" : "#F97316"}
+            reverse={index % 2 !== 0}
+          />
+        ))}
 
-      
+
         <FeatureDetails />
 
         {/* Customer review section */}

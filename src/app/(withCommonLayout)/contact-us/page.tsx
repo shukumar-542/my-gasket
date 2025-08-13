@@ -88,8 +88,8 @@ const ContactUsPage = () => {
                         style={{ height: 40 }}
                         className="w-full  h-10"
                         options={[
-                          { value: "private", label: "Private Client" },
-                          { value: "company", label: "Company" },
+                          { value: "personal", label: "Private Client" },
+                          { value: "business", label: "Business" },
                         ]}
                       />
                     </Form.Item>
@@ -122,7 +122,7 @@ const ContactUsPage = () => {
                       ]} label={t("question")} name={"question"} className="w-full relative">
                   <div className="bg-white p-2 rounded-md">
                     <div className=" flex justify-end ">
-                      <FiPaperclip size={20} />
+                      {/* <FiPaperclip size={20} /> */}
                     </div>
 
                     <TextArea
