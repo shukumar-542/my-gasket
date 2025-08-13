@@ -38,7 +38,7 @@ const ProductDetailsPage = () => {
       mainFeatures.push(feature);
   });
 
-  // console.log(getReview?.review_stats);
+  console.log(getReview?.reviews);
 
   return (
     <div>
@@ -168,7 +168,7 @@ const ProductDetailsPage = () => {
           <UserReview reviewStars={getReview?.review_stats}/>
         </div>
 
-        <WhatOurClientSay />
+        <WhatOurClientSay reviews={getReview?.reviews} />
         <div className="flex justify-center py-5">
           <Link href={"/customer-review"}>
             <Button className="inline-block px-8">View More</Button>

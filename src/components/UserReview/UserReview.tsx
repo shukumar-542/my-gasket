@@ -11,12 +11,14 @@ interface RatingData {
 
 const UserReview = (reviewStars : any) => {
 
+  const individualRatings = reviewStars?.reviewStars?.rating_distribution || {};
+
   const ratings: RatingData[] = [
-  { star: 5, count:reviewStars?.reviewStars?.rating_distribution?.["5_star"] || 0},
-  { star: 4, count: reviewStars?.reviewStars?.rating_distribution?.["4_star"] || 0 },
-  { star: 3, count:reviewStars?.reviewStars?.rating_distribution?.["3_star"] || 0 },
-  { star: 2, count:reviewStars?.reviewStars?.rating_distribution?.["2_star"] || 0},
-  { star: 1, count:reviewStars?.reviewStars?.rating_distribution?.["1_star"] || 0 },
+  { star: 5, count:individualRatings?.["5_star"] || 0},
+  { star: 4, count: individualRatings?.["4_star"] || 0 },
+  { star: 3, count:individualRatings?.["3_star"] || 0 },
+  { star: 2, count:individualRatings?.["2_star"] || 0},
+  { star: 1, count:individualRatings?.["1_star"] || 0 },
 ];
 
   const getMaxCount = (data: RatingData[]) =>
@@ -31,7 +33,6 @@ const UserReview = (reviewStars : any) => {
   const hasHalfStar = ratingValue % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-  console.log(reviewStars?.reviewStars?.rating_distribution?.["5_star"] || 0);
   return (
     <div className="">
       <div className="flex flex-col md:flex-row gap-10 mt-10">
