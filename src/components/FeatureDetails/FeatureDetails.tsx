@@ -81,9 +81,7 @@ const FeatureDetails = () => {
         </p>
       </div>
 
-    <div className=" border-b border-[#000000] mt-20 border-t py-10">
-        <p className="md:px-20 text-center text-[18px]">Gaskets play a crucial role in ensuring the efficiency and longevity of various mechanical systems by providing a secure seal between components. Our premium gaskets are designed with high-quality materials and advanced engineering, offering unparalleled durability, sealing performance, and heat resistance.</p>
-    </div>
+   
 
     </div>
   );

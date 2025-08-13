@@ -51,19 +51,26 @@ const handleRating = (index : any)=>{
 
 console.log(rating);
 
+// Handle submit rating
+const handleSubmitRating = (values: any) => { 
+  console.log("Submitted values:", values);
+  console.log("Selected rating:", rating);
+  // Here you can handle the form submission, e.g., send data to an API
+}
+
   return (
     <div className="max-w-4xl mx-auto mt-20 py-20">
-      <Form layout="vertical">
+      <Form layout="vertical" onFinish={handleSubmitRating}>
         <div className="flex items-center gap-10">
-          <Form.Item label="First Name" className="w-full">
+          <Form.Item label="Name" name={"customer_name"} className="w-full">
             <Input placeholder="Jane" />
           </Form.Item>
-          <Form.Item label="Last Name" className="w-full">
+          {/* <Form.Item label="Last Name" className="w-full">
             <Input placeholder="Cooper" />
-          </Form.Item>
+          </Form.Item> */}
         </div>
 
-        <Form.Item>
+        {/* <Form.Item label="Selecet Type">
           <Select
             options={[
               { value: "Gomma Para1", label: "Gomma Para1" },
@@ -71,12 +78,12 @@ console.log(rating);
               { value: "Gomma Para3", label: "Gomma Para3" },
             ]}
           />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item label="Insert Your Order Number">
+        <Form.Item label="Insert Your Order Number" name={"order_number"}>
           <Input placeholder="# ID" />
         </Form.Item>
-        <Form.Item label="Upload Product Images">
+        <Form.Item label="Upload Product Images" name="product_images">
           {/* Image Preview with Remove Button */}
           <div className="flex flex-wrap gap-4 mt-4">
             {fileList.map((file) => (
@@ -116,7 +123,7 @@ console.log(rating);
             </Upload>
           </div>
         </Form.Item>
-        <Form.Item label="Number Os Stars">
+        <Form.Item label="Number Os Stars" name={"star_rating"}>
           <div className="flex items-center gap-2">
             {Array.from({ length: 5 }, (_, index) => (
               <IoIosStar className="cursor-pointer" key={index} onClick={()=> handleRating(index)} color={index < rating ? "#FFB547" : "#D0D5DD"} size={30} />
@@ -124,7 +131,7 @@ console.log(rating);
           </div>
         </Form.Item>
 
-        <Form.Item label="Comment Here">
+        <Form.Item label="Comment Here" name={"comment"}>
           <TextArea rows={4} />
         </Form.Item>
 

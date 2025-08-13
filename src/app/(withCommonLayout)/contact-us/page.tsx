@@ -88,8 +88,8 @@ const ContactUsPage = () => {
                         style={{ height: 40 }}
                         className="w-full  h-10"
                         options={[
-                          { value: "personal", label: "Private Client" },
-                          { value: "business", label: "Business" },
+                          { value: "private client", label: "Private Client" },
+                          { value: "company", label: "Company" },
                         ]}
                       />
                     </Form.Item>

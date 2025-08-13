@@ -17,12 +17,13 @@ import { MdCheck } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdStarOutline } from "react-icons/io";
 import { useParams } from "next/navigation";
-import { useMaterialsDetailsQuery } from "@/redux/Api/products";
+import { useGetProductReviewQuery, useMaterialsDetailsQuery } from "@/redux/Api/products";
 import { imageUrl } from "@/redux/baseApi";
 
 const ProductDetailsPage = () => {
   const params = useParams();
   const { data: getMeaterialsDetails } = useMaterialsDetailsQuery(params?.id);
+  const {data :  getReview} = useGetProductReviewQuery(params?.id);
 
 
   /// Separate features based on their type: pros, cons, and main_features
@@ -37,7 +38,7 @@ const ProductDetailsPage = () => {
       mainFeatures.push(feature);
   });
 
-  console.log(getMeaterialsDetails?.data?.image);
+  // console.log(getReview?.review_stats);
 
   return (
     <div>
@@ -157,10 +158,14 @@ const ProductDetailsPage = () => {
 
         <FeatureDetails />
 
+        <div className=" border-b border-[#000000] mt-20 border-t py-10">
+          <p className="md:px-20 text-center text-[18px]">{getMeaterialsDetails?.data?.conclusion?.conclusion_text}</p>
+        </div>
+
         {/* Customer review section */}
         <div className="py-20">
           <p className="text-[32px]">Reviews</p>
-          <UserReview />
+          <UserReview reviewStars={getReview?.review_stats}/>
         </div>
 
         <WhatOurClientSay />

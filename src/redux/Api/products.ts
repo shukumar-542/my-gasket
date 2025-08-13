@@ -19,7 +19,15 @@ const products = baseApi.injectEndpoints({
                 }
             }
         }),
+        getProductReview : builder.query({
+            query: (id) => {
+                return {
+                    url: `/api/budget/materials_review/${id}/reviews/`,
+                    method: 'GET'
+                }
+            }
+        }),
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery} = products;
