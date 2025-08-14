@@ -275,28 +275,46 @@ const MaterialsQuotePage = () => {
             <Select
               style={{ width: 145 }}
               options={[
-                { value: "jack", label: "Jack" },
-                { value: "lucy", label: "Lucy" },
-                { value: "yiminghe", label: "Yiminghe" },
+                { value: "metri", label: "metri" },
+                { value: "centimetri", label: "centimetri" },
+                { value: "millimetri", label: "millimetri" },
+                { value: "piedi", label: "piedi" },
+                { value: "pollici", label: "pollici" },
               ]}
             />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Rubber type: </p>
             <Select
-              style={{ width: 145 }}
+              style={{ width: 200 }}
               options={[
-                { value: "gomma_para1", label: "Gomma para1" },
-                { value: "gomma_para", label: "Gomma para" },
+                { value: "gomma para", label: "Gomma para" },
+                { value: "gomma nbr", label: "Gomma nbr" },
+                { value: "gomma epdm", label: "Gomma epdm" },
+                { value: "gomma silicone rossa", label: "Gomma silicone rossa" },
+                { value: "gomma silicone traslucido", label: "Gomma silicone traslucido" },
+                { value: "gomma sbr telata", label: "Gomma sbr telata" },
+                { value: "gomma viton", label: "Gomma viton" },
+                { value: "gomma neoprene", label: "Gomma neoprene" },
+                { value: "gomma sbr bianca", label: "Gomma sbr bianca" },
+                { value: "guamotor", label: "guamotor" },
+                { value: "fasit omnia", label: "fasit omnia" },
+                { value: "grafite armata", label: "grafite armata" },
+                { value: "feltro naturale compatto", label: "feltro naturale compatto" },
+                { value: "gomma neoprene espansa", label: "gomma neoprene espansa" },
+                { value: "gomma antiabrasiva", label: "gomma antiabrasiva" },
+
               ]}
             />
           </div>
+
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Thickness: </p>
             <Select
               style={{ width: 145 }}
               options={[
                 { value: "1mm", label: "1mm" },
+                
                 { value: "2mm", label: "2mm" },
               ]}
             />
