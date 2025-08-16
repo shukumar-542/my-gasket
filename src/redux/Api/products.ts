@@ -27,7 +27,16 @@ const products = baseApi.injectEndpoints({
                 }
             }
         }),
+        uploadMateialQuote : builder.mutation({
+            query: (data) => {
+                return {
+                    url: `/api/budget/upload-quote/`,
+                    method: 'POST',
+                    body: data
+                }
+            }
+        })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation} = products;

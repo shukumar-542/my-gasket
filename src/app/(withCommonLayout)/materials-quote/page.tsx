@@ -17,6 +17,9 @@ import img2 from "../../../assets/work2.png";
 import img3 from "../../../assets/work3.png";
 import img5 from "../../../assets/work5.png";
 import img6 from "../../../assets/work6.png";
+import { v4 as uuidv4 } from "uuid";
+import { toast } from "sonner";
+import { useUploadMateialQuoteMutation } from "@/redux/Api/products";
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -25,6 +28,12 @@ const MaterialsQuotePage = () => {
   const mainFileInputRef = useRef<HTMLInputElement>(null);
   const additionalFilesInputRef = useRef<HTMLInputElement>(null);
   const [numberOfPieces, setNumberOfPieces] = useState("0");
+  const [unit, setUnit] = useState<string | null>(null);
+  const [rubberType, setRubberType] = useState<string | null>(null);
+  const [thickness, setThickness] = useState<string | null>(null);
+  const [additionalText, setAdditionalText] = useState<string>("");
+
+  const [uploadMateialQuote] = useUploadMateialQuoteMutation();
 
   const workSteps = [
     {
@@ -148,6 +157,49 @@ const MaterialsQuotePage = () => {
     setOpenModal(false);
   };
 
+
+  const generateSessionId = () => {
+    return `user-${uuidv4()}`;
+  };
+  const handleGeneratePrice = () => {
+
+    console.log("click")
+    if (!file) {
+      toast.error("Please upload a file before submitting.");
+      return;
+    }
+
+
+    // Generate or retrieve session_id
+    let sessionId = localStorage.getItem("session_id");
+    if (!sessionId) {
+      sessionId = `user-${uuidv4()}`;
+      localStorage.setItem("session_id", sessionId);
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("unit", unit || "");
+    formData.append("tipo_gomma", rubberType || "");
+    formData.append("spessore", thickness || "");
+    formData.append("numero_pezzi", numberOfPieces || "0");
+    formData.append("drawing_scale", "1:1");
+    formData.append("additional_details", additionalText || "");
+    formData.append("session_id", sessionId);
+
+    uploadMateialQuote(formData).unwrap()
+      .then((payload) => {
+        console.log('fulfilled', payload)
+      })
+      .catch((error) => toast.error(error?.data?.message || 'An error occurred'));
+
+    // ✅ Log all values from FormData
+    // for (let [key, value] of formData.entries()) {
+    //   console.log(`${key}:`, value);
+    // }
+
+  }
+
   return (
     <div className="mt-20">
       <QuoteModal
@@ -259,7 +311,7 @@ const MaterialsQuotePage = () => {
               >
                 <FiPaperclip size={20} />
               </button>
-              <Input placeholder="Additional Text..." className="border-none" allowClear />
+              <Input placeholder="Additional Text..." className="border-none" allowClear value={additionalText} onChange={(e) => setAdditionalText(e.target.value)} />
             </div>
           </div>
         </div>
@@ -273,7 +325,7 @@ const MaterialsQuotePage = () => {
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Drawing Measurement Unit: </p>
             <Select
-              style={{ width: 145 }}
+              style={{ width: 200 }}
               options={[
                 { value: "metri", label: "metri" },
                 { value: "centimetri", label: "centimetri" },
@@ -281,6 +333,8 @@ const MaterialsQuotePage = () => {
                 { value: "piedi", label: "piedi" },
                 { value: "pollici", label: "pollici" },
               ]}
+              value={unit}
+              onChange={(value) => setUnit(value)}
             />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
@@ -305,6 +359,8 @@ const MaterialsQuotePage = () => {
                 { value: "gomma antiabrasiva", label: "gomma antiabrasiva" },
 
               ]}
+              value={rubberType}
+              onChange={(value) => setRubberType(value)}
             />
           </div>
 
@@ -313,10 +369,14 @@ const MaterialsQuotePage = () => {
             <Select
               style={{ width: 145 }}
               options={[
-                { value: "1mm", label: "1mm" },
-                
-                { value: "2mm", label: "2mm" },
+                { value: "2 mm", label: "2 mm" },
+                { value: "3 mm", label: "3 mm" },
+                { value: "4 mm", label: "4 mm" },
+                { value: "5 mm", label: "5 mm" },
+                { value: "6 mm", label: "6 mm" },
               ]}
+              value={thickness}
+              onChange={(value) => setThickness(value)}
             />
           </div>
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
@@ -344,6 +404,13 @@ const MaterialsQuotePage = () => {
                 <FiPlus size={20} />
               </button>
             </div>
+          </div>
+
+          <div className="flex justify-end">
+            <button type="button" onClick={handleGeneratePrice} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center  gap-2 text-white">
+              Generate Price
+            </button>
+
           </div>
 
           <div className="flex items-center text-5xl font-extrabold gap-2">
