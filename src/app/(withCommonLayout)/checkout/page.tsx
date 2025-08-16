@@ -34,39 +34,33 @@ const CheckOutPage = () => {
 
           {businessType == "business" ? (
             <div>
-              <p className="mt-5 mb-1">VAT Number</p>
+              <p className="mt-8 mb-1">VAT Number</p>
               <Input
                 rootClassName="custom-input"
                 placeholder="Enter your VAT number"
               />
             </div>
           ) : (
-            <div>
-              <p className="mt-5 mb-1">Full Name</p>
-              <Input
-                rootClassName="custom-input"
-                placeholder="Enter your Full Name"
-              />
-            </div>
+            <>
+              <div>
+                <p className="mt-5 mb-1">Full Name</p>
+                <Input
+                  rootClassName="custom-input"
+                  placeholder="Enter your Full Name"
+                />
+              </div>
+              <div>
+                <p className="mt-5 mb-1">Social Security Number</p>
+                <Input
+                  rootClassName="custom-input"
+                  placeholder="Enter your Social Security Number"
+                />
+              </div>
+            </>
           )}
 
-          {
-            businessType == "business" ?  <div>
-            <p className="mt-5 mb-1">VAT Number</p>
-            <Input
-              rootClassName="custom-input"
-              placeholder="Enter your VAT number"
-            />
-          </div> : <div>
-            <p className="mt-5 mb-1">Social Security Number</p>
-            <Input
-              rootClassName="custom-input"
-              placeholder="Enter your Social Security Number"
-            />
-          </div> 
-          }
-
       
+
           <div>
             <p className="mt-5 mb-1">Email</p>
             <Input
@@ -174,7 +168,7 @@ const CheckOutPage = () => {
                 name="paymentMethod"
                 value="bankTransfer"
                 className="form-radio text-blue-600 focus:ring-blue-500"
-                // defaultChecked
+              // defaultChecked
               />
               <span className="text-gray-800">Bank Transfer</span>
             </label>
