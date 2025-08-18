@@ -1,6 +1,7 @@
 // src/Redux/baseApi.ts
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 const baseUrl = "http://103.186.20.116:9001";
 // Helper function to get the token
 const getToken = () => {
@@ -11,6 +12,7 @@ const getToken = () => {
     return localStorage.getItem("_token");
   }
 };
+
 
 export const baseApi = createApi({
   reducerPath: "api",

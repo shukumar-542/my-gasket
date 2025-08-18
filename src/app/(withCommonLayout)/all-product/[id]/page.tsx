@@ -1,11 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import hero from "../../../../assets/detailsHero.png";
-import img from "../../../../assets/details1.png";
+import React from "react";
 import Image from "next/image";
-import details1 from "../../../../assets/details2.png";
-import details2 from "../../../../assets/details3.png";
-import details3 from "../../../../assets/details4.png";
 import FeatureCard from "@/components/FeatureCard/FeatureCard";
 import ShareExprience from "@/components/ShareExprience/ShareExprience";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
@@ -23,7 +18,7 @@ import { imageUrl } from "@/redux/baseApi";
 const ProductDetailsPage = () => {
   const params = useParams();
   const { data: getMeaterialsDetails } = useMaterialsDetailsQuery(params?.id);
-  const {data :  getReview} = useGetProductReviewQuery(params?.id);
+  const { data :  getReview } = useGetProductReviewQuery(params?.id);
 
 
   /// Separate features based on their type: pros, cons, and main_features
@@ -38,7 +33,7 @@ const ProductDetailsPage = () => {
       mainFeatures.push(feature);
   });
 
-  console.log(getReview?.reviews);
+  // console.log(getReview?.reviews);
 
   return (
     <div>
@@ -60,7 +55,7 @@ const ProductDetailsPage = () => {
             </p>
 
             <div className="flex items-center justify-center md:justify-start pb-4 gap-5 text-black mt-10">
-              <Link href={"/materials-quote"}>
+              <Link href={`/materials-quote/${params?.id}`}>
                 <button
                   // onClick={() => setOpenModal(true)}
                   className="bg-[#F97316] px-2 md:px-8 py-3  rounded-sm shadow-2xl cursor-pointer"

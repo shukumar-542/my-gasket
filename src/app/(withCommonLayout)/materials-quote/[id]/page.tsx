@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import img from "../../../assets/quote.png";
+import img from "../../../../assets/quote.png";
 import { IoMdClose, IoMdInformationCircleOutline } from "react-icons/io";
 import WorkProcess from "@/components/WorkProcess/WorkProcess";
 import { HiOutlineUpload } from "react-icons/hi";
@@ -12,14 +12,15 @@ import { FaDollarSign } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import Link from "next/link";
 import QuoteModal from "@/components/QuoteModal/QuoteModal";
-import img1 from "../../../assets/work1.png";
-import img2 from "../../../assets/work2.png";
-import img3 from "../../../assets/work3.png";
-import img5 from "../../../assets/work5.png";
-import img6 from "../../../assets/work6.png";
+import img1 from "../../../../assets/work1.png";
+import img2 from "../../../../assets/work2.png";
+import img3 from "../../../../assets/work3.png";
+import img5 from "../../../../assets/work5.png";
+import img6 from "../../../../assets/work6.png";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "sonner";
 import { useUploadMateialQuoteMutation } from "@/redux/Api/products";
+import { useParams } from "next/navigation";
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -34,6 +35,8 @@ const MaterialsQuotePage = () => {
   const [additionalText, setAdditionalText] = useState<string>("");
 
   const [uploadMateialQuote] = useUploadMateialQuoteMutation();
+  const params = useParams();
+  const id = params?.id ?? "";
 
   const workSteps = [
     {
@@ -163,7 +166,6 @@ const MaterialsQuotePage = () => {
   };
   const handleGeneratePrice = () => {
 
-    console.log("click")
     if (!file) {
       toast.error("Please upload a file before submitting.");
       return;
@@ -186,6 +188,7 @@ const MaterialsQuotePage = () => {
     formData.append("drawing_scale", "1:1");
     formData.append("additional_details", additionalText || "");
     formData.append("session_id", sessionId);
+    formData.append("material_id", id as string);
 
     uploadMateialQuote(formData).unwrap()
       .then((payload) => {
@@ -418,7 +421,7 @@ const MaterialsQuotePage = () => {
             <p>4.49</p>
           </div>
 
-          <Link href="/track-order" passHref>
+          <Link href="/cart" passHref>
             <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
               <MdShoppingCart size={20} />
               Add to Cart
