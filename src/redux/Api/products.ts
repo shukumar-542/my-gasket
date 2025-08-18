@@ -35,8 +35,16 @@ const products = baseApi.injectEndpoints({
                     body: data
                 }
             }
+        }),
+        addToCart : builder.query({
+            query : (sessionId)=>{
+                return{
+                    url : `/api/budget/recent-uploads/?session_id=${sessionId}`,
+                    method: 'GET'
+                }
+            }
         })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery} = products;

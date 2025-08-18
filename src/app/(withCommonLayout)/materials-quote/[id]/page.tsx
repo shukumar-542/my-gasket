@@ -19,7 +19,7 @@ import img5 from "../../../../assets/work5.png";
 import img6 from "../../../../assets/work6.png";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "sonner";
-import { useUploadMateialQuoteMutation } from "@/redux/Api/products";
+import { useAddToCartQuery, useUploadMateialQuoteMutation } from "@/redux/Api/products";
 import { useParams } from "next/navigation";
 
 const MaterialsQuotePage = () => {
@@ -33,8 +33,10 @@ const MaterialsQuotePage = () => {
   const [rubberType, setRubberType] = useState<string | null>(null);
   const [thickness, setThickness] = useState<string | null>(null);
   const [additionalText, setAdditionalText] = useState<string>("");
+  const [price , setPrice] = useState(0)
 
   const [uploadMateialQuote] = useUploadMateialQuoteMutation();
+  const {data : getAddToCart} = useAddToCartQuery(localStorage.getItem("session_id"))
   const params = useParams();
   const id = params?.id ?? "";
 
@@ -193,6 +195,8 @@ const MaterialsQuotePage = () => {
     uploadMateialQuote(formData).unwrap()
       .then((payload) => {
         console.log('fulfilled', payload)
+        setPrice(payload?.costo_totale || 0);
+        // toast.success("Price generated successfully!");
       })
       .catch((error) => toast.error(error?.data?.message || 'An error occurred'));
 
@@ -200,6 +204,14 @@ const MaterialsQuotePage = () => {
     // for (let [key, value] of formData.entries()) {
     //   console.log(`${key}:`, value);
     // }
+
+  }
+
+
+  // Handle Add To Cart 
+  const handleAddToCart = ()=>{
+    console.log(getAddToCart)
+
 
   }
 
@@ -418,15 +430,15 @@ const MaterialsQuotePage = () => {
 
           <div className="flex items-center text-5xl font-extrabold gap-2">
             <FaDollarSign />
-            <p>4.49</p>
+            <p>{price}</p>
           </div>
 
-          <Link href="/cart" passHref>
-            <button className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
+          {/* <Link href="/cart" passHref> */}
+            <button onClick={()=> handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
               <MdShoppingCart size={20} />
               Add to Cart
             </button>
-          </Link>
+          {/* </Link> */}
         </div>
       </div>
     </div>
