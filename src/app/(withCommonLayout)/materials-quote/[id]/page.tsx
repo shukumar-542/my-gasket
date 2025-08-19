@@ -19,7 +19,7 @@ import img5 from "../../../../assets/work5.png";
 import img6 from "../../../../assets/work6.png";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "sonner";
-import { useAddedProductsTocartMutation, useAddToCartQuery, useUploadMateialQuoteMutation } from "@/redux/Api/products";
+import { useAddedProductsTocartMutation, useUploadMateialQuoteMutation } from "@/redux/Api/products";
 import { useParams, useRouter } from "next/navigation";
 
 const MaterialsQuotePage = () => {
@@ -38,7 +38,6 @@ const MaterialsQuotePage = () => {
   const router = useRouter();
 
   const [uploadMateialQuote] = useUploadMateialQuoteMutation();
-  const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
   const [productAddCart] = useAddedProductsTocartMutation()
   const params = useParams();
   const id = params?.id ?? "";
@@ -362,9 +361,9 @@ const MaterialsQuotePage = () => {
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Drawing Measurement Unit: </p>
             <Select
-              style={{ width: 200 }}
+              style={{ width: 300 }}
               options={[
-                { value: "metri", label: "metri" },
+                // { value: "metri", label: "metri" },
                 { value: "centimetri", label: "centimetri" },
                 { value: "millimetri", label: "millimetri" },
                 { value: "piedi", label: "piedi" },
@@ -377,7 +376,7 @@ const MaterialsQuotePage = () => {
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Rubber type: </p>
             <Select
-              style={{ width: 200 }}
+              style={{ width: 300 }}
               options={[
                 { value: "gomma para", label: "Gomma para" },
                 { value: "gomma nbr", label: "Gomma nbr" },
@@ -404,7 +403,7 @@ const MaterialsQuotePage = () => {
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select Thickness: </p>
             <Select
-              style={{ width: 145 }}
+              style={{ width: 300 }}
               options={[
                 { value: "2 mm", label: "2 mm" },
                 { value: "3 mm", label: "3 mm" },

@@ -52,8 +52,16 @@ const products = baseApi.injectEndpoints({
                     body: data
                 }
             }   
+        }),
+        removeAddToCard :  builder.mutation({
+            query: (id) => {
+                return {
+                    url: `/api/budget/cart/item/${id}/remove/`,
+                    method: 'DELETE',
+                }
+            }   
         })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation} = products;

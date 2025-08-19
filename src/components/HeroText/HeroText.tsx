@@ -13,7 +13,7 @@ const HeroText = () => {
         {t("eventPlanningDescription")}
       </p>
       <button className="bg-[#F97316] mt-10 px-6 py-3 shadow-2xl rounded-md text-[18px] cursor-pointer">
-        {t("getStarted")}
+        {t("getInstantQuote")}
       </button>
     </div>
   );
