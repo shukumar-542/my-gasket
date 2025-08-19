@@ -21,6 +21,7 @@ import { v4 as uuidv4 } from "uuid";
 import { toast } from "sonner";
 import { useAddedProductsTocartMutation, useUploadMateialQuoteMutation } from "@/redux/Api/products";
 import { useParams, useRouter } from "next/navigation";
+import TextArea from "antd/es/input/TextArea";
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -222,7 +223,7 @@ const MaterialsQuotePage = () => {
       session_id: localStorage.getItem("session_id"),
     }
     productAddCart(data).unwrap()
-      .then((payload) => {  
+      .then((payload) => {
         console.log('fulfilled', payload)
 
         toast.success("Added to cart successfully!");
@@ -274,46 +275,48 @@ const MaterialsQuotePage = () => {
       <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-0">
         {/* Left side - file upload and additional details */}
         <div>
-          <div className="relative">
-            <label
-              htmlFor="file-upload"
-              className="flex flex-col items-center justify-center border-2 py-20 border-dashed border-blue-300 rounded-xl p-6 cursor-pointer bg-blue-50 hover:bg-blue-100 transition"
-            >
-              <HiOutlineUpload size={50} />
-              <input
-                id="file-upload"
-                type="file"
-                accept=".dxf,.dwg"
-                onChange={handleFileChange}
-                className="hidden"
-                ref={mainFileInputRef}
-              />
-
-              {file ? (
-                <p className="mt-4 text-[#F97316] text-center truncate">
-                  {file.name}
-                </p>
-              ) : (
-                "Upload File"
-              )}
-            </label>
-
-            {file && (
-              <button
-                type="button"
-                onClick={removeFile}
-                className="text-red-500 hover:text-red-700 cursor-pointer absolute top-[-10px] right-[-10px] border p-2 border-red-500 rounded-full bg-white"
+          <div className="border-dashed border-2 border-gray-400 p-20  rounded-xl bg-gray-100 hover:bg-gray-200 transition">
+            <div className="relative">
+              <label
+                htmlFor="file-upload"
+                className="flex flex-col items-center justify-center  py-14 cursor-pointer border-gray-600 border-2 rounded-xl"
               >
-                <IoMdClose size={20} />
-              </button>
-            )}
+                <HiOutlineUpload size={40} className="text-gray-800" />
+                <input
+                  id="file-upload"
+                  type="file"
+                  accept=".dxf,.dwg"
+                  onChange={handleFileChange}
+                  className="hidden"
+                  ref={mainFileInputRef}
+                />
+
+                {file ? (
+                  <p className="mt-4 text-[#F97316] text-center truncate">
+                    {file.name}
+                  </p>
+                ) : (
+                  "Upload File"
+                )}
+              </label>
+
+              {file && (
+                <button
+                  type="button"
+                  onClick={removeFile}
+                  className="text-red-500 hover:text-red-700 cursor-pointer absolute top-[-10px] right-[-10px] border p-2 border-red-500 rounded-full bg-white"
+                >
+                  <IoMdClose size={20} />
+                </button>
+              )}
+            </div>
           </div>
 
           <div className="border rounded-lg p-4 shadow-sm relative bg-white mt-10">
             <h2 className="text-lg font-semibold mb-2">Additional Details</h2>
 
             {/* Uploaded additional files preview */}
-            {/* <div className="flex gap-2 flex-wrap mb-2">
+            <div className="flex gap-2 flex-wrap mb-2">
               {files.map((file, index) => (
                 <div
                   key={index}
@@ -328,7 +331,7 @@ const MaterialsQuotePage = () => {
                   <p className="truncate w-full">{file.name}</p>
                 </div>
               ))}
-            </div> */}
+            </div>
 
             {/* Upload additional files input */}
             <div>
@@ -347,17 +350,17 @@ const MaterialsQuotePage = () => {
               >
                 <FiPaperclip size={20} />
               </button>
-              <Input placeholder="Additional Text..." className="border-none" allowClear value={additionalText} onChange={(e) => setAdditionalText(e.target.value)} />
+              <TextArea rows={4} placeholder="Additional Text..." className="border-none" allowClear value={additionalText} onChange={(e) => setAdditionalText(e.target.value)} />
             </div>
           </div>
         </div>
 
         {/* Right side - form options */}
         <div className="space-y-5">
-          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+          {/* <div className="flex items-center  bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Select the drawing scale 01 : </p>
             <p className="w-20">1 : 1 </p>
-          </div>
+          </div> */}
           <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
             <p className="w-full">Drawing Measurement Unit: </p>
             <Select
@@ -420,24 +423,24 @@ const MaterialsQuotePage = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={decrement}
-                className="border border-black rounded-[2px] cursor-pointer"
+                className="border border-gray-300 p-1 rounded-[2px] cursor-pointer"
                 aria-label="Decrease number of pieces"
               >
-                <LuMinus size={20} />
+                <LuMinus size={18} />
               </button>
               <input
                 value={numberOfPieces}
                 onChange={handleInputChange}
-                className="w-16 border border-black text-center rounded-[2px]"
+                className="w-16 border border-gray-300 p-[2px] rounded-xs text-center "
                 inputMode="numeric"
                 aria-label="Number of pieces"
               />
               <button
                 onClick={increment}
-                className="border border-black rounded-[2px] cursor-pointer"
+                className="border border-gray-300  shadow-2xl p-1 rounded-xs  cursor-pointer"
                 aria-label="Increase number of pieces"
               >
-                <FiPlus size={20} />
+                <FiPlus size={18} />
               </button>
             </div>
           </div>

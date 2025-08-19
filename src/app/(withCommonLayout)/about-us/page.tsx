@@ -5,7 +5,7 @@ import about1 from "../../../assets/about1.png";
 import about2 from "../../../assets/about2.png";
 import about3 from "../../../assets/about3.png";
 import Image from "next/image";
-import { FaMedal, FaQuoteLeft, FaRecycle, FaRobot } from "react-icons/fa";
+import { FaMedal, FaRecycle, FaRobot } from "react-icons/fa";
 import { BsChatSquareQuote } from "react-icons/bs";
 import { FaTruckFast } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
@@ -29,7 +29,7 @@ const AboutUsPage = () => {
 
       <div className="container mx-auto p-2">
         {/* Section One */}
-        <div className="md:flex items-center justify-baseline mt-20">
+        <div className="md:flex items-center justify-baseline mt-10">
           <div className="w-full">
             <Image
               className=" h-[350px] md:h-[670px]"
@@ -51,7 +51,7 @@ const AboutUsPage = () => {
         </div>
         {/* Section Two */}
 
-        <div className="md:flex items-center justify-between my-30">
+        <div className="md:flex items-center justify-between my-10">
           <div className="">
             <p className="text-[30px] md:text-[45px] font-bold">
               {t("customizationPrecisionEngineering")}
@@ -74,7 +74,7 @@ const AboutUsPage = () => {
 
         {/* Section Three */}
 
-        <div className="md:flex items-center justify-baseline mt-20">
+        <div className="md:flex items-center justify-baseline mt-10">
           <div className="w-full">
             <Image
               className=" h-[350px] md:h-[670px]"
