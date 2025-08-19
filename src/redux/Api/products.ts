@@ -43,8 +43,17 @@ const products = baseApi.injectEndpoints({
                     method: 'GET'
                 }
             }
+        }),
+        addedProductsTocart : builder.mutation({
+            query: (data) => {
+                return {
+                    url: `/api/budget/add-to-cart/`,
+                    method: 'POST',
+                    body: data
+                }
+            }   
         })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation} = products;

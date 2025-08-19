@@ -19,8 +19,8 @@ import img5 from "../../../../assets/work5.png";
 import img6 from "../../../../assets/work6.png";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "sonner";
-import { useAddToCartQuery, useUploadMateialQuoteMutation } from "@/redux/Api/products";
-import { useParams } from "next/navigation";
+import { useAddedProductsTocartMutation, useAddToCartQuery, useUploadMateialQuoteMutation } from "@/redux/Api/products";
+import { useParams, useRouter } from "next/navigation";
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -33,10 +33,13 @@ const MaterialsQuotePage = () => {
   const [rubberType, setRubberType] = useState<string | null>(null);
   const [thickness, setThickness] = useState<string | null>(null);
   const [additionalText, setAdditionalText] = useState<string>("");
-  const [price , setPrice] = useState(0)
+  const [price, setPrice] = useState(0)
+  const [fileUploadId, setFileUploadId] = useState<string | null>(null);
+  const router = useRouter();
 
   const [uploadMateialQuote] = useUploadMateialQuoteMutation();
-  const {data : getAddToCart} = useAddToCartQuery(localStorage.getItem("session_id"))
+  const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
+  const [productAddCart] = useAddedProductsTocartMutation()
   const params = useParams();
   const id = params?.id ?? "";
 
@@ -196,6 +199,7 @@ const MaterialsQuotePage = () => {
       .then((payload) => {
         console.log('fulfilled', payload)
         setPrice(payload?.costo_totale || 0);
+        setFileUploadId(payload?.file_upload_id || null);
         // toast.success("Price generated successfully!");
       })
       .catch((error) => toast.error(error?.data?.message || 'An error occurred'));
@@ -209,8 +213,26 @@ const MaterialsQuotePage = () => {
 
 
   // Handle Add To Cart 
-  const handleAddToCart = ()=>{
-    console.log(getAddToCart)
+  const handleAddToCart = () => {
+    // console.log(getAddToCart)
+
+    const data = {
+
+      file_upload_id: fileUploadId,
+      quantity: numberOfPieces,
+      session_id: localStorage.getItem("session_id"),
+    }
+    productAddCart(data).unwrap()
+      .then((payload) => {  
+        console.log('fulfilled', payload)
+
+        toast.success("Added to cart successfully!");
+        router.push("/cart")
+
+      })
+      .catch((error) => toast.error(error?.data?.message || 'An error occurred'));
+
+
 
 
   }
@@ -292,7 +314,7 @@ const MaterialsQuotePage = () => {
             <h2 className="text-lg font-semibold mb-2">Additional Details</h2>
 
             {/* Uploaded additional files preview */}
-            <div className="flex gap-2 flex-wrap mb-2">
+            {/* <div className="flex gap-2 flex-wrap mb-2">
               {files.map((file, index) => (
                 <div
                   key={index}
@@ -307,7 +329,7 @@ const MaterialsQuotePage = () => {
                   <p className="truncate w-full">{file.name}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* Upload additional files input */}
             <div>
@@ -434,10 +456,10 @@ const MaterialsQuotePage = () => {
           </div>
 
           {/* <Link href="/cart" passHref> */}
-            <button onClick={()=> handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
-              <MdShoppingCart size={20} />
-              Add to Cart
-            </button>
+          <button onClick={() => handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
+            <MdShoppingCart size={20} />
+            Add to Cart
+          </button>
           {/* </Link> */}
         </div>
       </div>
