@@ -73,8 +73,17 @@ const products = baseApi.injectEndpoints({
             },
             invalidatesTags : ['cart']
 
+        }),
+        getOrderSummery : builder.query({
+            query: (sessionId) => {
+                return {
+                    url: `/api/budget/order-summary/?session_id=${sessionId}`,
+                    method: 'GET'
+                }
+            },
+            providesTags: ['cart']
         })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery} = products;

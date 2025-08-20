@@ -1,19 +1,19 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { LuMinus } from 'react-icons/lu';
 import { FiPlus } from 'react-icons/fi';
 import Link from 'next/link';
-import { useAddToCartQuery, useRemoveAddToCardMutation, useUpdateCartItemMutation } from '@/redux/Api/products';
+import { useAddToCartQuery, useGetOrderSummeryQuery, useRemoveAddToCardMutation, useUpdateCartItemMutation } from '@/redux/Api/products';
 import { imageUrl } from '@/redux/baseApi';
 import { toast } from 'sonner';
 
 const CartPage = () => {
   const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
   const [removeAddToCard] = useRemoveAddToCardMutation();
-  const [cartItems, setCartItems] = useState();
   const [updatecartItem] = useUpdateCartItemMutation()
-  // console.log(getAddToCart?.uploads)
+  const {data : orderSummery} = useGetOrderSummeryQuery(localStorage.getItem("session_id"))
+  console.log(orderSummery)
 
   const handleRemoveProduct = (id: any) => {
     // Logic to remove product from cart  
@@ -26,7 +26,7 @@ const CartPage = () => {
         console.log(payload)
 
       })
-      .catch((error) => toast.error('something went wrong'));
+      .catch((error) => toast.error('Something went wrong!'));
 
 
   }
@@ -41,7 +41,6 @@ const CartPage = () => {
     }
 
     updatecartItem({ id, data }).unwrap()
-    
 
 
   }
@@ -139,20 +138,20 @@ const CartPage = () => {
             <div className="p-8 border-b">
               <p className="my-3 flex items-center justify-between">
                 <span className="font-semibold">Subtotal:</span>
-                <span>€101.39</span>
+                <span>€ {orderSummery?.subtotal}</span>
               </p>
               <p className="my-3 flex items-center justify-between">
                 <span className="font-semibold">Shipping:</span>
-                <span>TBD</span>
+                <span>{orderSummery?.shipping_cost}</span>
               </p>
               <p className="my-3 flex items-center justify-between">
                 <span className="font-semibold">Sales Tax:</span>
-                <span>TBD</span>
+                <span>{orderSummery?.sales_tax}</span>
               </p>
             </div>
             <p className="my-3 flex items-center justify-between">
               <span className="font-semibold text-xl">Estimated Total:</span>
-              <span>€101.39</span>
+              <span>€ {orderSummery?.total_cost}</span>
             </p>
             {/* <div className="flex justify-center  py-5"> */}
             <Link href={"/checkout"}>
