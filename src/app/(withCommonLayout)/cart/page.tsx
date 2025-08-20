@@ -1,31 +1,47 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { LuMinus } from 'react-icons/lu';
 import { FiPlus } from 'react-icons/fi';
 import Link from 'next/link';
-import { useAddToCartQuery, useRemoveAddToCardMutation } from '@/redux/Api/products';
+import { useAddToCartQuery, useRemoveAddToCardMutation, useUpdateCartItemMutation } from '@/redux/Api/products';
 import { imageUrl } from '@/redux/baseApi';
 import { toast } from 'sonner';
 
 const CartPage = () => {
   const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
   const [removeAddToCard] = useRemoveAddToCardMutation();
-
+  const [cartItems, setCartItems] = useState();
+  const [updatecartItem] = useUpdateCartItemMutation()
   // console.log(getAddToCart?.uploads)
 
   const handleRemoveProduct = (id: any) => {
     // Logic to remove product from cart  
 
-    // console.log(id)
 
     removeAddToCard(id)
       .unwrap()
       .then((payload) => {
-        toast.success(payload?.data?.message)
+        toast.success(payload?.message)
+        console.log(payload)
 
       })
       .catch((error) => toast.error('something went wrong'));
+
+
+  }
+
+  // Handle increment and decrement of quantity
+  const handleIncrementDecrement = (id: any, quantity: any, action: string) => {
+
+    // console.log(`Increment/Decrement for item with ID: ${id} , quantity: ${quantity}`);
+
+    const data = {
+      quantity: quantity + (action === "increment" ? 1 : -1)
+    }
+
+    updatecartItem({ id, data }).unwrap()
+    
 
 
   }
@@ -78,7 +94,7 @@ const CartPage = () => {
                   <p>QTY</p>
                   <button
                     className="border border-black rounded-[2px] cursor-pointer"
-                  // onClick={() => decrement(item.id)}
+                    onClick={() => handleIncrementDecrement(item.cart_item_id, item.quantity, "decrement")}
                   >
                     <LuMinus size={20} />
                   </button>
@@ -89,7 +105,7 @@ const CartPage = () => {
                   />
                   <button
                     className="border border-black rounded-[2px] cursor-pointer"
-                  // onClick={() => increment(item.id)}
+                    onClick={() => handleIncrementDecrement(item.cart_item_id, item.quantity, "increment")}
                   >
                     <FiPlus size={20} />
                   </button>

@@ -62,8 +62,19 @@ const products = baseApi.injectEndpoints({
                 }
             } ,
             invalidatesTags : ['cart']
+        }),
+        updateCartItem : builder.mutation({
+            query : ({id,data})=>{
+                return {
+                    url : `/api/budget/cart/item/${id}/`,
+                    method : "PUT",
+                    body : data
+                }
+            },
+            invalidatesTags : ['cart']
+
         })
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation} = products;
