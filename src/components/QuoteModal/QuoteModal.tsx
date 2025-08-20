@@ -2,37 +2,51 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
 import img from "../../assets/modal.png";
+import img1 from "../../assets/work1.png";
+import img2 from "../../assets/work2.png";
+import img3 from "../../assets/work3.png";
+import img5 from "../../assets/work5.png";
+import img6 from "../../assets/work6.png";
 import Image from "next/image";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Link from "next/link";
 
 type QuoteModalProps = {
   openModal: boolean;
-  setOpenModal: () => void;  // no args
+  setOpenModal: () => void;  
   onContinue: () => void;
 };
 const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
   const steps = [
     {
       stepNo: "01",
+      img: img1,
       description:
-        "You can upload one file at a time, and it must contain the drawing of a single gasket",
+        "You can upload only one drawing ata a time and it must contain the drawing of a single gasket",
     },
     {
       stepNo: "02",
+      img: img2,
       description:
-        "You 2 can upload one file at a time, and it must contain the drawing of a single gasket",
+        ".DWG or .DFX files only",
     },
     {
       stepNo: "03",
+      img : img3,
       description:
-        "You 3 can upload one file at a time, and it must contain the drawing of a single gasket",
+        "MAXIMUM DIMENSIONS : 1500mmX1500mm",
     },
     {
       stepNo: "04",
+      img: img5,
       description:
-        "You 4 can upload one file at a time, and it must contain the drawing of a single gasket",
+        "It must have a top view only.",
     },
+    {
+      stepNo: "05",
+      img: img6,
+      description:
+        "1 : 1 scale drawing only",
+    }
   ];
 
   const [currentStep, setCurrentSteps] = useState(0);
@@ -82,12 +96,12 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
             <p className="text-center py-2 px-2 ">
               {steps[currentStep]?.description}
             </p>
-            <div className="p-5 flex justify-center ">
+            <div className="p-5 flex justify-center w-full  ">
               <Image
-                src={img}
+                src={steps[currentStep]?.img}
                 height={400}
                 width={400}
-                className="rounded-md"
+                className="rounded-md h-[250px] w-[310px] object-cover"
                 alt="img"
               />
             </div>
@@ -103,7 +117,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
           <div className="flex justify-center items-center">
             {/* <Link href={"/materials-quote"}> */}
             <button onClick={() => {
-              setOpenModal(); // ✅ just call the passed function
+              setOpenModal(); 
             }} className={`bg-[#F97316] text-black py-2 px-4 rounded-sm shadow-2xl cursor-pointer`}>
               Continue
             </button>

@@ -42,7 +42,8 @@ const products = baseApi.injectEndpoints({
                     url : `/api/budget/recent-uploads/?session_id=${sessionId}`,
                     method: 'GET'
                 }
-            }
+            },
+            providesTags : ['cart']
         }),
         addedProductsTocart : builder.mutation({
             query: (data) => {
@@ -59,7 +60,8 @@ const products = baseApi.injectEndpoints({
                     url: `/api/budget/cart/item/${id}/remove/`,
                     method: 'DELETE',
                 }
-            }   
+            } ,
+            invalidatesTags : ['cart']
         })
     }),
 });

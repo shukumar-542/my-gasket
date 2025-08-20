@@ -1,30 +1,31 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import product from "../../../assets/product2.png";
 import { LuMinus } from 'react-icons/lu';
 import { FiPlus } from 'react-icons/fi';
 import Link from 'next/link';
 import { useAddToCartQuery, useRemoveAddToCardMutation } from '@/redux/Api/products';
 import { imageUrl } from '@/redux/baseApi';
+import { toast } from 'sonner';
 
 const CartPage = () => {
   const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
   const [removeAddToCard] = useRemoveAddToCardMutation();
 
-  console.log(getAddToCart?.uploads)
+  // console.log(getAddToCart?.uploads)
 
-  const handleRemoveProduct = (id : any) => {
+  const handleRemoveProduct = (id: any) => {
     // Logic to remove product from cart  
 
-    console.log(id)
+    // console.log(id)
 
     removeAddToCard(id)
       .unwrap()
       .then((payload) => {
-        console.log('fulfilled', payload)
+        toast.success(payload?.data?.message)
+
       })
-      .catch((error) => console.error('rejected', error));
+      .catch((error) => toast.error('something went wrong'));
 
 
   }
@@ -34,17 +35,20 @@ const CartPage = () => {
         <div className="bg-white border rounded-md p-2 ">
           <h1 className="text-2xl font-bold text-center">Shopping Cart</h1>
 
-          {getAddToCart?.uploads?.map((item: any) => (
+          {getAddToCart?.uploads?.map((item: any, index: any) => (
             <div
-              key={item.id}
+              key={index}
               className="flex-row md:flex items-center gap-5 border rounded-md bg-[#F2F2F2] m-5 p-3"
             >
-              {/* Product Image */}
               <Image
-                src={`${imageUrl}${item.material?.image}`} 
+                src={
+                  item.material?.image
+                    ? `${imageUrl}${item.material.image}`
+                    : "/placeholder.png" // fallback image inside /public
+                }
                 height={400}
                 width={350}
-                alt={item.file_name}
+                alt={item.file_name || "No image available"}
                 className="rounded-md"
               />
 
@@ -70,7 +74,6 @@ const CartPage = () => {
                   {item.spessore}
                 </p>
 
-                {/* Quantity Control */}
                 <div className="flex gap-2 items-center">
                   <p>QTY</p>
                   <button
@@ -98,7 +101,7 @@ const CartPage = () => {
                 </p>
 
                 <div className="flex items-center gap-2">
-                  <button onClick={()=> handleRemoveProduct(item?.id)} className="bg-[#FFEDD5] cursor-pointer border border-[#F59E0B] px-4 py-1 rounded-sm">
+                  <button onClick={() => handleRemoveProduct(item?.cart_item_id)} className="bg-[#FFEDD5] cursor-pointer border border-[#F59E0B] px-4 py-1 rounded-sm">
                     Remove Item
                   </button>
                   {/* <button className="bg-[#F59E0B] text-white px-4 py-1 rounded-sm">
@@ -109,7 +112,7 @@ const CartPage = () => {
             </div>
           ))}
 
-         
+
 
         </div>
         <div>
