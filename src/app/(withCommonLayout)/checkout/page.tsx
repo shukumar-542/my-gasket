@@ -1,16 +1,28 @@
 "use client";
-import { Input, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import React, { useState } from "react";
 import img from "../../../assets/product2.png";
 import Image from "next/image";
 import TextArea from "antd/es/input/TextArea";
 const CheckOutPage = () => {
   const [businessType, setBusinessType] = useState("business");
+  const [fullName, setFullName] = useState("");
+
   const handleChange = (value: string) => {
     setBusinessType(value);
   };
 
   console.log(businessType);
+
+  const handleAddToCart = (values :  any) => {
+
+    console.log(values)
+
+  }
+
+
+
+
   return (
     <div className="container mx-auto px-2 md:px-0 pt-22">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
@@ -32,64 +44,89 @@ const CheckOutPage = () => {
             />
           </div>
 
-          {businessType == "business" ? (
+          <Form onFinish={handleAddToCart}>
+
+            {businessType == "business" ? (
+              <div>
+                <p className="mt-8 mb-1">VAT Number</p>
+                <Form.Item name={"vat_number"}>
+                  <Input
+                    rootClassName="custom-input"
+
+                    placeholder="Enter your VAT number"
+                  />
+                </Form.Item>
+
+              </div>
+            ) : (
+              <>
+                <div>
+                  <p className="mt-5 mb-1">Full Name</p>
+                  <Form.Item name={"full_name"}>
+                    <Input
+                      rootClassName="custom-input"
+                      placeholder="Enter your Full Name"
+                    />
+                  </Form.Item>
+
+                </div>
+                <div>
+                  <p className="mt-5 mb-1">Social Security Number</p>
+                  <Form.Item name={"social_security_number"}>
+                    <Input
+                      rootClassName="custom-input"
+                      placeholder="Enter your Social Security Number"
+                    />
+                  </Form.Item>
+
+                </div>
+              </>
+            )}
+
+
+
             <div>
-              <p className="mt-8 mb-1">VAT Number</p>
-              <Input
-                rootClassName="custom-input"
-                placeholder="Enter your VAT number"
-              />
+              <p className="mt-5 mb-1">Email</p>
+              <Form.Item name={"email"}>
+                <Input
+                  rootClassName="custom-input"
+                  placeholder="Enter your email"
+                />
+              </Form.Item>
+
             </div>
-          ) : (
-            <>
-              <div>
-                <p className="mt-5 mb-1">Full Name</p>
+            <div>
+              <p className="mt-5 mb-1">Phone</p>
+              <Form.Item name={"phone"}>
                 <Input
                   rootClassName="custom-input"
-                  placeholder="Enter your Full Name"
+                  placeholder="Enter your phone number"
                 />
-              </div>
-              <div>
-                <p className="mt-5 mb-1">Social Security Number</p>
+              </Form.Item>
+
+            </div>
+            <div>
+              <p className="mt-5 mb-1">Address</p>
+              <Form.Item name={"address"}>
                 <Input
                   rootClassName="custom-input"
-                  placeholder="Enter your Social Security Number"
+                  placeholder="Enter your Address"
                 />
-              </div>
-            </>
-          )}
+              </Form.Item>
 
-      
+            </div>
+            <div>
+              <p className="mt-5 mb-1">Additional Note</p>
+              <Form.Item name={"additional_note"}>
+                <TextArea
+                  rows={4}
+                  rootClassName="custom-input"
+                  placeholder="Additional Text"
+                />
+              </Form.Item>
 
-          <div>
-            <p className="mt-5 mb-1">Email</p>
-            <Input
-              rootClassName="custom-input"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <p className="mt-5 mb-1">Phone</p>
-            <Input
-              rootClassName="custom-input"
-              placeholder="Enter your phone number"
-            />
-          </div>
-          <div>
-            <p className="mt-5 mb-1">Address</p>
-            <Input
-              rootClassName="custom-input"
-              placeholder="Enter your Address"
-            />
-          </div>
-          <div>
-            <p className="mt-5 mb-1">Additional Note</p>
-            <TextArea
-              rows={4}
-              rootClassName="custom-input"
-              placeholder="Additional Text"
-            />
-          </div>
+            </div>
+          </Form>
         </div>
         <div>
           <p className="text-xl font-bold">Your Order</p>
