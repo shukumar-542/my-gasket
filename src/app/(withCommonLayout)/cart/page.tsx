@@ -13,7 +13,7 @@ const CartPage = () => {
   const [removeAddToCard] = useRemoveAddToCardMutation();
   const [updatecartItem] = useUpdateCartItemMutation()
   const {data : orderSummery} = useGetOrderSummeryQuery(localStorage.getItem("session_id"))
-  console.log(orderSummery)
+  console.log(getAddToCart)
 
   const handleRemoveProduct = (id: any) => {
     // Logic to remove product from cart  

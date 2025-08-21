@@ -73,6 +73,7 @@ const products = baseApi.injectEndpoints({
             },
             invalidatesTags : ['cart']
 
+
         }),
         getOrderSummery : builder.query({
             query: (sessionId) => {
@@ -82,8 +83,18 @@ const products = baseApi.injectEndpoints({
                 }
             },
             providesTags: ['cart']
+        }),
+        chekoutProduct : builder.mutation({
+            query: (data) => {
+                return {
+                    url: `/api/budget/checkout/`,
+                    method: 'POST',
+                    body: data
+                }
+            }
         })
+
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery , useChekoutProductMutation} = products;
