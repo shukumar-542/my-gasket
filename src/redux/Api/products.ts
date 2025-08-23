@@ -92,9 +92,18 @@ const products = baseApi.injectEndpoints({
                     body: data
                 }
             }
+        }),
+        reviewProduct: builder.mutation({
+            query: (data) => {
+                return {
+                    url: `/api/budget/submit_review/`,
+                    method: 'POST',
+                    body: data
+                }
+            }
         })
 
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery , useChekoutProductMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery , useChekoutProductMutation ,useReviewProductMutation} = products;

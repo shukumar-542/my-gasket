@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import img from "../../assets/frame.png";
 import Link from "next/link";
 import { Input, Modal } from "antd";
-const ShareExprience = () => {
+const ShareExprience = (id : any) => {
   const [openModal, setOpenModal] = useState(false)
   const [orderId, setOrderId] = useState('');
   // handle order id for edit review
   const handleOrderId=()=>{
     console.log(orderId);
   }
+
 
 
   return (
@@ -32,7 +33,7 @@ const ShareExprience = () => {
       </p>
 
       <div className="mt-16 flex flex-col md:flex-row  justify-center  items-center gap-5">
-        <Link href={"/get-review"}>
+        <Link href={`/get-review/${id?.id}`}>
           <button className="hover:bg-[#F97316] hover:text-white border border-[#D97706] text-[#D97706] py-2 px-5 rounded-sm cursor-pointer transition-all duration-300">
             Leave A Review
           </button>

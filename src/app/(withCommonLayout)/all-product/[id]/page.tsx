@@ -169,7 +169,7 @@ const ProductDetailsPage = () => {
             <Button className="inline-block px-8">View More</Button>
           </Link>
         </div>
-        <ShareExprience />
+        <ShareExprience id={params?.id} />
       </div>
     </div>
   );

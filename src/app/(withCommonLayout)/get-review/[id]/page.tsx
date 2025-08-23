@@ -5,6 +5,9 @@ import { RcFile, UploadChangeParam } from "antd/es/upload";
 import React, { useState } from "react";
 import { PlusOutlined, CloseCircleFilled } from "@ant-design/icons";
 import { IoIosStar } from "react-icons/io";
+import { useParams } from "next/navigation";
+import { useReviewProductMutation } from "@/redux/Api/products";
+import { toast } from "sonner";
 
 const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -16,7 +19,10 @@ const getBase64 = (file: RcFile): Promise<string> =>
 
 const GetReviewPage = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const [rating , setRating] =  useState(0)
+  const [rating, setRating] = useState(0)
+  const { id } = useParams()
+  // console.log(id)
+  const [reviewProduct, { isLoading }] = useReviewProductMutation();
 
   const handleChange = async (info: UploadChangeParam<UploadFile<any>>) => {
     const files = info.fileList;
@@ -30,12 +36,12 @@ const GetReviewPage = () => {
             name: file.name,
             status: "done",
             url: base64,
+            originFileObj: file.originFileObj, 
           };
         }
         return file;
       })
     );
-
     setFileList(updatedFileList);
   };
 
@@ -44,19 +50,44 @@ const GetReviewPage = () => {
   };
 
 
-//   Handle Rating functionality
-const handleRating = (index : any)=>{
+  //   Handle Rating functionality
+  const handleRating = (index: any) => {
+
     setRating(index + 1)
-}
+  }
 
-console.log(rating);
 
-// Handle submit rating
-const handleSubmitRating = (values: any) => { 
-  console.log("Submitted values:", values);
-  console.log("Selected rating:", rating);
-  // Here you can handle the form submission, e.g., send data to an API
-}
+  // Handle submit rating
+  const handleSubmitRating = (values: any) => {
+
+    const formData = new FormData();
+
+    console.log("Images", fileList);
+
+    formData.append('customer_name', values.customer_name);
+    formData.append('order_number', values.order_number);
+    formData.append('star_rating', rating.toString());
+    formData.append('comment', values.comment);
+    formData.append('material_id', id?.toString() || '');
+    fileList.forEach((file) => {
+      if (file.originFileObj) {
+        formData.append("product_images", file.originFileObj);
+      }
+    });
+    reviewProduct(formData)
+      .unwrap()
+      .then((response) => {
+        // console.log("Review submitted successfully:", response);
+        toast.success("Review submitted successfully!");
+        // Optionally, reset the form or show a success message
+      })
+      .catch((error) => {
+        // console.error("Error submitting review:", error);
+        // Handle error, e.g., show an error message
+        toast.error("Failed to submit review. Please try again.");
+      });
+
+  }
 
   return (
     <div className="max-w-4xl mx-auto mt-20 py-20">
@@ -65,20 +96,10 @@ const handleSubmitRating = (values: any) => {
           <Form.Item label="Name" name={"customer_name"} className="w-full">
             <Input placeholder="Jane" />
           </Form.Item>
-          {/* <Form.Item label="Last Name" className="w-full">
-            <Input placeholder="Cooper" />
-          </Form.Item> */}
+
         </div>
 
-        {/* <Form.Item label="Selecet Type">
-          <Select
-            options={[
-              { value: "Gomma Para1", label: "Gomma Para1" },
-              { value: "Gomma Para2", label: "Gomma Para2" },
-              { value: "Gomma Para3", label: "Gomma Para3" },
-            ]}
-          />
-        </Form.Item> */}
+
 
         <Form.Item label="Insert Your Order Number" name={"order_number"}>
           <Input placeholder="# ID" />
@@ -126,7 +147,7 @@ const handleSubmitRating = (values: any) => {
         <Form.Item label="Number Os Stars" name={"star_rating"}>
           <div className="flex items-center gap-2">
             {Array.from({ length: 5 }, (_, index) => (
-              <IoIosStar className="cursor-pointer" key={index} onClick={()=> handleRating(index)} color={index < rating ? "#FFB547" : "#D0D5DD"} size={30} />
+              <IoIosStar className="cursor-pointer" key={index} onClick={() => handleRating(index)} color={index < rating ? "#FFB547" : "#D0D5DD"} size={30} />
             ))}
           </div>
         </Form.Item>
