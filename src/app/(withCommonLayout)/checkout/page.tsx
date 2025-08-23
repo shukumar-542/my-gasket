@@ -1,7 +1,6 @@
 "use client";
 import { Form, Input, Select } from "antd";
-import React, { useState } from "react";
-import img from "../../../assets/product2.png";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TextArea from "antd/es/input/TextArea";
 import { useAddToCartQuery, useChekoutProductMutation, useGetOrderSummeryQuery } from "@/redux/Api/products";
@@ -9,8 +8,17 @@ import { imageUrl } from "@/redux/baseApi";
 import { toast } from "sonner";
 const CheckOutPage = () => {
   const [businessType, setBusinessType] = useState("business");
-  const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
-  const { data: orderSummery } = useGetOrderSummeryQuery(localStorage.getItem("session_id"))
+
+    const [sessionId, setSessionId] = useState<string | null>(null)
+  
+     // Load sessionId safely on client
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        setSessionId(localStorage.getItem("session_id"))
+      }
+    }, [])
+  const { data: getAddToCart } = useAddToCartQuery(sessionId!, { skip: !sessionId })
+  const { data: orderSummery } = useGetOrderSummeryQuery(sessionId!, { skip: !sessionId })
   const [checkoutProduct] = useChekoutProductMutation();
 
   // console.log(orderSummery)

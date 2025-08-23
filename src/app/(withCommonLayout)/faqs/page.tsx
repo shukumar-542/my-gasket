@@ -7,7 +7,7 @@ import Faqs from "@/components/Faqs/Faqs";
 async function fetchFaqs() {
   try {
     const res = await fetch("http://103.186.20.116:9001/api/auth/faq", {
-      cache: "no-store",
+      next: { revalidate: 60 },
     });
 
     console.log("Response status:", res.status);

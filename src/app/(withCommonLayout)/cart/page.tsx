@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LuMinus } from 'react-icons/lu';
 import { FiPlus } from 'react-icons/fi';
 import Link from 'next/link';
@@ -9,11 +9,21 @@ import { imageUrl } from '@/redux/baseApi';
 import { toast } from 'sonner';
 
 const CartPage = () => {
-  const { data: getAddToCart } = useAddToCartQuery(localStorage.getItem("session_id"))
+  const [sessionId, setSessionId] = useState<string | null>(null)
+
+   // Load sessionId safely on client
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setSessionId(localStorage.getItem("session_id"))
+    }
+  }, [])
+
+
+  const { data: getAddToCart } = useAddToCartQuery(sessionId!, { skip: !sessionId })
   const [removeAddToCard] = useRemoveAddToCardMutation();
   const [updatecartItem] = useUpdateCartItemMutation()
-  const {data : orderSummery} = useGetOrderSummeryQuery(localStorage.getItem("session_id"))
-  console.log(getAddToCart)
+  const { data: orderSummery } = useGetOrderSummeryQuery(sessionId!, { skip: !sessionId })
+  // console.log(getAddToCart)
 
   const handleRemoveProduct = (id: any) => {
     // Logic to remove product from cart  
