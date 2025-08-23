@@ -33,13 +33,13 @@ const ShareExprience = () => {
 
       <div className="mt-16 flex flex-col md:flex-row  justify-center  items-center gap-5">
         <Link href={"/get-review"}>
-          <button className="bg-[#F97316] py-2 px-5 rounded-sm cursor-pointer">
+          <button className="hover:bg-[#F97316] hover:text-white border border-[#D97706] text-[#D97706] py-2 px-5 rounded-sm cursor-pointer transition-all duration-300">
             Leave A Review
           </button>
         </Link>
-        <button onClick={()=>setOpenModal(true)} className="border cursor-pointer border-[#D97706] rounded-md text-[#EA580C] py-2 px-5">
+        {/* <button onClick={()=>setOpenModal(true)} className="border cursor-pointer border-[#D97706] rounded-md text-[#EA580C] py-2 px-5">
           Modify Review
-        </button>
+        </button> */}
       </div>
       <Modal centered footer={false} open={openModal} onCancel={()=> setOpenModal(false)}>
         <p className="my-4">Insert Your Order Number</p>

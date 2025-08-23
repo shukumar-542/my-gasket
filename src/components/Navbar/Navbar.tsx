@@ -104,7 +104,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <button className="bg-[#F97316] text-white px-4 py-2 shadow-xl rounded-xs text-[16px] cursor-pointer">
+          <button className="bg-[#F97316] text-white px-4 py-2 shadow-xl rounded-[10px] text-[16px] cursor-pointer">
             {t("getInstantQuote")}
           </button>
         </div>
