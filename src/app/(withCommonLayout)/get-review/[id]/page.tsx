@@ -1,5 +1,5 @@
 "use client";
-import { Form, Input, Select, Upload, UploadFile } from "antd";
+import { Form, Input, Upload, UploadFile } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { RcFile, UploadChangeParam } from "antd/es/upload";
 import React, { useState } from "react";
@@ -61,9 +61,6 @@ const GetReviewPage = () => {
   const handleSubmitRating = (values: any) => {
 
     const formData = new FormData();
-
-    console.log("Images", fileList);
-
     formData.append('customer_name', values.customer_name);
     formData.append('order_number', values.order_number);
     formData.append('star_rating', rating.toString());
@@ -77,13 +74,10 @@ const GetReviewPage = () => {
     reviewProduct(formData)
       .unwrap()
       .then((response) => {
-        // console.log("Review submitted successfully:", response);
         toast.success("Review submitted successfully!");
-        // Optionally, reset the form or show a success message
       })
       .catch((error) => {
-        // console.error("Error submitting review:", error);
-        // Handle error, e.g., show an error message
+      
         toast.error("Failed to submit review. Please try again.");
       });
 
