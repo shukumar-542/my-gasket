@@ -21,6 +21,7 @@ const ProductDetailsPage = () => {
   const { data :  getReview } = useGetProductReviewQuery(params?.id);
 
 
+
   /// Separate features based on their type: pros, cons, and main_features
   const prosFeatures: any[] = [];
   const consFeatures: any[] = [];
@@ -164,11 +165,11 @@ const ProductDetailsPage = () => {
         </div>
 
         <WhatOurClientSay reviews={getReview?.reviews} />
-        <div className="flex justify-center py-5">
+        {/* <div className="flex justify-center py-5">
           <Link href={"/customer-review"}>
             <Button className="inline-block px-8">View More</Button>
           </Link>
-        </div>
+        </div> */}
         <ShareExprience id={params?.id} />
       </div>
     </div>

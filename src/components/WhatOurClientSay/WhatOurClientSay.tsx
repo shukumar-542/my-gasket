@@ -6,6 +6,7 @@ import review4 from "../../assets/review4.png";
 import Image from "next/image";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { imageUrl } from "@/redux/baseApi";
 const WhatOurClientSay = (reviews: any) => {
   const { t } = useTranslation()
 
@@ -24,7 +25,7 @@ const WhatOurClientSay = (reviews: any) => {
           const hasHalfStar = rating % 1 >= 0.5;
           const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
           return (
-            <div key={index} className=" bg-white  justify-between items-center   p-8 rounded-xl mx-2 md:mx-0" style={{
+            <div key={index} className=" bg-white  justify-between items-center   p-8 rounded-xl mx-2 md:mx-0 mb-5" style={{
               boxShadow: '0 0 15px rgba(0, 0, 0, 0.15)',
             }}>
               <div className="md:flex items-center justify-between gap-5">
@@ -33,6 +34,7 @@ const WhatOurClientSay = (reviews: any) => {
                   {/* Dynamic stars */}
                   <div className="flex items-center gap-3 mt-2">
                     {[...Array(fullStars)].map((_, i) => (
+
                       <FaStar key={`full-${i}`} color="#FFD600" size={22} />
                     ))}
                     {hasHalfStar && <FaStarHalfAlt color="#FFD600" size={22} />}
@@ -51,28 +53,22 @@ const WhatOurClientSay = (reviews: any) => {
               <p className="text-[18px] text-[#061C3D] mt-5">
                {review?.comment}
               </p>
-              <div className="md:flex items-center gap-5 h-full mt-5">
-                <Image
-                  className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
-                  src={review2}
-                  height={200}
-                  width={200}
-                  alt="img"
-                />
-                <Image
-                  className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
-                  src={review4}
-                  height={200}
-                  width={200}
-                  alt="img"
-                />
-                <Image
-                  className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl"
-                  src={review1}
-                  height={200}
-                  width={200}
-                  alt="img"
-                />
+              <div className="md:flex items-center gap-5 h-full mt-5 ">
+
+                {
+                  review?.product_images?.map((image: any, idx: number) => (
+                      <Image
+                        key={idx}
+                        className="h-[180px] w-full md:w-[180px] bg-white shadow-2xl object-cover"
+                        src={`${imageUrl}${image?.image}`}
+                        height={200}
+                        width={200}
+                        alt="img"
+                      />
+                    ))
+                }
+               
+               
               </div>
             </div>
           );
