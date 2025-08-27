@@ -1,8 +1,5 @@
 "use client"
 import React from "react";
-import review1 from "../../assets/review1.png";
-import review2 from "../../assets/review2.png";
-import review4 from "../../assets/review4.png";
 import Image from "next/image";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -43,7 +40,7 @@ const WhatOurClientSay = (reviews: any) => {
                     ))}
 
                     <p className="text-[#C4C4C4] ml-2">
-                      {rating} ({review?.star_rating?.toFixed(1)})
+                      {rating} ( 5 )
                     </p>
                   </div>
                 </div>

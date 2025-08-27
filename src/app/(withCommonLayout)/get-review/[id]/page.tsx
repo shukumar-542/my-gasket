@@ -8,6 +8,7 @@ import { IoIosStar } from "react-icons/io";
 import { useParams } from "next/navigation";
 import { useReviewProductMutation } from "@/redux/Api/products";
 import { toast } from "sonner";
+import { Spin } from "antd";
 
 const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -36,7 +37,7 @@ const GetReviewPage = () => {
             name: file.name,
             status: "done",
             url: base64,
-            originFileObj: file.originFileObj, 
+            originFileObj: file.originFileObj,
           };
         }
         return file;
@@ -77,7 +78,7 @@ const GetReviewPage = () => {
         toast.success("Review submitted successfully!");
       })
       .catch((error) => {
-      
+
         toast.error("Failed to submit review. Please try again.");
       });
 
@@ -138,7 +139,7 @@ const GetReviewPage = () => {
             </Upload>
           </div>
         </Form.Item>
-        <Form.Item label="Number Os Stars" name={"star_rating"}>
+        <Form.Item label="Number Of Stars" name={"star_rating"}>
           <div className="flex items-center gap-2">
             {Array.from({ length: 5 }, (_, index) => (
               <IoIosStar className="cursor-pointer" key={index} onClick={() => handleRating(index)} color={index < rating ? "#FFB547" : "#D0D5DD"} size={30} />
@@ -150,9 +151,18 @@ const GetReviewPage = () => {
           <TextArea rows={4} />
         </Form.Item>
 
-        <button className="bg-[#F97316] rounded-sm px-10 py-3 text-white">
-          Submit
+        <button
+          disabled={isLoading}
+          className={`bg-[#F97316] cursor-pointer rounded-sm w-[140px] h-[44px] text-white flex items-center justify-center gap-2 ${isLoading ? " cursor-not-allowed" : ""
+            }`}
+        >
+          {isLoading ? (
+            <Spin size="small" className="custom-spin" />
+          ) : (
+            "Submit"
+          )}
         </button>
+
       </Form>
     </div>
   );
