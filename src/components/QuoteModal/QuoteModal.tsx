@@ -13,7 +13,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 type QuoteModalProps = {
   openModal: boolean;
   setOpenModal: () => void;  
-  onContinue: () => void;
+  // onContinue: () => void;
 };
 const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
   const steps = [
@@ -66,6 +66,8 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
       setCurrentSteps((prev) => prev - 1)
     }
   }
+
+  console.log(openModal)
 
 
 

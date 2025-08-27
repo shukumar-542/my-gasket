@@ -242,7 +242,7 @@ const MaterialsQuotePage = () => {
       <QuoteModal
         openModal={openModal}
         setOpenModal={() => setOpenModal(false)}
-        onContinue={handleModalClose}
+        // onContinue={handleModalClose}
       />
 
       <div className="mt-8 relative">

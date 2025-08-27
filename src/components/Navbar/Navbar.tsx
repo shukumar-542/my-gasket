@@ -12,6 +12,7 @@ import italy from "../../assets/italy.png";
 import { HiMenu, HiX } from "react-icons/hi";
 
 import { useTranslation } from "react-i18next";
+import QuoteModal from "../QuoteModal/QuoteModal";
 
 const options = [
   {
@@ -48,15 +49,17 @@ const options = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const { i18n, t } = useTranslation();
   const pathName = usePathname();
 
+
+
   // Language change function
-
   const handleChange = (selected: any) => {
-
     i18n.changeLanguage(selected)
   };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5 shadow-2xl`}
@@ -97,14 +100,14 @@ const Navbar = () => {
               key={link.path}
               href={link.path}
               className={`hover:text-[#EA580C] transition duration-300 pb-1 ${pathName === link.path
-                  ? "border-b-[3px] border-[#EA580C]"
-                  : "border-b-2 border-transparent"
+                ? "border-b-[3px] border-[#EA580C]"
+                : "border-b-2 border-transparent"
                 }`}
             >
               {link.name}
             </Link>
           ))}
-          <button className="bg-[#F97316] text-white px-4 py-2 shadow-xl rounded-[10px] text-[16px] cursor-pointer">
+          <button onClick={()=>setOpenModal(true)} className="bg-[#F97316] text-white px-4 py-2 shadow-xl rounded-[10px] text-[16px] cursor-pointer">
             {t("getInstantQuote")}
           </button>
         </div>
@@ -157,8 +160,8 @@ const Navbar = () => {
               href={link.path}
               onClick={() => setMenuOpen(!menuOpen)}
               className={`hover:text-[#EA580C] transition duration-300 pb-1 ${pathName === link.path
-                  ? "text-[#EA580C]"
-                  : "border-b-2 border-transparent"
+                ? "text-[#EA580C]"
+                : "border-b-2 border-transparent"
                 }`}
             >
               {link.name}
@@ -166,6 +169,11 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+      <QuoteModal
+        openModal={openModal}
+        setOpenModal={() => setOpenModal(false)}
+      // onContinue={handleModalClose}
+      />
     </nav>
   );
 };
