@@ -153,17 +153,8 @@ const MaterialsQuotePage = () => {
     });
   };
 
-  useEffect(() => {
-    const hasSeenModal = localStorage.getItem("quoteModalShown");
-    if (!hasSeenModal) {
-      setOpenModal(true);
-    }
-  }, []);
 
-  const handleModalClose = () => {
-    localStorage.setItem("quoteModalShown", "true");
-    setOpenModal(false);
-  };
+
 
 
   const generateSessionId = () => {
@@ -203,12 +194,6 @@ const MaterialsQuotePage = () => {
         // toast.success("Price generated successfully!");
       })
       .catch((error) => toast.error(error?.data?.message || 'An error occurred'));
-
-    // ✅ Log all values from FormData
-    // for (let [key, value] of formData.entries()) {
-    //   console.log(`${key}:`, value);
-    // }
-
   }
 
 
@@ -242,7 +227,6 @@ const MaterialsQuotePage = () => {
       <QuoteModal
         openModal={openModal}
         setOpenModal={() => setOpenModal(false)}
-        // onContinue={handleModalClose}
       />
 
       <div className="mt-8 relative">
@@ -263,7 +247,7 @@ const MaterialsQuotePage = () => {
         <p className="font-semibold text-[25px] md:text-[38px]">
           How does the quote generator work?{" "}
         </p>
-        <p className="text-[#F97316] cursor-pointer">
+        <p className="text-[#F97316] cursor-pointer mt-3" onClick={() => setOpenModal(true)}>
           <IoMdInformationCircleOutline size={35} />
         </p>
       </div>
