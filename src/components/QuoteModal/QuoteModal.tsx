@@ -95,7 +95,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
             <div className="h-10 w-10 rounded-full border border-[#000000] -top-5  left-[50%] transform -translate-x-1/2 flex justify-center items-center absolute bg-white ">
               {steps[currentStep]?.stepNo}
             </div>
-            <p className="text-center py-2 px-2 ">
+            <p className="text-center text-xs md:text-xl py-2 px-2 ">
               {steps[currentStep]?.description}
             </p>
             <div className="p-5 flex justify-center w-full  ">
@@ -103,7 +103,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
                 src={steps[currentStep]?.img}
                 height={400}
                 width={400}
-                className="rounded-md h-[250px] w-[310px] object-cover"
+                className="rounded-md md:h-[250px] w-[310px] object-cover"
                 alt="img"
               />
             </div>

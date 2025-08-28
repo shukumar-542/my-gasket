@@ -10,17 +10,17 @@ async function fetchFaqs() {
       next: { revalidate: 60 },
     });
 
-    console.log("Response status:", res.status);
+    // console.log("Response status:", res.status);
 
     if (!res.ok) {
       const errorText = await res.text();
-      console.error("Error body:", errorText);
+      // console.error("Error body:", errorText);
       throw new Error("Failed to fetch FAQs");
     }
 
     return res.json();
   } catch (error) {
-    console.error("Fetch FAQs failed:", error);
+    // console.error("Fetch FAQs failed:", error);
     throw error;
   }
 }

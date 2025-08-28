@@ -15,7 +15,6 @@ const WhatOurClientSay = (reviews: any) => {
 
       {
         reviews?.reviews?.map((review: any, index: number) => {
-          console.log(review)
 
           const rating = review?.star_rating || 0;
           const fullStars = Math.floor(rating);

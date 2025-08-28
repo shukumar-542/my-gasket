@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../Button/Button'
 import step1 from "@/assets/step1.png"
 import step2 from "@/assets/step2.png"
@@ -7,9 +7,11 @@ import step3 from "@/assets/step3.png"
 import step4 from "@/assets/step4.png"
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
+import QuoteModal from '../QuoteModal/QuoteModal'
 
 const HowItWorks = () => {
     const { t } = useTranslation();
+    const [openModal, setOpenModal] = useState(false);
     return (
         <div className='container mx-auto pb-10 mt-10 '>
             <h1 className='text-[20px] md:text-[48px]  font-extrabold text-center uppercase'>{t("howItWorks")}</h1>
@@ -21,7 +23,10 @@ const HowItWorks = () => {
                     <p className='border-2  inline-block p-2 rounded-full border-[#2563EB] px-3 text-xl font-medium absolute left-5 -top-5 bg-white '>01</p>
                     <p className='text-[18px] mt-2 text-center px-8 py-5 '>{t("uploadDrawing")} </p>
                     <Image src={step1} height={300} width={300} alt='step1' />
-                    <Button className='mt-2 inline-block  px-6  text-[20px]'>{t("getInstantQuote")}</Button>
+                    <div onClick={() => setOpenModal(true)} className='
+                    cursor-pointer'>
+                        <Button className='mt-2 inline-block  px-6  text-[20px]'>{t("getInstantQuote")}</Button>
+                    </div>
                 </div>
                 <div className='bg-white flex flex-col items-center shadow-xl rounded-sm p-5 relative overflow-visible' style={{
                     boxShadow: '0 0 15px rgba(0, 0, 0, 0.15)',
@@ -50,6 +55,11 @@ const HowItWorks = () => {
                 </div>
 
             </div>
+            <QuoteModal
+                openModal={openModal}
+                setOpenModal={() => setOpenModal(false)}
+            // onContinue={handleModalClose}
+            />
         </div>
     )
 }
