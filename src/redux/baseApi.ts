@@ -2,7 +2,7 @@
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "/api";
+const baseUrl = "/api/proxy";
 // Helper function to get the token
 const getToken = () => {
   if (typeof window === "undefined") {
@@ -62,4 +62,4 @@ export const fetchServerData = async (endpoint: string) => {
 export default baseApi;
 
 
-export const imageUrl = "/api";
+export const imageUrl = "/api/proxy";

@@ -18,6 +18,8 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ product }) => {
 
+  console.log(product?.image)
+
 
   return (
     <div className="group rounded-md overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -26,7 +28,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           className="w-full h-[250px] object-cover transform transition-transform duration-700 group-hover:scale-110"
           height={200}
           width={200}
-          src={`${imageUrl}/${product?.image}`}
+          src={`${imageUrl}${product?.image}`}
           alt="img"
         />
       </div>
