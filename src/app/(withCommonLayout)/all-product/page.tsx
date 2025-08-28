@@ -21,7 +21,7 @@ const AllProductPage = () => {
         />
         <div className="absolute inset-0 bg-black opacity-45"></div>
         <p className="absolute top-1/2 left-2/12 text-white text-[40px] uppercase font-semibold">
-          MATERIALS WE OFFER
+          MATERIALS WE OFFERs
         </p>
       </div>
 
