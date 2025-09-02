@@ -6,7 +6,7 @@ import Faqs from "@/components/Faqs/Faqs";
 
 async function fetchFaqs() {
   try {
-    const res = await fetch("http://103.186.20.116:9001/api/auth/faq", {
+    const res = await fetch("http://103.186.20.115:11000/api/auth/faq", {
       next: { revalidate: 60 },
     });
 
