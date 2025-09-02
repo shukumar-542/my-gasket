@@ -18,7 +18,6 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ product }) => {
 
-  console.log(product?.image)
 
 
   return (
@@ -28,7 +27,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           className="w-full h-[250px] object-cover transform transition-transform duration-700 group-hover:scale-110"
           height={200}
           width={200}
-          src={`${imageUrl}${product?.image}`}
+          src={`${imageUrl}/${product?.image}`}
           alt="img"
         />
       </div>
@@ -40,11 +39,12 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             ?.map(temp => temp.trim() + "°")
             ?.join(" / ")}{" "} C
         </p>
-        <p>{product?.description ? product?.description : "No descriptions"}</p>
+        <p>{product?.description ? product?.description : "No descriptions"}</p> 
         <Link href={`/all-product/${product?.id}`}>
           <button className="bg-black text-white px-6 py-2 rounded-md my-2 cursor-pointer">
             See More
           </button>
+
         </Link>
       </div>
     </div>
