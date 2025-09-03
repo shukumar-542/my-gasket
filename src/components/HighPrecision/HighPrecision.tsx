@@ -8,23 +8,23 @@ import { useTranslation } from "react-i18next";
 
 
 const HighPrecision = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   return (
     <div
-    className="bg-[#BEDBF6]"
-      // style={{
-      //   backgroundImage: `url(${bg.src})`,
-      //   backgroundRepeat: "no-repeat",
-      //   // backgroundPosition: "center",
-      //   backgroundSize: "cover",
-      //   width: "100%",
-      // }}
+      className="bg-[#BEDBF6]  "
+    // style={{
+    //   backgroundImage: `url(${bg.src})`,
+    //   backgroundRepeat: "no-repeat",
+    //   // backgroundPosition: "center",
+    //   backgroundSize: "cover",
+    //   width: "100%",
+    // }}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-2 md:px-0">
         <div className={`md:flex items-center gap-20 py-10`}>
           <div className="w-full">
             <p className="text-[32px] font-extrabold pb-5">
-               {t('customGasketsMadeEasy')}
+              {t('customGasketsMadeEasy')}
             </p>
             <div className="border-3 max-w-[25%]  border-[#F97316]"></div>
             <p className="pt-5 text-[#475569] text-[18px]">
@@ -41,29 +41,31 @@ const HighPrecision = () => {
             />
           </div>
         </div>
-        <div className={`md:flex items-center gap-20 py-10`}>
-          <div className="w-full ">
+        <div className="md:flex items-center gap-20 py-10">
+          {/* Image Section */}
+          <div className="w-full h-[550px] relative overflow-hidden rounded-md">
             <Image
               src={img2}
-              height={800}
-              width={800}
-              className="w-full h-[550px] object-cover rounded-sm"
               alt="img"
+              fill
+              className="object-cover rounded-2xl"
             />
           </div>
 
+          {/* Text Section */}
           <div className="w-full">
             <p className="text-[32px] font-extrabold pb-5">
-            {t('highPrecisionCutting')}
+              {t('highPrecisionCutting')}
             </p>
-            <div className="border-3 max-w-[25%]  border-[#F97316]"></div>
+            <div className="border-[3px] max-w-[25%] border-[#F97316]"></div>
             <p className="pt-5 text-[#475569] text-[18px]">
               {t("instantQuoteBenefitDescription")}
             </p>
           </div>
         </div>
+
       </div>
-      
+
     </div>
   );
 };

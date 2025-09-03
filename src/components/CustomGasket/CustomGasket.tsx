@@ -8,17 +8,17 @@ const CustomGasket = () => {
   const {t} = useTranslation()
   return (
     <div className="container mx-auto py-20 ">
-      <div className="md:flex items-center bg-[#F97316] gap-20 rounded-3xl">
+      <div className="md:flex items-center bg-[#F97316] md:gap-20 rounded-3xl">
         <div className="w-full ">
           <Image
-            className=" h-[350px] md:h-[670px]  rounded-3xl"
+            className=" md:h-[670px] h-auto w-full  rounded-2xl  md:rounded-3xl"
             src={gasket}
             height={100}
             width={800}
             alt="img"
           />
         </div>
-        <div className="w-full  px-2 md:px-0 ">
+        <div className="w-full  px-2 md:px-0 pb-8">
           <p className="font-extrabold text-[30px] md:text-[50px] max-w-[50%] ">
             {t("materialsWeOffer")}
           </p>

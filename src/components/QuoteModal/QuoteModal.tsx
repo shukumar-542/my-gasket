@@ -9,6 +9,7 @@ import img5 from "../../assets/work5.png";
 import img6 from "../../assets/work6.png";
 import Image from "next/image";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Link from "next/link";
 
 type QuoteModalProps = {
   openModal: boolean;
@@ -117,13 +118,13 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
         </div>
         {currentStep == steps.length - 1 && (
           <div className="flex justify-center items-center">
-            {/* <Link href={"/materials-quote"}> */}
+            <Link href={"/all-product"}>
             <button onClick={() => {
               setOpenModal(); 
             }} className={`bg-[#F97316] text-black py-2 px-4 rounded-sm shadow-2xl cursor-pointer`}>
               Continue
             </button>
-            {/* </Link> */}
+            </Link>
           </div>
         )}
       </Modal>
