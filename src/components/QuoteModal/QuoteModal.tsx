@@ -122,7 +122,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
             <button onClick={() => {
               setOpenModal(); 
             }} className={`bg-[#F97316] text-black py-2 px-4 rounded-sm shadow-2xl cursor-pointer`}>
-              Continue
+              Continue 
             </button>
             </Link>
           </div>

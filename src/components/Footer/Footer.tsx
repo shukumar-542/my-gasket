@@ -20,7 +20,7 @@ const Footer = () => {
       //   width: "100%",
       // }}
     >
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container px-5 mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* First columns */}
         <div className="space-y-5">
           <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
         <div className="space-y-5">
           <p className="text-2xl font-semibold">Follow Us On</p>
-          <div className="flex items-center gap-5">
+          <div className="grid  grid-cols-2 md:grid-cols-4 gap-5">
             <Image
               src={facebook}
               height={200}

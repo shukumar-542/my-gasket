@@ -237,6 +237,7 @@ const MaterialsQuotePage = () => {
           width={1200}
           alt="Materials Quote Banner"
         />
+        
         <div className="absolute inset-0 bg-black opacity-45"></div>
         <p className="absolute top-1/2 left-2/12 text-white text-[40px] uppercase font-semibold">
           Materials Quote
@@ -256,16 +257,16 @@ const MaterialsQuotePage = () => {
         <WorkProcess workSteps={workSteps} />
       </div>
 
-      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-0">
+      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-5">
         {/* Left side - file upload and additional details */}
         <div>
-          <div className="border-dashed border-2 border-gray-400 p-20  rounded-xl bg-gray-100 hover:bg-gray-200 transition">
+          <div className="border-dashed border-2 border-gray-400 p-12  rounded-xl bg-gray-100 hover:bg-gray-200 transition">
             <div className="relative">
               <label
                 htmlFor="file-upload"
-                className="flex flex-col items-center justify-center  py-14 cursor-pointer border-gray-600 border-2 rounded-xl"
+                className={`flex flex-col items-center justify-center  py-14 cursor-pointer ${file &&  "border-gray-600 border-2 rounded-xl"} `}
               >
-                <HiOutlineUpload size={40} className="text-gray-800" />
+                <HiOutlineUpload size={44} className="text-gray-800" />
                 <input
                   id="file-upload"
                   type="file"
@@ -280,7 +281,7 @@ const MaterialsQuotePage = () => {
                     {file.name}
                   </p>
                 ) : (
-                  "Upload File"
+                  <p className="text-[24px] text-center text-gray-600">Trascina e rilascia i file qui o fai clic per selezionarli (accettiamo solo dxf o dwg)</p>
                 )}
               </label>
 

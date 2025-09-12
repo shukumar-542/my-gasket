@@ -13,7 +13,7 @@ interface IWorkProcess {
 }
 const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
   return (
-    <div className="container mx-auto  py-5 grid grid-cols-1 md:grid-cols-5 gap-5  ">
+    <div className="container mx-auto px-0 md:px-5  py-5 grid grid-cols-1 md:grid-cols-5 gap-5  ">
           <div
             className="w-full  px-5 rounded-md
              relative"
