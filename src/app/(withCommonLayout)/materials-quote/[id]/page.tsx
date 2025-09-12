@@ -237,7 +237,7 @@ const MaterialsQuotePage = () => {
           width={1200}
           alt="Materials Quote Banner"
         />
-        
+
         <div className="absolute inset-0 bg-black opacity-45"></div>
         <p className="absolute top-1/2 left-2/12 text-white text-[40px] uppercase font-semibold">
           Materials Quote
@@ -264,7 +264,7 @@ const MaterialsQuotePage = () => {
             <div className="relative">
               <label
                 htmlFor="file-upload"
-                className={`flex flex-col items-center justify-center  py-14 cursor-pointer ${file &&  "border-gray-600 border-2 rounded-xl"} `}
+                className={`flex flex-col items-center justify-center  py-14 cursor-pointer ${file && "border-gray-600 border-2 rounded-xl"} `}
               >
                 <HiOutlineUpload size={44} className="text-gray-800" />
                 <input
@@ -342,11 +342,8 @@ const MaterialsQuotePage = () => {
 
         {/* Right side - form options */}
         <div className="space-y-5">
-          {/* <div className="flex items-center  bg-white p-2 rounded-sm shadow-2xl">
-            <p className="w-full">Select the drawing scale 01 : </p>
-            <p className="w-20">1 : 1 </p>
-          </div> */}
-          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+        
+          <div className="flex items-center bg-white p-2 rounded-sm  shadow-xl hover:shadow-2xl transition duration-300 ">
             <p className="w-full">Drawing Measurement Unit: </p>
             <Select
               style={{ width: 300 }}
@@ -361,7 +358,7 @@ const MaterialsQuotePage = () => {
               onChange={(value) => setUnit(value)}
             />
           </div>
-          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+          <div className="flex items-center bg-white p-2 rounded-sm  shadow-xl hover:shadow-2xl transition duration-300">
             <p className="w-full">Select Rubber type: </p>
             <Select
               style={{ width: 300 }}
@@ -388,7 +385,7 @@ const MaterialsQuotePage = () => {
             />
           </div>
 
-          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+          <div className="flex items-center bg-white p-2 rounded-sm shadow-xl hover:shadow-2xl transition duration-300">
             <p className="w-full">Select Thickness: </p>
             <Select
               style={{ width: 300 }}
@@ -403,7 +400,7 @@ const MaterialsQuotePage = () => {
               onChange={(value) => setThickness(value)}
             />
           </div>
-          <div className="flex items-center bg-white p-2 rounded-sm shadow-2xl">
+          <div className="flex items-center bg-white p-2 rounded-sm  shadow-xl hover:shadow-2xl transition duration-300">
             <p className="w-full">Number of Pieces: </p>
             <div className="flex items-center gap-2">
               <button
@@ -430,23 +427,24 @@ const MaterialsQuotePage = () => {
             </div>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-center gap-5">
+            <button onClick={() => handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
+              <MdShoppingCart size={20} />
+              Add to Cart
+            </button>
             <button type="button" onClick={handleGeneratePrice} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center  gap-2 text-white">
               Generate Price
             </button>
 
           </div>
 
-          <div className="flex items-center text-5xl font-extrabold gap-2">
+          <div className="flex items-center justify-center text-5xl font-extrabold gap-1">
             <FaDollarSign />
             <p>{price}</p>
           </div>
 
           {/* <Link href="/cart" passHref> */}
-          <button onClick={() => handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
-            <MdShoppingCart size={20} />
-            Add to Cart
-          </button>
+
           {/* </Link> */}
         </div>
       </div>

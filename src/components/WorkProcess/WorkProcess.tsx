@@ -25,9 +25,9 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
               01
 
             </p>
-            <p className="text-[18px] text-center font-medium mt-10">You can upload only one drawing ata a time and it must contain the drawing of a single gasket.</p>
-            <div className="h-[250px] mt-0 w-full flex items-center justify-center ">
-              <Image src={img1} height={100} width={200} alt="img" className="w-full object-contain h-[250px]  " />
+            <p className="text-[15px] xl:text-[18px] text-center font-medium mt-10">You can upload only one drawing ata a time and it must contain the drawing of a single gasket.</p>
+            <div className="h-[200px] mt-0 w-full flex items-center justify-center ">
+              <Image src={img1} height={100} width={200} alt="img" className="w-full object-contain h-[200px]  " />
 
             </div>
 
@@ -44,9 +44,9 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
               
 
             </p>
-            <p className="text-[18px] text-center font-medium mt-18">.DWG or .DFX files only</p>
-            <div className="h-[280px]  w-full flex items-center justify-center mt-6">
-              <Image src={img2} height={100} width={200} alt="img" className="w-full object-contain h-[280px]  " />
+            <p className="text-[15px] xl:text-[18px] text-center font-medium mt-18">.DWG or .DFX files only</p>
+            <div className="h-[200px]  w-full flex items-center justify-center mt-6">
+              <Image src={img2} height={100} width={200} alt="img" className="w-full object-contain h-[200px]  " />
 
             </div>
 
@@ -62,9 +62,9 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
               03
 
             </p>
-            <p className="text-[18px] text-center font-medium mt-20">MAXIMUM DIMENSIONS: <br /> 1500mmX1500mm</p>
-            <div className="h-[250px] mt-0 w-full flex items-center justify-center ">
-              <Image src={img3} height={100} width={200} alt="img" className="w-full object-contain h-[250px]  " />
+            <p className="text-[15px] xl:text-[18px] text-center font-medium mt-20">MAXIMUM DIMENSIONS: <br /> 1500mmX1500mm</p>
+            <div className="h-[200px] mt-0 w-full flex items-center justify-center ">
+              <Image src={img3} height={100} width={200} alt="img" className="w-full object-contain h-[200px]  " />
 
             </div>
 
@@ -80,9 +80,9 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
               04
 
             </p>
-            <p className="text-[18px] text-center font-medium mt-20">It must have a top view only.</p>
-            <div className="h-[250px] mt-2 w-full flex items-center justify-center ">
-              <Image src={img4} height={100} width={200} alt="img" className="w-full object-contain h-[250px]  " />
+            <p className="text-[15px] xl:text-[18px] text-center font-medium mt-20">It must have a top view only.</p>
+            <div className="h-[200px] mt-2 w-full flex items-center justify-center ">
+              <Image src={img4} height={100} width={200} alt="img" className="w-full object-contain h-[200px]  " />
 
             </div>
 
@@ -98,9 +98,9 @@ const WorkProcess = ({ workSteps }: { workSteps: IWorkProcess[] }) => {
               05
 
             </p>
-            <p className="text-[18px] text-center font-medium mt-20">1 : 1 scale drawing only</p>
-            <div className="h-[250px] mt-0 w-full flex items-center justify-center ">
-              <Image src={img5} height={100} width={200} alt="img" className="w-full object-contain h-[300px]  " />
+            <p className="text-[15px] xl:text-[18px] text-center font-medium mt-20">1 : 1 scale drawing only</p>
+            <div className="h-[200px] mt-0 w-full flex items-center justify-center ">
+              <Image src={img5} height={100} width={200} alt="img" className="w-full object-contain h-[200px]  " />
 
             </div>
 
