@@ -18,7 +18,7 @@ interface Faq {
 const Faqs = ({ faqs }: { faqs: Faq[] }) => {
   const { t } = useTranslation();
   return (
-    <div className="container mx-auto py-10 px-2 md:px-0">
+    <div className="container mx-auto py-10 px-2 ">
       <h1 className="text-[30px] md:text-[48px] font-extrabold text-center py-10">
         {t("mostFrequentlyAskedQuestionsTitle")}
       </h1>
