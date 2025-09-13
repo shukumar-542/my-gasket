@@ -16,7 +16,7 @@ const GetInTouch = () => {
       //   backgroundSize:'cover'
       // }}
     >
-        <div className="container mx-auto md:flex justify-between items-center px-2 md:px-0">
+        <div className="container mx-auto md:flex justify-between items-center px-5">
             <div className="text-white w-full">
                 <p className="text-[30px] md:text-[48px] text-[#172554]"> “{t("getInTouchWithUs")}“</p>
                 <p className="py-2 text-xl text-[#172554]">{t("questionsOrAssistance")}</p>

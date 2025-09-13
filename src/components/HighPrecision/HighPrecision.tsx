@@ -23,7 +23,7 @@ const HighPrecision = () => {
       <div className="container mx-auto px-2 md:px-0">
         <div className={`md:flex items-center gap-20 py-10`}>
           <div className="w-full">
-            <p className="text-[32px] font-extrabold pb-5">
+            <p className="text-[25px] md:text-[52px] font-extrabold pb-5">
               {t('customGasketsMadeEasy')}
             </p>
             <div className="border-3 max-w-[25%]  border-[#F97316]"></div>
@@ -54,7 +54,7 @@ const HighPrecision = () => {
 
           {/* Text Section */}
           <div className="w-full">
-            <p className="text-[32px] font-extrabold pb-5">
+            <p className="text-[25px] md:text-[52px] font-extrabold pb-5">
               {t('highPrecisionCutting')}
             </p>
             <div className="border-[3px] max-w-[25%] border-[#F97316]"></div>

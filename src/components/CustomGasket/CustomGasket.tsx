@@ -11,7 +11,7 @@ const CustomGasket = () => {
       <div className="md:flex items-center bg-[#F97316] md:gap-20 xl:rounded-3xl">
         <div className="w-full ">
           <Image
-            className=" md:h-[670px] h-auto w-full    xl:rounded-tl-3xl xl:rounded-bl-3xl"
+            className=" md:h-[670px] h-auto w-full object-cover   xl:rounded-tl-3xl xl:rounded-bl-3xl"
             src={gasket}
             height={100}
             width={800}
@@ -19,7 +19,7 @@ const CustomGasket = () => {
           />
         </div>
         <div className="w-full  px-2 md:px-0 pb-8">
-          <p className="font-extrabold text-[30px] md:text-[50px] max-w-[50%] ">
+          <p className="font-extrabold text-[25px] md:text-[52px] max-w-[50%] ">
             {t("materialsWeOffer")}
           </p>
           <div className="border-[3px] max-w-[200px] border-[#20B7CC] my-4"></div>
