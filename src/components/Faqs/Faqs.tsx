@@ -28,7 +28,7 @@ const Faqs = ({ faqs }: { faqs: Faq[] }) => {
             <AccordionItem
               key={i + 1}
               value={`item-${i + 1}`}
-              className="border-b-2"
+              className="last:border-b-1"
             >
               <AccordionTrigger className="flex justify-between items-center w-full">
                 <span className="text-[18px] md:text-[24px]">{faq?.title}</span>
