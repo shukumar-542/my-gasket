@@ -62,4 +62,4 @@ export const fetchServerData = async (endpoint: string) => {
 export default baseApi;
 
 
-export const imageUrl = "http://103.186.20.115:11000";
+export const imageUrl = "http://103.186.20.116:9001";

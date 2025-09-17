@@ -68,11 +68,6 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
     }
   }
 
-  console.log(openModal)
-
-
-
-
   return (
     <div>
       <Modal
@@ -92,14 +87,14 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
             <MdKeyboardArrowLeft size={30} />
           </div>
 
-          <div className="border m-2 mt-6 border-[#000000] rounded-md p-5 relative">
+          <div className="border m-2 mt-6 border-[#000000]  min-h-[260px] xl:min-h-[450px] rounded-md p-5 flex items-center justify-between flex-col relative">
             <div className="h-10 w-10 rounded-full border border-[#000000] -top-5  left-[50%] transform -translate-x-1/2 flex justify-center items-center absolute bg-white ">
               {steps[currentStep]?.stepNo}
             </div>
             <p className="text-center text-xs md:text-xl py-2 px-2 ">
               {steps[currentStep]?.description}
             </p>
-            <div className="p-5 flex justify-center w-full  ">
+            <div className="p-5 flex justify-center w-full items-center ">
               <Image
                 src={steps[currentStep]?.img}
                 height={400}

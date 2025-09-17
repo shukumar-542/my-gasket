@@ -27,6 +27,14 @@ const products = baseApi.injectEndpoints({
                 }
             }
         }),
+        getAllProductReview : builder.query({
+            query: () => {
+                return {
+                    url: `/api/budget/total_reviews/`,
+                    method: 'GET'
+                }
+            }
+        }),
         uploadMateialQuote : builder.mutation({
             query: (data) => {
                 return {
@@ -106,4 +114,4 @@ const products = baseApi.injectEndpoints({
     }),
 });
 
-export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery , useChekoutProductMutation ,useReviewProductMutation} = products;
+export const { useGetProductsQuery , useMaterialsDetailsQuery , useGetProductReviewQuery , useUploadMateialQuoteMutation , useAddToCartQuery , useAddedProductsTocartMutation , useRemoveAddToCardMutation , useUpdateCartItemMutation , useGetOrderSummeryQuery , useChekoutProductMutation ,useReviewProductMutation , useGetAllProductReviewQuery} = products;

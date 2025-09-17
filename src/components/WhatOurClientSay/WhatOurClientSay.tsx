@@ -7,6 +7,8 @@ import { imageUrl } from "@/redux/baseApi";
 const WhatOurClientSay = (reviews: any) => {
   const { t } = useTranslation()
 
+  console.log(reviews)
+
   return (
     <div className="container mx-auto px-2 md:px-0">
       <h1 className="text-[25px] md:text-[52px] font-extrabold text-center my-10 uppercase pb-10">
@@ -49,7 +51,7 @@ const WhatOurClientSay = (reviews: any) => {
               <p className="text-[18px] text-[#061C3D] mt-5">
                {review?.comment}
               </p>
-              <div className="md:flex items-center gap-5 h-full mt-5 ">
+              <div className="md:flex items-center gap-5 h-full  ">
 
                 {
                   review?.product_images?.map((image: any, idx: number) => (

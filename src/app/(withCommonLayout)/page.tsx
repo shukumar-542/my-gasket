@@ -20,11 +20,9 @@ async function fetchFaqs() {
       next: { revalidate: 60 },
     });
 
-    // console.log("Response status:", res.status);
 
     if (!res.ok) {
       const errorText = await res.text();
-      // console.error("Error body:", errorText);
       throw new Error("Failed to fetch FAQs");
     }
 
@@ -36,9 +34,27 @@ async function fetchFaqs() {
 }
 
 
+async function fetchProductReviews() {
+  try {
+    const res = await fetch("http://103.186.20.116:9001/api/budget/total_reviews/", {
+      next: { revalidate: 60 }, 
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch Product Reviews");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Fetch Product Reviews failed:", error);
+    return [];
+  }
+}
+
+
 const page = async() => {
 
    const data = await fetchFaqs();
+   const reviews = await fetchProductReviews();
 
   const faqs = data?.slice(0, 3)?.map((item: any) => ({
     item: item.id,
@@ -87,7 +103,7 @@ const page = async() => {
       </div>
       <div className="pt-10">
 
-        <WhatOurClientSay />
+        <WhatOurClientSay reviews={reviews?.reviews?.results?.slice(0,3)} />
         <div className="flex justify-center items-center">
 
         </div>
