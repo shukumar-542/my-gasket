@@ -64,7 +64,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5 shadow-2xl`}
     >
-      <div className="container mx-auto flex items-center justify-between md:px-2">
+      <div className="lg:container mx-auto flex items-center justify-between md:px-2">
         <Link href="/" className="flex items-center gap-2">
           <Image
             className="h-12 w-12"
@@ -88,7 +88,7 @@ const Navbar = () => {
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </span>
         </button>
-        <div className="hidden md:block space-x-6 text-[14px] xl:text-[17px] font-semibold">
+        <div className="hidden space-x-4 lg:space-x-6 text-[14px] xl:text-[17px] font-semibold md:flex items-center">
           {[
             { name: t("home"), path: "/" },
             { name: t("aboutUs"), path: "/about-us" },
@@ -107,7 +107,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <button onClick={()=>setOpenModal(true)} className="bg-[#F97316] text-white px-2 py-2 lg:px-4 lg:py-2 shadow-xl rounded-[10px] text-[14px] xl:text-[16px] cursor-pointer">
+          <button onClick={()=>setOpenModal(true)} className="bg-[#F97316] md:hidden lg:block  text-white px-2 py-2 lg:px-4 lg:py-2 shadow-xl rounded-[10px] text-[14px] xl:text-[16px] cursor-pointer">
             {t("getInstantQuote")}
           </button>
         </div>

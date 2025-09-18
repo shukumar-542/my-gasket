@@ -5,7 +5,7 @@ import img from "../../../../assets/quote.png";
 import { IoMdClose, IoMdInformationCircleOutline } from "react-icons/io";
 import WorkProcess from "@/components/WorkProcess/WorkProcess";
 import { HiOutlineUpload } from "react-icons/hi";
-import { Input, Select } from "antd";
+import { Input, Select, Spin } from "antd";
 import { FiPaperclip, FiPlus } from "react-icons/fi";
 import { LuMinus } from "react-icons/lu";
 import { FaDollarSign } from "react-icons/fa";
@@ -22,6 +22,9 @@ import { toast } from "sonner";
 import { useAddedProductsTocartMutation, useUploadMateialQuoteMutation } from "@/redux/Api/products";
 import { useParams, useRouter } from "next/navigation";
 import TextArea from "antd/es/input/TextArea";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 18, color: "white" }} spin />;
 
 const MaterialsQuotePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -38,7 +41,7 @@ const MaterialsQuotePage = () => {
   const [fileUploadId, setFileUploadId] = useState<string | null>(null);
   const router = useRouter();
 
-  const [uploadMateialQuote] = useUploadMateialQuoteMutation();
+  const [uploadMateialQuote , {isLoading}] = useUploadMateialQuoteMutation();
   const [productAddCart] = useAddedProductsTocartMutation()
   const params = useParams();
   const id = params?.id ?? "";
@@ -432,8 +435,8 @@ const MaterialsQuotePage = () => {
               <MdShoppingCart size={20} />
               Add to Cart
             </button>
-            <button type="button" onClick={handleGeneratePrice} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center  gap-2 text-white">
-              Generate Price
+            <button type="button" onClick={handleGeneratePrice}  className={`bg-[#F97316]  justify-center min-w-[145px] px-5 py-2 text-center rounded-sm cursor-pointer flex items-center  gap-2 text-white ${isLoading && 'opacity-95 cursor-not-allowed'}`} disabled={isLoading}>
+              {isLoading ? <Spin  indicator={antIcon} /> : "Generate Price"}
             </button>
 
           </div>
