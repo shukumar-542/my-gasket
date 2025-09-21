@@ -16,7 +16,7 @@ const HowItWorks = () => {
         <div className='container mx-auto pb-10 mt-10 '>
             <h1 className='text-[25px] md:text-[52px]  font-extrabold text-center uppercase'>{t("howItWorks")}</h1>
             <p className='text-[16px] text-[#686868] text-center mx-2 md:mx-0'>{t("processDescription")}</p>
-            <div className='grid grid-cols-1 md:grid-cols-4  gap-10 mt-20 mx-2 ms:mx-0 '>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-10 mt-20 mx-2 ms:mx-0 '>
                 <div className='bg-white flex flex-col justify-center items-center shadow-2xl rounded-sm p-1 xl:p-5 relative' style={{
                     boxShadow: '0 0 15px rgba(0, 0, 0, 0.15)',
                 }}>

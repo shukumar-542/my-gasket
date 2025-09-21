@@ -29,18 +29,18 @@ const AboutUsPage = () => {
 
       <div className="container mx-auto p-2">
         {/* Section One */}
-        <div className="md:flex items-center justify-baseline mt-10">
-          <div className="w-full">
+        <div className="md:flex items-center gap-4 justify-baseline mt-10">
+          <div className="w-full md:w-1/2">
             <Image
-              className=" h-[350px] md:h-[670px]"
+              className=" h-[350px] md:h-[670px] w-full"
               src={about1}
               height={100}
               width={700}
               alt="img"
             />
           </div>
-          <div className="">
-            <p className="text-[30px] md:text-[45px] font-bold">
+          <div className="md:w-1/2">
+            <p className="text-[30px] lg:text-[30px] xl:text-[45px] font-bold">
               {t("highQualityMaterials")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
@@ -51,9 +51,9 @@ const AboutUsPage = () => {
         </div>
         {/* Section Two */}
 
-        <div className="md:flex items-center justify-between my-10">
-          <div className="">
-            <p className="text-[30px] md:text-[45px] font-bold">
+        <div className="md:flex items-center gap-4 justify-between my-10">
+          <div className="md:w-1/2">
+            <p className="text-[30px] lg:text-[30px] xl:text-[45px] font-bold">
               {t("customizationPrecisionEngineering")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
@@ -61,7 +61,7 @@ const AboutUsPage = () => {
               {t("customProjectDescription")}
             </p>
           </div>
-          <div className="w-full  flex justify-end">
+          <div className="w-full md:w-1/2 flex justify-end">
             <Image
               className="h-[350px] md:h-[670px]"
               src={about2}
@@ -74,8 +74,8 @@ const AboutUsPage = () => {
 
         {/* Section Three */}
 
-        <div className="md:flex items-center justify-baseline mt-10">
-          <div className="w-full">
+        <div className="md:flex items-center gap-4 justify-baseline mt-10">
+          <div className="w-full md:w-1/2">
             <Image
               className=" h-[350px] md:h-[670px]"
               src={about3}
@@ -84,8 +84,8 @@ const AboutUsPage = () => {
               alt="img"
             />
           </div>
-          <div className="">
-            <p className="text-[30px] md:text-[45px] font-bold">
+          <div className="md:w-1/2">
+            <p className="text-[30px] lg:text-[30px] xl:text-[45px] font-bold">
               {t("reliableServiceFastDelivery")}
             </p>
             <div className="border-[3px] max-w-[200px] border-[#F97316] my-4"></div>
@@ -99,15 +99,15 @@ const AboutUsPage = () => {
       <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Box 1 */}
         <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-medium text-4xl h-40 text-center flex flex-col justify-center">
-          20+
+          <span className="text-center text-4xl font-medium">20+</span>
           <span className="font-normal text-base mt-2">
             {t('yearsExperienceGasketField')}
           </span>
         </div>
 
         {/* Box 2 */}
-        <div className="text-white text-center bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md rounded-lg p-6 font-semibold text-lg flex flex-col justify-center">
-          <span className="text-center text-4xl flex justify-center items-center gap-2">
+        <div className="text-white text-center bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md rounded-lg p-6 font-semibold text-4xl flex flex-col justify-center">
+          <span className="text-center text-4xl font-medium flex items-center justify-center gap-2">
             {" "}
             4.0 industry <FaRobot  />
           </span>
@@ -117,18 +117,19 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 3 */}
-        <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white h-32 text-4xl   rounded-lg p-6 font-medium flex items-center justify-center">
+        <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white h-32   rounded-lg p-6 text-center text-4xl font-medium flex items-center justify-center">
           10+ {t('materials')}
         </div>
 
         {/* Box 4 */}
         <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white h-52 rounded-lg p-6 font-medium text-center flex flex-col justify-center">
           <div className="text-4xl mb-2">🕒</div>
-          <span className="text-center text-4xl">48 hours</span>
+          <span className=" text-center text-4xl font-medium">48 hours</span>
           <span className="font-normal text-base">
             {t('standardOrdersItaly')}
           </span>
         </div>
+
 
         {/* Box 5 */}
         <div
@@ -144,7 +145,7 @@ const AboutUsPage = () => {
         </div>
 
         {/* Box 6 */}
-        <div className=" text-white  bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md sm:mt-5 md:-mt-10 h-40 rounded-lg p-6 font-normal  text-sm flex flex-col justify-center text-center">
+        <div className=" text-white  bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md sm:mt-5 md:-mt-10 h-44 rounded-lg p-6 font-normal  text-sm flex flex-col justify-center text-center">
           <b className="text-center text-4xl font-medium">{t("noMinimumOrdersShort")}</b>
           <span className="mt-1 font-normal text-base">
              {t('noMinimumOrders')}
@@ -165,10 +166,10 @@ const AboutUsPage = () => {
         <div className="flex-col md:flex gap-5">
           {/* Box 8 */}
           <div className="shadow-sm hover:shadow-md bg-[#172554]  shadow-[#172554] text-white rounded-lg p-6 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-4xl flex items-center font-medium justify-center">
+            <span className="text-center text-4xl flex items-center font-medium justify-center">
               {t('highQuality')}
               <FaMedal  />
-            </b>
+            </span>
             <span className="mt-1 font-normal text-base text-center">
               {t("qualityAssuranceDescription")}
             </span>
@@ -176,8 +177,8 @@ const AboutUsPage = () => {
 
           {/* Box 9 */}
           <div className="bg-[#EA580C] shadow-sm shadow-[#EA580C] hover:shadow-md text-white rounded-lg p-6 mt-2 font-normal text-sm flex flex-col justify-center">
-            <b className="text-center text-4xl font-medium flex items-center justify-center gap-2">{t('ultraFastReplies')}<FaTruckFast /></b>
-            <span className="mt-1 font-normal text-base text-center">
+            <span className="text-center text-4xl font-medium flex items-center justify-center gap-2">{t('ultraFastReplies')}<FaTruckFast /></span>
+            <span className="mt-1 font-normal text-base text-center ">
               {t('replyTimePromise')}
             </span>
           </div>
