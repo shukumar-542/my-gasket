@@ -16,7 +16,7 @@ export const StepCaurosel = () => {
 
     return (
         <div className=' container mx-auto  '>
-            <h1 className='text-[25px] md:text-[52px]  font-extrabold text-center uppercase'>{t("howItWorks")}</h1>
+            <h1 className='text-[25px] md:text-[52px]  font-extrabold text-center uppercase mt-5'>{t("howItWorks")}</h1>
             <p className='text-[16px] text-[#686868] text-center mx-2 md:mx-0 mb-10'>{t("processDescription")}</p>
             <Carousel>
                 <CarouselContent className="items-stretch">
