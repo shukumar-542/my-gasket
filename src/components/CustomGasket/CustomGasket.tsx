@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const CustomGasket = () => {
   const {t} = useTranslation()
   return (
-    <div className="container mx-auto py-20 ">
+    <div className="container mx-auto py-20  ">
       <div className="md:flex items-center bg-[#F97316] md:gap-20 xl:rounded-3xl">
         <div className="w-full ">
           <Image

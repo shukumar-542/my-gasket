@@ -11,7 +11,7 @@ const HighPrecision = () => {
   const { t } = useTranslation()
   return (
     <div
-      className="bg-[#BEDBF6]  "
+      className="bg-[#BEDBF6] px-2 "
     // style={{
     //   backgroundImage: `url(${bg.src})`,
     //   backgroundRepeat: "no-repeat",
@@ -21,7 +21,7 @@ const HighPrecision = () => {
     // }}
     >
       <div className="container mx-auto px-2 md:px-0">
-        <div className={`md:flex items-center gap-20 py-10`}>
+        <div className={`md:flex items-center gap-20 py-10 `}>
           <div className="w-full">
             <p className="text-[25px] md:text-[52px] font-extrabold pb-5">
               {t('customGasketsMadeEasy')}

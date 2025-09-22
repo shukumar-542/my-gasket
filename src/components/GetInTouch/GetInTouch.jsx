@@ -21,7 +21,7 @@ const GetInTouch = () => {
             <div className="text-white w-full">
                 <p  className="text-[30px] md:text-[48px] text-[#172554]"> “{t("getInTouchWithUs")}“</p>
                 <p className="py-2 text-xl text-[#172554]">{t("questionsOrAssistance")}</p>
-                <Link href={"/contact-us"} className="text-[#172554] underline"><button className="bg-[#30B9F7] px-6 py-3 cursor-pointer hover:shadow-2xl rounded-sm mt-2 text-xl">{t("messageUsNow")}</button></Link>
+                <Link href={"/contact-us"} className="text-[#172554] underline"><button className="bg-[#F87317] text-white px-6 py-3 cursor-pointer hover:shadow-2xl rounded-sm mt-2 text-xl">{t("messageUsNow")}</button></Link>
                 
             </div>
             <div className="w-full  flex justify-center  md:mt-0 -mb-4 ">

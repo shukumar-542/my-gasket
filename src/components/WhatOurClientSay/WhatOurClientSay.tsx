@@ -10,7 +10,7 @@ const WhatOurClientSay = (reviews: any) => {
   console.log(reviews)
 
   return (
-    <div className="container mx-auto px-2 md:px-0">
+    <div className="container mx-auto px-2 ">
       <h1 className="text-[25px] md:text-[52px] font-extrabold text-center my-10 uppercase pb-10">
         {t("whatCustomersSay")}
       </h1>

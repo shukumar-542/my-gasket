@@ -8,8 +8,8 @@ const HeroText = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="container mx-auto text-white px-2 relative">
-      <h1 className="text-[25px] md:text-[52px] text-white font-bold md:font-extrabold">
+    <div className="container mx-auto text-white px-4 relative">
+      <h1 className="text-[25px] md:text-[52px]  text-white font-bold md:font-extrabold">
         {t("welcomeMessage")}
       </h1>
       <p className="md:text-[18px] max-w-[600px] md:mt-5">
