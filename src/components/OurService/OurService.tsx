@@ -6,7 +6,7 @@ import Image from "next/image";
 const OurService = () => {
   return (
     <div className="bg-[#B7C9E2]">
-      <div className="container mx-auto py-14 text-[#172554] px-5">
+      <div className="xl:container mx-auto py-14 text-[#172554] px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
           <div className="flex flex-col items-center bg-white py-14 rounded-3xl shadow-2xl">
             <Image

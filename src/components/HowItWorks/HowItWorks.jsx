@@ -13,7 +13,7 @@ const HowItWorks = () => {
     const { t } = useTranslation();
     const [openModal, setOpenModal] = useState(false);
     return (
-        <div className='container mx-auto pb-10 mt-10 '>
+        <div className='xl:container mx-auto pb-10 mt-10 px-2 '>
             <h1 className='text-[25px] md:text-[52px]  font-extrabold text-center uppercase'>{t("howItWorks")}</h1>
             <p className='text-[16px] text-[#686868] text-center mx-2 md:mx-0'>{t("processDescription")}</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 mt-20 mx-2 ms:mx-0 '>
