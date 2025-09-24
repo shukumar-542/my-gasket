@@ -8,10 +8,10 @@ const CustomGasket = () => {
   const {t} = useTranslation()
   return (
     <div className="container mx-auto py-20  ">
-      <div className="md:flex items-center bg-[#F97316] md:gap-20 xl:rounded-3xl">
+      <div className="md:flex items-center bg-[#F97316] md:gap-20 rounded-4xl">
         <div className="w-full ">
           <Image
-            className=" md:h-[670px] h-auto w-full object-cover   xl:rounded-tl-3xl xl:rounded-bl-3xl"
+            className=" md:h-[670px] h-auto w-full object-cover   rounded-tl-4xl rounded-bl-4xl"
             src={gasket}
             height={100}
             width={800}
@@ -29,7 +29,7 @@ const CustomGasket = () => {
 
           <Link
             href={"/all-product"}
-            className="text-white bg-black px-5 py-2 rounded-sm cursor-pointer"
+            className="text-white bg-black px-8 py-3 text-xl rounded-md cursor-pointer"
           >
             {t("discover")}
           </Link>

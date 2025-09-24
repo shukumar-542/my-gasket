@@ -7,7 +7,6 @@ import { imageUrl } from "@/redux/baseApi";
 const WhatOurClientSay = (reviews: any) => {
   const { t } = useTranslation()
 
-  console.log(reviews)
 
   return (
     <div className="container mx-auto px-2 ">

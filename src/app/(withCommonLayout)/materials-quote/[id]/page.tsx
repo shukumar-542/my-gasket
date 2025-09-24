@@ -41,7 +41,7 @@ const MaterialsQuotePage = () => {
   const [fileUploadId, setFileUploadId] = useState<string | null>(null);
   const router = useRouter();
 
-  const [uploadMateialQuote , {isLoading}] = useUploadMateialQuoteMutation();
+  const [uploadMateialQuote, { isLoading }] = useUploadMateialQuoteMutation();
   const [productAddCart] = useAddedProductsTocartMutation()
   const params = useParams();
   const id = params?.id ?? "";
@@ -269,7 +269,11 @@ const MaterialsQuotePage = () => {
                 htmlFor="file-upload"
                 className={`flex flex-col items-center justify-center  py-14 cursor-pointer ${file && "border-gray-600 border-2 rounded-xl"} `}
               >
-                <HiOutlineUpload size={44} className="text-gray-800" />
+                {
+                  !file && <HiOutlineUpload size={44} className="text-gray-800" />
+                }
+                
+                
                 <input
                   id="file-upload"
                   type="file"
@@ -280,7 +284,7 @@ const MaterialsQuotePage = () => {
                 />
 
                 {file ? (
-                  <p className="mt-4 text-[#F97316] text-center truncate">
+                  <p className=" text-[#F97316] text-center truncate py-11">
                     {file.name}
                   </p>
                 ) : (
@@ -345,7 +349,7 @@ const MaterialsQuotePage = () => {
 
         {/* Right side - form options */}
         <div className="space-y-5">
-        
+
           <div className="flex items-center bg-white p-2 rounded-sm  shadow-xl hover:shadow-2xl transition duration-300 ">
             <p className="w-full">Drawing Measurement Unit: </p>
             <Select
@@ -408,7 +412,7 @@ const MaterialsQuotePage = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={decrement}
-                className="border border-gray-300 p-1 rounded-[2px] cursor-pointer"
+                className="border border-gray-300 p-1 rounded-sm cursor-pointer"
                 aria-label="Decrease number of pieces"
               >
                 <LuMinus size={18} />
@@ -416,13 +420,13 @@ const MaterialsQuotePage = () => {
               <input
                 value={numberOfPieces}
                 onChange={handleInputChange}
-                className="w-16 border border-gray-300 p-[2px] rounded-xs text-center "
+                className="w-16 border border-gray-300 p-[2px] rounded-sm text-center "
                 inputMode="numeric"
                 aria-label="Number of pieces"
               />
               <button
                 onClick={increment}
-                className="border border-gray-300  shadow-2xl p-1 rounded-xs  cursor-pointer"
+                className="border border-gray-300  shadow-2xl p-1 rounded-sm  cursor-pointer"
                 aria-label="Increase number of pieces"
               >
                 <FiPlus size={18} />
@@ -430,21 +434,25 @@ const MaterialsQuotePage = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-5">
-            <button onClick={() => handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
-              <MdShoppingCart size={20} />
-              Add to Cart
-            </button>
-            <button type="button" onClick={handleGeneratePrice}  className={`bg-[#F97316]  justify-center min-w-[145px] px-5 py-2 text-center rounded-sm cursor-pointer flex items-center  gap-2 text-white ${isLoading && 'opacity-95 cursor-not-allowed'}`} disabled={isLoading}>
-              {isLoading ? <Spin  indicator={antIcon} /> : "Generate Price"}
-            </button>
+          <div className="flex justify-center  gap-5">
+
+            <div className="space-y-2">
+              <button type="button" onClick={handleGeneratePrice} className={`bg-[#F97316]  justify-center min-w-[145px] px-5 py-2 text-center rounded-sm cursor-pointer flex items-center  gap-2 text-white ${isLoading && 'opacity-95 cursor-not-allowed'}`} disabled={isLoading}>
+                {isLoading ? <Spin indicator={antIcon} /> : "Generate Price"}
+              </button>
+              <div className="flex items-center justify-center text-5xl font-extrabold ">
+                <FaDollarSign />
+                <p>{price}</p>
+              </div>
+              <button onClick={() => handleAddToCart()} className="bg-[#F97316] px-5 py-2 rounded-sm cursor-pointer flex items-center gap-2 text-white">
+                <MdShoppingCart size={20} />
+                Add to Cart
+              </button>
+            </div>
 
           </div>
 
-          <div className="flex items-center justify-center text-5xl font-extrabold gap-1">
-            <FaDollarSign />
-            <p>{price}</p>
-          </div>
+
 
           {/* <Link href="/cart" passHref> */}
 

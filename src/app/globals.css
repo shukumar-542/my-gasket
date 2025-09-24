@@ -5,7 +5,8 @@
 
 /* Custom Spin Color */
 .custom-spin .ant-spin-dot-item {
-  background-color: white !important; /* Change spinner to white */
+  background-color: white !important;
+  /* Change spinner to white */
 }
 
 :root {
@@ -119,10 +120,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
 .custom-select-no-border .ant-select-selector {
   border: none !important;
   box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
@@ -132,7 +135,8 @@
 .custom-input {
   border: none !important;
   box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.7) !important;
-  padding: 10px 16px; /* custom padding */
+  padding: 10px 16px;
+  /* custom padding */
   border-radius: 6px;
 }
 
@@ -143,4 +147,6 @@
   outline: none;
 }
 
-
+:where(.css-dev-only-do-not-override-tjsggz).ant-modal .ant-modal-content {
+  padding: 15px 16px 2px 16px !important;
+}
