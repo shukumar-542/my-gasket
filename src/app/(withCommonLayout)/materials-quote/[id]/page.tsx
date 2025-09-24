@@ -260,7 +260,7 @@ const MaterialsQuotePage = () => {
         <WorkProcess workSteps={workSteps} />
       </div>
 
-      <div className="py-10 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-5">
+      <div className="py-10 xl:container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-2 md:px-5">
         {/* Left side - file upload and additional details */}
         <div>
           <div className="border-dashed border-2 border-gray-400 p-12  rounded-xl bg-gray-100 hover:bg-gray-200 transition">
