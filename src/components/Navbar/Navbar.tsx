@@ -62,9 +62,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5 shadow-2xl`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all bg-white py-5  shadow-2xl`}
     >
-      <div className="lg:container mx-auto flex items-center justify-between md:px-2">
+      <div className="xl:container mx-auto flex items-center justify-between md:px-2 ">
         <Link href="/" className="flex items-center gap-2">
           <Image
             className="h-12 w-12"
@@ -111,7 +111,7 @@ const Navbar = () => {
             {t("getInstantQuote")}
           </button>
         </div>
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-5 mr-5">
           <Select
             defaultValue="English"
             style={{ width: 120 }}
