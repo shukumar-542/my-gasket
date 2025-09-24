@@ -1,10 +1,37 @@
+
 import React from "react";
 import review from "../../../assets/review.png";
 import Image from "next/image";
 import UserReview from "@/components/UserReview/UserReview";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import ShareExprience from "@/components/ShareExprience/ShareExprience";
-const CustomerReviewPage = () => {
+
+
+
+async function fetchProductReviews() {
+  try {
+    const res = await fetch("http://103.186.20.116:9001/api/budget/total_reviews/", {
+      next: { revalidate: 60 },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch Product Reviews");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Fetch Product Reviews failed:", error);
+    return [];
+  }
+}
+
+
+
+const CustomerReviewPage = async() => {
+ 
+   const reviews = await fetchProductReviews();
+
+   console.log(reviews)
+
   return (
     <div className="mt-20">
       <div className="mt-8 relative ">
@@ -23,7 +50,7 @@ const CustomerReviewPage = () => {
       <div className="container mx-auto py-10">
         <UserReview />
         <div className="mt-20 pb-10">
-          <WhatOurClientSay />
+          <WhatOurClientSay reviews={reviews?.reviews?.results} />
         </div>
 
         <ShareExprience/>

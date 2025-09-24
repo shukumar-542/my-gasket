@@ -37,7 +37,7 @@ async function fetchFaqs() {
 async function fetchProductReviews() {
   try {
     const res = await fetch("http://103.186.20.116:9001/api/budget/total_reviews/", {
-      next: { revalidate: 60 }, 
+      next: { revalidate: 60 },
     });
     if (!res.ok) {
       throw new Error("Failed to fetch Product Reviews");
@@ -51,17 +51,17 @@ async function fetchProductReviews() {
 }
 
 
-const page = async() => {
+const page = async () => {
 
-   const data = await fetchFaqs();
-   const reviews = await fetchProductReviews();
+  const data = await fetchFaqs();
+  const reviews = await fetchProductReviews();
 
   const faqs = data?.slice(0, 3)?.map((item: any) => ({
     item: item.id,
     title: item.question,
     des: item.answer,
   }));
-  
+
 
   return (
     <>
@@ -104,9 +104,14 @@ const page = async() => {
       </div>
       <div className="pt-10">
 
-        <WhatOurClientSay reviews={reviews?.reviews?.results?.slice(0,3)} />
+        <WhatOurClientSay reviews={reviews?.reviews?.results?.slice(0, 3)} />
         <div className="flex justify-center items-center">
-
+          <Link
+            className="bg-[#F97316] px-10 py-3 rounded-sm text-white shadow-2xl"
+            href={"/customer-review"}
+          >
+            See ALL
+          </Link>
         </div>
       </div>
       <GetInTouch />

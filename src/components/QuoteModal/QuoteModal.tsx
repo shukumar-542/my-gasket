@@ -129,7 +129,7 @@ const QuoteModal: React.FC<QuoteModalProps> = ({ openModal, setOpenModal }) => {
           {/* Continue Button - will only show in last step but won't change height */}
           <div className="flex justify-center items-center h-8">
             {currentStep === steps.length - 1 && (
-              <Link href={"/all-product"}>
+              <Link href={"/materials-quote/:id"}>
                 <button
                   onClick={() => {
                     setOpenModal();
