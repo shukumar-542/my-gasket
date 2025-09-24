@@ -9,10 +9,11 @@ interface RatingData {
 
 
 
-const UserReview = (reviewStars : any) => {
+const OverAllRatingAvg = ({reviewStars , totalreview} : any) => {
 
 
-  const individualRatings = reviewStars?.reviewStars?.rating_distribution || {};
+  const individualRatings = reviewStars?.reviewStars || {};
+
 
   const ratings: RatingData[] = [
   { star: 5, count:individualRatings?.["5_star"] || 0},
@@ -28,7 +29,7 @@ const UserReview = (reviewStars : any) => {
 
 
   // Rating value calculation
-  const ratingValue = reviewStars?.reviewStars?.average_rating || 0;
+  const ratingValue = totalreview?.review_stats?.average_rating || 0;
 
   const fullStars = Math.floor(ratingValue);
   const hasHalfStar = ratingValue % 1 >= 0.5;
@@ -38,8 +39,8 @@ const UserReview = (reviewStars : any) => {
     <div className="">
       <div className="flex flex-col md:flex-row gap-10 mt-10">
         <div className="bg-white py-2 rounded-md shadow-2xl px-10 text-center flex flex-col justify-center">
-          <p className="text-[56px] font-medium">{reviewStars?.reviewStars?.average_rating}</p>
-          <p>of {reviewStars?.reviewStars?.total_reviews} reviews</p>
+          <p className="text-[56px] font-medium">{totalreview?.review_stats?.average_rating}</p>
+          <p>of {totalreview?.total_reviews} reviews</p>
          {/* Dynamic star rendering */}
           <div className="flex items-center justify-center gap-1">
             {[...Array(fullStars)]?.map((_, i) => (
@@ -75,4 +76,4 @@ const UserReview = (reviewStars : any) => {
   );
 };
 
-export default UserReview;
+export default OverAllRatingAvg;

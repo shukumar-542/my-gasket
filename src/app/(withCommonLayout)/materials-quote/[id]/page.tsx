@@ -169,6 +169,10 @@ const MaterialsQuotePage = () => {
       toast.error("Please upload a file before submitting.");
       return;
     }
+    if (!numberOfPieces) {
+      toast.error("Please Select Number Of Pices!.");
+      return;
+    }
 
 
     // Generate or retrieve session_id
@@ -187,7 +191,7 @@ const MaterialsQuotePage = () => {
     formData.append("drawing_scale", "1:1");
     formData.append("additional_details", additionalText || "");
     formData.append("session_id", sessionId);
-    formData.append("material_id", id as string);
+    // formData.append("material_id", id as string);
 
     uploadMateialQuote(formData).unwrap()
       .then((payload) => {
