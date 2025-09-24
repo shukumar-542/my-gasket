@@ -11,7 +11,6 @@ import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
 import HeroText from "@/components/HeroText/HeroText";
-import { StepCaurosel } from "@/components/StepCaurosel/StepCaurosel";
 
 
 
@@ -81,8 +80,8 @@ const page = async() => {
 
         <HeroText />
       </div>
-      {/* <HowItWorks /> */}
-      <StepCaurosel/>
+      <HowItWorks />
+      {/* <StepCaurosel/> */}
       {/* <OurTrastedPartner /> */}
 
       <CustomGasket />
@@ -111,7 +110,7 @@ const page = async() => {
         </div>
       </div>
       <GetInTouch />
-      <StepCaurosel/>
+      {/* <StepCaurosel/> */}
       <OurService />
     </>
   );
