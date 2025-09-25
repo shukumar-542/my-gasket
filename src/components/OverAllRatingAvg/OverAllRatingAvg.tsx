@@ -11,8 +11,7 @@ interface RatingData {
 
 const OverAllRatingAvg = ({reviewStars , totalreview} : any) => {
 
-
-  const individualRatings = reviewStars?.reviewStars || {};
+  const individualRatings = reviewStars || {};
 
 
   const ratings: RatingData[] = [

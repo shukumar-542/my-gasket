@@ -46,7 +46,6 @@ const CustomerReviewPage = async() => {
    const reviews = await fetchProductReviews();
    const statistics = await fetchProductReviewsStas();
 
-   console.log(reviews)
 
 
   return (
