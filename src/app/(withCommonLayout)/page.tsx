@@ -11,6 +11,7 @@ import OurService from "@/components/OurService/OurService";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 import Link from "next/link";
 import HeroText from "@/components/HeroText/HeroText";
+import WhatOurCustomerSay from "@/components/WhatOurCustomerSay/WhatOurCustomerSay";
 
 
 
@@ -103,6 +104,7 @@ const page = async () => {
 
       </div>
       <div className="pt-10">
+        <WhatOurCustomerSay/>
 
         <WhatOurClientSay reviews={reviews?.reviews?.results?.slice(0, 3)} />
         <div className="flex justify-center items-center">

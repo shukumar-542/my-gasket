@@ -5,12 +5,13 @@ import Image from "next/image";
 import WhatOurClientSay from "@/components/WhatOurClientSay/WhatOurClientSay";
 import ShareExprience from "@/components/ShareExprience/ShareExprience";
 import OverAllRatingAvg from "@/components/OverAllRatingAvg/OverAllRatingAvg";
+import ReviewListWithPagination from "@/components/ReviewListWithPagination/ReviewListWithPagination";
 
 
 
 async function fetchProductReviews() {
   try {
-    const res = await fetch("http://103.186.20.116:9001/api/budget/total_reviews/", {
+    const res = await fetch("http://103.186.20.116:9001/api/budget/total_reviews/?rating=4&page=1&page_size=20", {
       next: { revalidate: 60 },
     });
     if (!res.ok) {
@@ -19,7 +20,7 @@ async function fetchProductReviews() {
 
     return res.json();
   } catch (error) {
-    console.error("Fetch Product Reviews failed:", error);
+    // console.error("Fetch Product Reviews failed:", error);
     return [];
   }
 }
@@ -34,7 +35,7 @@ async function fetchProductReviewsStas() {
 
     return res.json();
   } catch (error) {
-    console.error("Fetch Product Reviews failed:", error);
+    // console.error("Fetch Product Reviews failed:", error);
     return [];
   }
 }
@@ -66,7 +67,8 @@ const CustomerReviewPage = async() => {
       <div className="container mx-auto py-10">
         <OverAllRatingAvg reviewStars={statistics?.rating_distribution} totalreview={reviews} />
         <div className="mt-20 pb-10">
-          <WhatOurClientSay reviews={reviews?.reviews?.results} />
+          {/* <WhatOurClientSay reviews={reviews?.reviews?.results} /> */}
+          <ReviewListWithPagination/>
         </div>
 
         <ShareExprience/>

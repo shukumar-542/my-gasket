@@ -10,9 +10,7 @@ const WhatOurClientSay = (reviews: any) => {
 
   return (
     <div className="xl:container mx-auto px-2 ">
-      <h1 className="text-[25px] md:text-[52px] font-extrabold text-center my-10 uppercase pb-10">
-        {t("whatCustomersSay")}
-      </h1>
+      
 
       {
         reviews?.reviews?.map((review: any, index: number) => {
