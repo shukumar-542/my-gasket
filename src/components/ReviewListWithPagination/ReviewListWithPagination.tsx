@@ -27,7 +27,6 @@ const ReviewListWithPagination = () => {
 
             const data = await res.json();
 
-            // ✅ extract nested data properly
             setReviews(data?.reviews?.results || []);
             setTotal(data?.reviews?.total_count || 0);
         } catch (err) {

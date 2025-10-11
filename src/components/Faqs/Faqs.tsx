@@ -19,7 +19,7 @@ const Faqs = ({ faqs }: { faqs: Faq[] }) => {
   const { t } = useTranslation();
   return (
     <div className="xl:container mx-auto py-10 px-5">
-      <h1 className="text-[25px] md:text-[52px] font-extrabold text-center py-10">
+      <h1 className="text-[25px] md:text-[52px] font-extrabold text-center my-10 uppercase">
         {t("mostFrequentlyAskedQuestionsTitle")}
       </h1>
       <Accordion type="single" collapsible>

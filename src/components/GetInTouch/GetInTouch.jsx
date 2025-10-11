@@ -19,8 +19,9 @@ const GetInTouch = () => {
     >
         <div className="xl:container mx-auto md:flex justify-between items-center px-5">
             <div className="text-white w-full">
-                <p  className="text-[30px] md:text-[48px] text-[#172554]"> “{t("getInTouchWithUs")}“</p>
-                <p className="py-2 text-xl text-[#172554]">{t("questionsOrAssistance")}</p>
+              {/* text-[25px] md:text-[52px] font-extrabold text-center my-10 uppercase */}
+                <p  className="text-[25px] md:text-[52px] font-extrabold uppercase text-[#172554]"> {t("getInTouchWithUs")}</p>
+                <p className="pb-2 text-xl text-[#172554]">{t("questionsOrAssistance")}</p>
                 <Link href={"/contact-us"} className="text-[#172554] underline"><button className="bg-[#F87317] text-white px-6 py-3 cursor-pointer hover:shadow-2xl rounded-sm mt-2 text-xl">{t("messageUsNow")}</button></Link>
                 
             </div>
