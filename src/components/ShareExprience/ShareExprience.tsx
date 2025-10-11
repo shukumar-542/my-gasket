@@ -34,7 +34,7 @@ const ShareExprience = (id : any) => {
 
       <div className="mt-16 flex flex-col md:flex-row  justify-center  items-center gap-5">
         <Link href={`/get-review/${id?.id}`}>
-          <button className="hover:bg-[#F97316] hover:text-white border border-[#D97706] text-[#D97706] py-2 px-5 rounded-sm cursor-pointer transition-all duration-300">
+          <button className="bg-[#F97316] text-white border border-[#D97706] py-2 px-5 rounded-sm cursor-pointer transition-all duration-300">
             Leave A Review
           </button>
         </Link>
