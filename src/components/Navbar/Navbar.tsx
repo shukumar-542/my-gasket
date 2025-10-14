@@ -13,6 +13,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 
 import { useTranslation } from "react-i18next";
 import QuoteModal from "../QuoteModal/QuoteModal";
+import Button from "../Button/Button";
 
 const options = [
   {
@@ -88,28 +89,34 @@ const Navbar = () => {
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </span>
         </button>
-        <div className="hidden space-x-4 lg:space-x-6 text-[14px] xl:text-[17px] font-semibold md:flex items-center">
-          {[
-            { name: t("home"), path: "/" },
-            { name: t("aboutUs"), path: "/about-us" },
-            { name: t("contactUs"), path: "/contact-us" },
-            { name: t("faqs"), path: "/faqs" },
-            { name: t("trackYourOrder"), path: "/track-order" },
-          ].map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              className={`hover:text-[#EA580C] transition duration-300 pb-1 ${pathName === link.path
-                ? "border-b-[3px] border-[#EA580C]"
-                : "border-b-2 border-transparent"
-                }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <button onClick={()=>setOpenModal(true)} className="bg-[#F97316] md:hidden lg:block  text-white px-2 py-2 lg:px-4 lg:py-2 shadow-xl rounded-[10px] text-[14px] xl:text-[16px] cursor-pointer">
-            {t("getInstantQuote")}
-          </button>
+        <div className="hidden  md:flex items-center space-x-4 lg:space-x-6">
+
+
+          <div className=" text-[14px] xl:text-[17px] font-semibold space-x-4 lg:space-x-6 ">
+            {[
+              { name: t("home"), path: "/" },
+              { name: t("aboutUs"), path: "/about-us" },
+              { name: t("contactUs"), path: "/contact-us" },
+              { name: t("faqs"), path: "/faqs" },
+              { name: t("trackYourOrder"), path: "/track-order" },
+            ].map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                className={`hover:text-[#EA580C] transition duration-300 pb-1 ${pathName === link.path
+                  ? "border-b-[3px] border-[#EA580C]"
+                  : "border-b-2 border-transparent"
+                  }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+       
+          </div>
+          <div onClick={() => setOpenModal(true)} className='
+                    cursor-pointer'>
+            <Button className='mt-2 inline-block  px-4  text-[20px]'>{t("getInstantQuote")}</Button>
+          </div>
         </div>
         <div className="hidden md:flex items-center gap-5 mr-5">
           <Select

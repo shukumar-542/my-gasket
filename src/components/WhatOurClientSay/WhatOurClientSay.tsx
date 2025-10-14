@@ -62,17 +62,12 @@ const WhatOurClientSay = (reviews: any) => {
                       />
                     ))
                 }
-               
-               
               </div>
             </div>
           );
         })
 
       }
-
-
-
     </div>
   );
 };

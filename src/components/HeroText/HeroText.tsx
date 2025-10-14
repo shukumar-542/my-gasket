@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import QuoteModal from "../QuoteModal/QuoteModal";
+import Button from "../Button/Button";
 
 const HeroText = () => {
   const { t } = useTranslation()
@@ -15,9 +16,13 @@ const HeroText = () => {
       <p className="md:text-[18px] max-w-[600px] md:mt-5">
         {t("eventPlanningDescription")}
       </p>
-      <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] mt-10 px-6 py-3 shadow-2xl rounded-md text-[18px] cursor-pointer">
+      {/* <button onClick={()=> setOpenModal(true)} className="bg-[#F97316] mt-10 px-6 py-3 shadow-2xl rounded-md text-[18px] cursor-pointer">
         {t("getInstantQuote")}
-      </button>
+      </button> */}
+       <div onClick={() => setOpenModal(true)} className='
+                    cursor-pointer'>
+                        <Button className='mt-10 inline-block  px-6  text-[20px]'>{t("getInstantQuote")}</Button>
+                    </div>
       <QuoteModal
         openModal={openModal}
         setOpenModal={() => setOpenModal(false)}
